@@ -7,6 +7,7 @@ import Banners from "../pages/Banners/Banners.jsx"
 import Equipements from "../pages/Equipments/Equipements.jsx"
 import Imaginations from "../pages/Imaginations/Imaginations.jsx"
 import Abilitys from "../pages/Abilitys/Abilitys.jsx"
+import Characters from "../pages/Characters/Characters.jsx"
 
 export default function Router(){
   return(
@@ -14,11 +15,12 @@ export default function Router(){
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/weapons" element={<Weapons />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        <Route path="/characters" element={<Characters />}></Route>
         <Route path="/banners" element={<Banners />}></Route>
         <Route path="/equipements" element={<Equipements />}></Route>
         <Route path="/imaginations" element={<Imaginations />}></Route>
         <Route path="/abilitys" element={<Abilitys />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
   )
