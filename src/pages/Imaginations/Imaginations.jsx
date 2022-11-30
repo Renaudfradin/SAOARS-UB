@@ -1,11 +1,32 @@
-import React from "react";
-import ContentImagination from "../../components/contentImagination/contentImagination";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import CardImaginations from "../../components/cardImaginations/cardImaginations.jsx";
 
-export default function Imaginations(){
+import imgImganationDefault from "../../assets/img/imaginations.jpg"
+
+export default function contentImagination(params) {
+  const [Imaginations , updateImaginations] = useState([])
+
+  useEffect(()=>{
+    axios.get('https://api-saoars.vercel.app/imagination')
+      .then((response)=>{
+        updateImaginations(response.data.imaginations)
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
+  }, [])
+
   return(
     <div>
-      <h1>Imaginations pages</h1>
-      <ContentImagination></ContentImagination>
+      {Imaginations.map((imagination)=>(
+        <CardImaginations
+          key={imagination.idconst}
+          name={imagination.name}
+          imgImganationDefault={imgImganationDefault}
+          description={imagination.description}
+        ></CardImaginations>
+      ))}
     </div>
   )
 }

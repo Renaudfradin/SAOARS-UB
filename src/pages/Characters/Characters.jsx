@@ -65,19 +65,19 @@ export default function contentCharacters(){
     <div>
       <h2>caracter page</h2>
       {characters.map((character) => (
-        <div key={character.id} style={{border:"1px solid white", marginTop:"10px"}}>
-          <CardCharacters
-            name_characters={character.name_characters}
-            description={character.description}
-            imgDefault={imgDefault}
-            stars={renderStarCharacter(character.stars)}
-            weapon_type={character.weapon_type}
-            character_type={character.character_type}
-            atk1_type={renderTypeAtk(character.atk1_type)}
-            atk2_type={renderTypeAtk(character.atk2_type)}
-            atk3_type={renderTypeAtk(character.atk3_type)}
-          ></CardCharacters>
-        </div>
+        <CardCharacters
+          key={character.id} 
+          style={{border:"1px solid white", marginTop:"10px"}}
+          name_characters={character.name_characters}
+          description={character.description}
+          imgDefault={imgDefault}
+          stars={renderStarCharacter(character.stars)}
+          weapon_type={character.weapon_type}
+          character_type={character.character_type}
+          atk1_type={renderTypeAtk(character.atk1_type)}
+          atk2_type={renderTypeAtk(character.atk2_type)}
+          atk3_type={renderTypeAtk(character.atk3_type)}
+        ></CardCharacters>
       ))}
     </div>
   )
