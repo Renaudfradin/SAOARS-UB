@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
+import "./Characters.css"
+import CheckboxFilter from "../../components/checkboxFilter/checkboxFilter.jsx";
+
 
 //import icon start and atk
 import imgDefault from "../../assets/img/character_250.png"
@@ -18,6 +21,8 @@ import HIcon from "../../assets/img/icon_heal.png"
 
 export default function contentCharacters(){
   const [characters, updateCharacters] = useState([]);
+  const [inputvalue , updateInputValue] = useState("");
+  const [filteredData, updateFilteredData] = useState([]);
 
   useEffect(() => {
     axios.get('https://api-saoars.vercel.app/perso')
@@ -61,24 +66,102 @@ export default function contentCharacters(){
     }
   }
 
+  function filterData(value) {
+    updateInputValue(value);
+    const filter = characters.filter((data) => data.name_characters.toLowerCase().includes(inputvalue));
+    console.log(filter)
+    if (filter.length > 0) {
+      updateFilteredData(filter)
+    }else{
+      updateFilteredData(characters)
+      console.log("aucune data",filteredData);
+    }
+  }
+
+
   return(
     <div>
       <h2>caracter page</h2>
-      {characters.map((character) => (
-        <CardCharacters
-          key={character.id} 
-          style={{border:"1px solid white", marginTop:"10px"}}
-          name_characters={character.name_characters}
-          description={character.description}
-          imgDefault={imgDefault}
-          stars={renderStarCharacter(character.stars)}
-          weapon_type={character.weapon_type}
-          character_type={character.character_type}
-          atk1_type={renderTypeAtk(character.atk1_type)}
-          atk2_type={renderTypeAtk(character.atk2_type)}
-          atk3_type={renderTypeAtk(character.atk3_type)}
-        ></CardCharacters>
-      ))}
+      <label htmlFor="">by name</label>
+      <input type="text" name="inputName" value={inputvalue} onChange={(e)=> filterData(e.target.value)} />
+      <CheckboxFilter
+        ElementCharacters={"neutre"}
+        characters={characters}
+        updateData={updateFilteredData}
+        filteredData={filteredData}
+      ></CheckboxFilter>
+      <CheckboxFilter
+        ElementCharacters={"eau"}
+        characters={characters}
+        updateData={updateFilteredData}
+        filteredData={filteredData}
+      ></CheckboxFilter>
+      <CheckboxFilter
+        ElementCharacters={"terre"}
+        characters={characters}
+        updateData={updateFilteredData}
+        filteredData={filteredData}
+      ></CheckboxFilter><CheckboxFilter
+        ElementCharacters={"feu"}
+        characters={characters}
+        updateData={updateFilteredData}
+        filteredData={filteredData}
+      ></CheckboxFilter>
+      <CheckboxFilter
+        ElementCharacters={"lumiere"}
+        characters={characters}
+        updateData={updateFilteredData}
+        filteredData={filteredData}
+      ></CheckboxFilter>
+      <CheckboxFilter
+        ElementCharacters={"ténèbres"}
+        characters={characters}
+        updateData={updateFilteredData}
+        filteredData={filteredData}
+      ></CheckboxFilter>
+      <CheckboxFilter
+        ElementCharacters={"vent"}
+        characters={characters}
+        updateData={updateFilteredData}
+      ></CheckboxFilter>
+
+      <div className="CardList">
+      { filteredData.length != 0 ? (
+        filteredData.map((character) => (
+          <CardCharacters
+            key={character.id} 
+            style={{border:"1px solid white", marginTop:"10px"}}
+            name_characters={character.name_characters}
+            description={character.description}
+            imgDefault={imgDefault}
+            stars={renderStarCharacter(character.stars)}
+            weapon_type={character.weapon_type}
+            character_type={character.character_type}
+            atk1_type={renderTypeAtk(character.atk1_type)}
+            atk2_type={renderTypeAtk(character.atk2_type)}
+            atk3_type={renderTypeAtk(character.atk3_type)}
+          ></CardCharacters>
+        ))) :(
+          characters.map((character) => (
+            <CardCharacters
+              key={character.id} 
+              style={{border:"1px solid white", marginTop:"10px"}}
+              name_characters={character.name_characters}
+              description={character.description}
+              imgDefault={imgDefault}
+              stars={renderStarCharacter(character.stars)}
+              weapon_type={character.weapon_type}
+              character_type={character.character_type}
+              atk1_type={renderTypeAtk(character.atk1_type)}
+              atk2_type={renderTypeAtk(character.atk2_type)}
+              atk3_type={renderTypeAtk(character.atk3_type)}
+            ></CardCharacters>
+          ))
+        )
+      }
+      </div>
+      
+      
     </div>
   )
 }
