@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
+import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import "./Characters.css"
-import CheckboxFilter from "../../components/checkboxFilter/checkboxFilter.jsx";
-
 
 //import icon start and atk
 import imgDefault from "../../assets/img/character_250.png"
@@ -84,46 +83,12 @@ export default function contentCharacters(){
       <h2>caracter page</h2>
       <label htmlFor="">by name</label>
       <input type="text" name="inputName" value={inputvalue} onChange={(e)=> filterData(e.target.value)} />
-      <CheckboxFilter
-        ElementCharacters={"neutre"}
+
+      <ElementsFilter
         characters={characters}
         updateData={updateFilteredData}
         filteredData={filteredData}
-      ></CheckboxFilter>
-      <CheckboxFilter
-        ElementCharacters={"eau"}
-        characters={characters}
-        updateData={updateFilteredData}
-        filteredData={filteredData}
-      ></CheckboxFilter>
-      <CheckboxFilter
-        ElementCharacters={"terre"}
-        characters={characters}
-        updateData={updateFilteredData}
-        filteredData={filteredData}
-      ></CheckboxFilter><CheckboxFilter
-        ElementCharacters={"feu"}
-        characters={characters}
-        updateData={updateFilteredData}
-        filteredData={filteredData}
-      ></CheckboxFilter>
-      <CheckboxFilter
-        ElementCharacters={"lumiere"}
-        characters={characters}
-        updateData={updateFilteredData}
-        filteredData={filteredData}
-      ></CheckboxFilter>
-      <CheckboxFilter
-        ElementCharacters={"ténèbres"}
-        characters={characters}
-        updateData={updateFilteredData}
-        filteredData={filteredData}
-      ></CheckboxFilter>
-      <CheckboxFilter
-        ElementCharacters={"vent"}
-        characters={characters}
-        updateData={updateFilteredData}
-      ></CheckboxFilter>
+      ></ElementsFilter>
 
       <div className="CardList">
       { filteredData.length != 0 ? (
@@ -160,8 +125,6 @@ export default function contentCharacters(){
         )
       }
       </div>
-      
-      
     </div>
   )
 }
