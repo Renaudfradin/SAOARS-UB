@@ -41,6 +41,7 @@ export default function contentWeapons(params) {
       {weapons.map((weapon)=>(
         <CardWeapon
           key={weapon.idw}
+          idw={weapon.idw}
           name_weapon={weapon.name_weapon}
           imgWeaponDefault={imgWeaponDefault}
           stars={renderStarCharacter(weapon.stars)}

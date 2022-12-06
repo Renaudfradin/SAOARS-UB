@@ -21,6 +21,7 @@ export default function contentBanners(){
       {banners.map((banner)=>(
         <CardBanners
           key={banner.idb}
+          idb={banner.idb}
           name_b={banner.name_b}
           img_baner={banner.img_baner}
         ></CardBanners>

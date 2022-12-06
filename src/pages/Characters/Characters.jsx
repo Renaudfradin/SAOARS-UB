@@ -24,6 +24,8 @@ export default function contentCharacters(){
   const [filteredData, updateFilteredData] = useState([]);
 
   useEffect(() => {
+    document.title = "List Characters";
+
     axios.get('https://api-saoars.vercel.app/perso')
       .then((response)=> {
         updateCharacters(response.data.characters);
@@ -96,6 +98,7 @@ export default function contentCharacters(){
           <CardCharacters
             key={character.id} 
             style={{border:"1px solid white", marginTop:"10px"}}
+            id={character.id}
             name_characters={character.name_characters}
             description={character.description}
             imgDefault={imgDefault}
@@ -109,6 +112,7 @@ export default function contentCharacters(){
         ))) :(
           characters.map((character) => (
             <CardCharacters
+              id={character.id}
               key={character.id} 
               style={{border:"1px solid white", marginTop:"10px"}}
               name_characters={character.name_characters}

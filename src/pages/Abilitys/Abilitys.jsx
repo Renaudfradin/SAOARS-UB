@@ -39,6 +39,7 @@ export default function contentAbility(params) {
       {Abilitys.map((ability)=>(
         <CardAbilitys
           key={ability.id}
+          id={ability.id}
           name={ability.name}
           start={renderStarCharacter(ability.start)}
           type={ability.type}
