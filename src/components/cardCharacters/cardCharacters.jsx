@@ -12,6 +12,7 @@ export default function cardCharacters(props) {
   const atk1_type = props.atk1_type
   const atk2_type = props.atk2_type
   const atk3_type = props.atk3_type
+  // const starts = props.starts
 
   return(
     <div>
@@ -20,7 +21,7 @@ export default function cardCharacters(props) {
       <p>{description}</p>
       <img src={imgDefault} alt="" />
       <br />
-      <img src={stars} alt="" />
+      {stars}
       <p>{weapon_type}</p>
       <p>{character_type}</p>
       <Link to={`/character/${id}`}>{id}</Link>

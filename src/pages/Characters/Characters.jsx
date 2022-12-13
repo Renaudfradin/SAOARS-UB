@@ -2,14 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
 import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
+import RenderStart from "../../components/renderStars/renderStart.jsx";
 import "./Characters.css"
 
 //import icon start and atk
 import imgDefault from "../../assets/img/character_250.png"
-import OneStart from "../../assets/img/rarity_1.webp"
-import TwoStart from "../../assets/img/rarity_2.webp"
-import ThreeStart from "../../assets/img/rarity_3.webp"
-import ForStart from "../../assets/img/rarity_4.webp"
 import AIcon from "../../assets/img/icon_assult.png"
 import BIcon from "../../assets/img/icon_break.png"
 import CIcon from "../../assets/img/icon_charge.png"
@@ -34,19 +31,6 @@ export default function contentCharacters(){
         console.log(error);
       })
   }, []);
-
-  function renderStarCharacter(param) {
-    switch (param) {
-      case 1:
-        return OneStart;
-      case 2:
-        return TwoStart;
-      case 3:
-        return ThreeStart;
-      case 4:
-        return ForStart;
-    }
-  }
 
   function renderTypeAtk(param) {
     switch (param) {
@@ -102,7 +86,8 @@ export default function contentCharacters(){
             name_characters={character.name_characters}
             description={character.description}
             imgDefault={imgDefault}
-            stars={renderStarCharacter(character.stars)}
+            // stars={renderStarCharacter(character.stars)}
+            stars={<RenderStart stars={character.stars} />}
             weapon_type={character.weapon_type}
             character_type={character.character_type}
             atk1_type={renderTypeAtk(character.atk1_type)}
@@ -118,7 +103,8 @@ export default function contentCharacters(){
               name_characters={character.name_characters}
               description={character.description}
               imgDefault={imgDefault}
-              stars={renderStarCharacter(character.stars)}
+              // stars={renderStarCharacter(character.stars)}
+              stars={<RenderStart stars={character.stars} />}
               weapon_type={character.weapon_type}
               character_type={character.character_type}
               atk1_type={renderTypeAtk(character.atk1_type)}

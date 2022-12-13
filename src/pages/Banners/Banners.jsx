@@ -6,6 +6,8 @@ export default function contentBanners(){
   const [banners, updateBanners ] = useState([]);
 
   useEffect(()=>{
+    document.title = "List Banners";
+
     axios.get('https://api-saoars.vercel.app/banner')
       .then((response) => {
         updateBanners(response.data.banners);

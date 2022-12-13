@@ -7,16 +7,19 @@ import NotFound from "../pages/404/404.jsx"
 import Banners from "../pages/Banners/Banners.jsx"
 import Banner from "../pages/Banner/Banner.jsx";
 import Equipements from "../pages/Equipments/Equipements.jsx"
+import Equipement from "../pages/Equipement/Equipement.jsx";
 import Imaginations from "../pages/Imaginations/Imaginations.jsx"
 import Abilitys from "../pages/Abilitys/Abilitys.jsx"
 import Ability from "../pages/Ability/Ability.jsx";
 import Characters from "../pages/Characters/Characters.jsx"
 import Character from "../pages/Character/Character.jsx";
 import About from "../pages/About/About.jsx"
+import Navbar from "../components/navbar/navbar.jsx";
 
 export default function Router(){
   return(
     <BrowserRouter>
+    <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/weapons" element={<Weapons />}></Route>
@@ -26,6 +29,7 @@ export default function Router(){
         <Route path="/banners" element={<Banners />}></Route>
         <Route path="/banner/:id" element={<Banner />}></Route>
         <Route path="/equipements" element={<Equipements />}></Route>
+        <Route path="/equipement/:id" element={<Equipement />}></Route>
         <Route path="/imaginations" element={<Imaginations />}></Route>
         <Route path="/abilitys" element={<Abilitys />}></Route>
         <Route path="/ability/:id" element={<Ability />}></Route>

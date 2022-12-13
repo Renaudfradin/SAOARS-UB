@@ -1,17 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardAbilitys from "../../components/cardAbilitys/cardAbilitys.jsx";
+import RenderStart from "../../components/renderStars/renderStart.jsx";
 
-import OneStart from "../../assets/img/rarity_1.webp"
-import TwoStart from "../../assets/img/rarity_2.webp"
-import ThreeStart from "../../assets/img/rarity_3.webp"
-import ForStart from "../../assets/img/rarity_4.webp"
 import imgAbilityDefault from "../../assets/img/abilitys.jpg"
 
 export default function contentAbility(params) {
   const [Abilitys , updateAbilitys] = useState([])
 
   useEffect(()=>{
+    document.title = "List Ability";
+
     axios.get('https://api-saoars.vercel.app/ability')
       .then((response)=>{
         updateAbilitys(response.data.abilitys)
@@ -20,19 +19,6 @@ export default function contentAbility(params) {
         console.log(error);
       })
   }, [])
-
-  function renderStarCharacter(param) {
-    switch (param) {
-      case 1:
-        return OneStart;
-      case 2:
-        return TwoStart;
-      case 3:
-        return ThreeStart;
-      case 4:
-        return ForStart;
-    }
-  }
   
   return(
     <div>
@@ -41,7 +27,7 @@ export default function contentAbility(params) {
           key={ability.id}
           id={ability.id}
           name={ability.name}
-          start={renderStarCharacter(ability.start)}
+          start={<RenderStart stars={ability.start} />}
           type={ability.type}
           imgAbilityDefault={imgAbilityDefault}
         ></CardAbilitys>

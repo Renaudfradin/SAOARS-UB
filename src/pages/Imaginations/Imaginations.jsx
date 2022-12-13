@@ -8,6 +8,8 @@ export default function contentImagination(params) {
   const [Imaginations , updateImaginations] = useState([])
 
   useEffect(()=>{
+    document.title = "List Imaginations";
+
     axios.get('https://api-saoars.vercel.app/imagination')
       .then((response)=>{
         updateImaginations(response.data.imaginations)

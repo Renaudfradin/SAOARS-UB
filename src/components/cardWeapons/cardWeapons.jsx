@@ -11,7 +11,7 @@ export default function cardWeapon(props) {
     <div>
       <p>{name_weapon}</p>
       <img src={imgWeaponDefault} alt="" />
-      <img src={stars} alt="" />
+      {stars}
       <Link to={`/weapon/${idw}`}>{idw}</Link>
     </div>
   )
