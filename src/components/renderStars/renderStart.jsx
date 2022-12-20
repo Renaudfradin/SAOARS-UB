@@ -3,9 +3,9 @@ import OneStart from "../../assets/img/rarity_1.webp"
 import TwoStart from "../../assets/img/rarity_2.webp"
 import ThreeStart from "../../assets/img/rarity_3.webp"
 import ForStart from "../../assets/img/rarity_4.webp"
+import "./renderStart.css"
 
-export default function renderStart(props) {
-  const stars = props.stars
+export default function renderStart({stars}) {
 
   function renderStar(param) {
     switch (param) {
@@ -20,5 +20,5 @@ export default function renderStart(props) {
     }
   }
   
-  return(<img src={renderStar(stars)} alt="" />)
+  return(<img className="imgStart" src={renderStar(stars)} alt="" />)
 }

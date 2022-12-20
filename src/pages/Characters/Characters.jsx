@@ -5,7 +5,7 @@ import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
 import "./Characters.css"
 
-//import icon start and atk
+//import icon atk
 import imgDefault from "../../assets/img/character_250.png"
 import AIcon from "../../assets/img/icon_assult.png"
 import BIcon from "../../assets/img/icon_break.png"
@@ -81,12 +81,10 @@ export default function contentCharacters(){
         filteredData.map((character) => (
           <CardCharacters
             key={character.id} 
-            style={{border:"1px solid white", marginTop:"10px"}}
             id={character.id}
             name_characters={character.name_characters}
             description={character.description}
             imgDefault={imgDefault}
-            // stars={renderStarCharacter(character.stars)}
             stars={<RenderStart stars={character.stars} />}
             weapon_type={character.weapon_type}
             character_type={character.character_type}
@@ -99,11 +97,9 @@ export default function contentCharacters(){
             <CardCharacters
               id={character.id}
               key={character.id} 
-              style={{border:"1px solid white", marginTop:"10px"}}
               name_characters={character.name_characters}
               description={character.description}
               imgDefault={imgDefault}
-              // stars={renderStarCharacter(character.stars)}
               stars={<RenderStart stars={character.stars} />}
               weapon_type={character.weapon_type}
               character_type={character.character_type}

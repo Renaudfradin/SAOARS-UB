@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardBanners from "../../components/cardBanners/cardBanners.jsx";
+import "./Banners.css"
 
 export default function contentBanners(){
   const [banners, updateBanners ] = useState([]);
@@ -18,8 +19,7 @@ export default function contentBanners(){
   }, [])
 
   return(
-    <div>
-      <p>content banners</p>
+    <div className="layoutBanner">
       {banners.map((banner)=>(
         <CardBanners
           key={banner.idb}
