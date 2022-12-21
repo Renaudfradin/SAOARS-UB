@@ -1,19 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import defaultImg from '../../assets/img/stuff_303.png';
+import "./cardEquipement.css"
 
-export default function cardEquipement(props) {
-  const id = props.id
-  const name = props.name
-  const stars = props.stars
-
+export default function cardEquipement({id,name,stars}) {
   return(
-    <div>
-      <p>card equipemnt</p>
+    <div className="layoutEquipement">
+      <div className="infoEquipement">
+        <Link to={`/equipement/${id}`}><img className="imgEquipement" src={defaultImg} alt={defaultImg} /></Link>
+        {stars}
+      </div>
       <p>{name}</p>
-      <img src={defaultImg} alt="" />
-      {stars}
-      <Link to={`/equipement/${id}`}>{id}</Link>
     </div>
   )
 }

@@ -1,11 +1,9 @@
 import React from "react";
+import "./cardImaginations.css"
 
-export default function cardImaginations(props) {
-  const name = props.name
-  const imgImganationDefault = props.imgImganationDefault
-  const description = props.description
+export default function cardImaginations({name,imgImganationDefault,description}) {
   return(
-    <div>
+    <div className="layoutImagination">
       <p>{name}</p>
       <img src={imgImganationDefault} alt="" />
       <p>{description}</p>

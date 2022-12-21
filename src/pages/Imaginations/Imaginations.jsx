@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardImaginations from "../../components/cardImaginations/cardImaginations.jsx";
-
 import imgImganationDefault from "../../assets/img/imaginations.jpg"
+import "./Imaginations.css"
 
 export default function contentImagination(params) {
   const [Imaginations , updateImaginations] = useState([])
@@ -20,7 +20,7 @@ export default function contentImagination(params) {
   }, [])
 
   return(
-    <div>
+    <div className="layoutImaginations">
       {Imaginations.map((imagination)=>(
         <CardImaginations
           key={imagination.idconst}
