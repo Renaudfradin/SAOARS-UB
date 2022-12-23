@@ -1,0 +1,9 @@
+.layoutNavbar{
+  margin: 0%;
+  width: 12%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  background: rgba(44, 36, 85, 0.84);
+  border-right: 4px solid rgb(156, 122, 241);
+}

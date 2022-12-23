@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardImaginations from "../../components/cardImaginations/cardImaginations.jsx";
-import imgImganationDefault from "../../assets/img/imaginations.jpg"
+import imgImganationDefault from "../../assets/img/imgDefault/imaginations.jpg"
 import "./Imaginations.css"
 
 export default function contentImagination(params) {

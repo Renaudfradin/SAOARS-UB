@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from '../../assets/img/stuff_303.png'
+import imgDefault from '../../assets/img/imgDefault/stuff_303.png'
 
 export default function Equipement(params) {
   const param = useParams();

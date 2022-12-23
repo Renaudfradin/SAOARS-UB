@@ -6,14 +6,14 @@ import RenderStart from "../../components/renderStars/renderStart.jsx";
 import "./Characters.css"
 
 //import icon atk
-import imgDefault from "../../assets/img/character_250.png"
-import AIcon from "../../assets/img/icon_assult.png"
-import BIcon from "../../assets/img/icon_break.png"
-import CIcon from "../../assets/img/icon_charge.png"
-import EIcon from "../../assets/img/icon_enhance.png"
-import EMIcon from "../../assets/img/icon_enhance.m.png"
-import DIcon from "../../assets/img/icon_debuff.png"
-import HIcon from "../../assets/img/icon_heal.png"
+import imgDefault from "../../assets/img/imgDefault/character_250.png"
+import AIcon from "../../assets/img/icon_atk/icon_assult.png"
+import BIcon from "../../assets/img/icon_atk/icon_break.png"
+import CIcon from "../../assets/img/icon_atk/icon_charge.png"
+import EIcon from "../../assets/img/icon_atk/icon_enhance.png"
+import EMIcon from "../../assets/img/icon_atk/icon_enhance.m.png"
+import DIcon from "../../assets/img/icon_atk/icon_debuff.png"
+import HIcon from "../../assets/img/icon_atk/icon_heal.png"
 
 export default function contentCharacters(){
   const [characters, updateCharacters] = useState([]);
@@ -65,7 +65,7 @@ export default function contentCharacters(){
 
 
   return(
-    <div>
+    <div className="container_characters">
       <h2>caracter page</h2>
       <label htmlFor="">by name</label>
       <input type="text" name="inputName" value={inputvalue} onChange={(e)=> filterData(e.target.value)} />

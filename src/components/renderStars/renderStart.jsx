@@ -1,8 +1,8 @@
 import React from "react";
-import OneStart from "../../assets/img/rarity_1.webp"
-import TwoStart from "../../assets/img/rarity_2.webp"
-import ThreeStart from "../../assets/img/rarity_3.webp"
-import ForStart from "../../assets/img/rarity_4.webp"
+import OneStart from "../../assets/img/icon_stars/rarity_1.webp"
+import TwoStart from "../../assets/img/icon_stars/rarity_2.webp"
+import ThreeStart from "../../assets/img/icon_stars/rarity_3.webp"
+import ForStart from "../../assets/img/icon_stars/rarity_4.webp"
 import "./renderStart.css"
 
 export default function renderStart({stars}) {

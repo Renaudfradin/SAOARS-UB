@@ -1,0 +1,37 @@
+.containerBanner{
+  text-align: center;
+}
+
+.infoBanners{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.periode{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.infoPeriode{
+  border: 1px solid #765b7e;
+  width: 30%;
+  text-align: center;
+}
+
+.infoPerso{
+  border: 1px solid #765b7e;
+  width: 30%;
+}
+
+.imgPerso{
+  border-radius: 50%;
+  width: 30%;
+}
+
+.imgBanner{
+  width: 20%;
+}

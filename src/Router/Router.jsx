@@ -18,24 +18,28 @@ import Navbar from "../components/navbar/navbar.jsx";
 
 export default function Router(){
   return(
-    <BrowserRouter>
-    <Navbar></Navbar>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/weapons" element={<Weapons />}></Route>
-        <Route path="/weapon/:id" element={<Weapon />}></Route>
-        <Route path="/characters" element={<Characters />}></Route>
-        <Route path="/character/:id" element={<Character />}></Route>
-        <Route path="/banners" element={<Banners />}></Route>
-        <Route path="/banner/:id" element={<Banner />}></Route>
-        <Route path="/equipements" element={<Equipements />}></Route>
-        <Route path="/equipement/:id" element={<Equipement />}></Route>
-        <Route path="/imaginations" element={<Imaginations />}></Route>
-        <Route path="/abilitys" element={<Abilitys />}></Route>
-        <Route path="/ability/:id" element={<Ability />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="layout">
+      <BrowserRouter>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/weapons" element={<Weapons />}></Route>
+          <Route path="/weapons/:id" element={<Weapon />}></Route>
+          <Route path="/characters" element={<Characters />}></Route>
+          <Route path="/characters/:id" element={<Character />}></Route>
+          <Route path="/banners" element={<Banners />}></Route>
+          <Route path="/banners/:id" element={<Banner />}></Route>
+          <Route path="/equipements" element={<Equipements />}></Route>
+          <Route path="/equipements/:id" element={<Equipement />}></Route>
+          <Route path="/imaginations" element={<Imaginations />}></Route>
+          <Route path="/abilitys" element={<Abilitys />}></Route>
+          <Route path="/abilitys/:id" element={<Ability />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </div>
+      </BrowserRouter>
+    </div>
   )
 }

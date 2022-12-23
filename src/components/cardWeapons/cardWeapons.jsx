@@ -6,7 +6,7 @@ export default function cardWeapon({idw,name_weapon,imgWeaponDefault,stars}) {
   return(
     <div className="layoutWeapon">
       <div className="infoWeapon">
-        <Link to={`/weapon/${idw}`}><img className="imgWeapon" src={imgWeaponDefault} alt={imgWeaponDefault} /></Link>
+        <Link to={`/weapons/${idw}`}><img className="imgWeapon" src={imgWeaponDefault} alt={imgWeaponDefault} /></Link>
         {stars}
       </div>
       <p>{name_weapon}</p>

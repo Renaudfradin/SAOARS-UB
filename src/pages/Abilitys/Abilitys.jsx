@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardAbilitys from "../../components/cardAbilitys/cardAbilitys.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
-import imgAbilityDefault from "../../assets/img/abilitys.jpg"
+import imgAbilityDefault from "../../assets/img/imgDefault/abilitys.jpg"
 import "./Abilitys.css"
 
 export default function contentAbility(params) {

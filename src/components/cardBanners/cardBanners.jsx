@@ -7,7 +7,7 @@ export default function cardBanners({idb,name_b,img_baner}) {
 
   return(
     <div className="cardBanner">
-      <Link to={`/banner/${idb}`}><img className="imgcardBanner" src={baseUrl+img_baner} alt="" /></Link>
+      <Link to={`/banners/${idb}`}><img className="imgcardBanner" src={baseUrl+img_baner} alt="" /></Link>
       <p>{name_b}</p>
     </div>
   )

@@ -6,7 +6,7 @@ export default function cardAbilitys({id,name,stars,type,imgAbilityDefault}) {
   return(
     <div className="layoutAbility">
       <div className="infoAbility">
-        <Link to={`/ability/${id}`}><img className="imgAbility" src={imgAbilityDefault} alt={imgAbilityDefault} /></Link>
+        <Link to={`/abilitys/${id}`}><img className="imgAbility" src={imgAbilityDefault} alt={imgAbilityDefault} /></Link>
         {stars}
       </div>
       <p>{name}</p>

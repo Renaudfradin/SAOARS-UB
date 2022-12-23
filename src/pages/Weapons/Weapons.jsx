@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardWeapon from "../../components/cardWeapons/cardWeapons.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
-import imgWeaponDefault from "../../assets/img/stuff_370.png"
+import imgWeaponDefault from "../../assets/img/imgDefault/stuff_370.png"
 import "./Weapons.css"
 
 export default function contentWeapons(params) {
