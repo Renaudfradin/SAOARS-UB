@@ -1,0 +1,19 @@
+.layoutEquipement{
+  text-align: center;
+}
+
+.infoEquipement{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(23, 23, 23, 0.5);
+  padding: 10px 0px;
+}
+
+.imgEquipement{
+  padding-right: 10px;
+}
+
+.layoutEquipement p {
+  margin: 0%;
+}

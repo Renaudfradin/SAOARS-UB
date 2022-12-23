@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import CardEquipement from "../../components/cardEquipement/cardEquipement";
 import RenderStart from "../../components/renderStars/renderStart";
+import "./Equipements.css"
 
 export default function Equipements(){
   const [equipements, updateEquipement] = useState([]);
@@ -21,8 +22,7 @@ export default function Equipements(){
   },[])
 
   return(
-    <div>
-      <p>Equipements pages</p>
+    <div className="layoutEquipements">
       {equipements.map((equipement)=>(
         <CardEquipement
           key={equipement.id}

@@ -1,0 +1,31 @@
+.layoutCharacter{
+  text-align: center;
+}
+
+.listIconAtk{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.infoCharacter{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(23, 23, 23, 0.5);
+  padding: 10px 5%;
+}
+
+.imgCharacter{
+  width: 70%;
+}
+
+.imgatk{
+  width: 70%;
+  padding-bottom: 8px;
+}
+
+.layoutCharacter p {
+  margin: 0%;
+}

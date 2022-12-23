@@ -5,15 +5,15 @@ import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
 import "./Characters.css"
 
-//import icon start and atk
-import imgDefault from "../../assets/img/character_250.png"
-import AIcon from "../../assets/img/icon_assult.png"
-import BIcon from "../../assets/img/icon_break.png"
-import CIcon from "../../assets/img/icon_charge.png"
-import EIcon from "../../assets/img/icon_enhance.png"
-import EMIcon from "../../assets/img/icon_enhance.m.png"
-import DIcon from "../../assets/img/icon_debuff.png"
-import HIcon from "../../assets/img/icon_heal.png"
+//import icon atk
+import imgDefault from "../../assets/img/imgDefault/character_250.png"
+import AIcon from "../../assets/img/icon_atk/icon_assult.png"
+import BIcon from "../../assets/img/icon_atk/icon_break.png"
+import CIcon from "../../assets/img/icon_atk/icon_charge.png"
+import EIcon from "../../assets/img/icon_atk/icon_enhance.png"
+import EMIcon from "../../assets/img/icon_atk/icon_enhance.m.png"
+import DIcon from "../../assets/img/icon_atk/icon_debuff.png"
+import HIcon from "../../assets/img/icon_atk/icon_heal.png"
 
 export default function contentCharacters(){
   const [characters, updateCharacters] = useState([]);
@@ -65,7 +65,7 @@ export default function contentCharacters(){
 
 
   return(
-    <div>
+    <div className="container_characters">
       <h2>caracter page</h2>
       <label htmlFor="">by name</label>
       <input type="text" name="inputName" value={inputvalue} onChange={(e)=> filterData(e.target.value)} />
@@ -81,12 +81,10 @@ export default function contentCharacters(){
         filteredData.map((character) => (
           <CardCharacters
             key={character.id} 
-            style={{border:"1px solid white", marginTop:"10px"}}
             id={character.id}
             name_characters={character.name_characters}
             description={character.description}
             imgDefault={imgDefault}
-            // stars={renderStarCharacter(character.stars)}
             stars={<RenderStart stars={character.stars} />}
             weapon_type={character.weapon_type}
             character_type={character.character_type}
@@ -99,11 +97,9 @@ export default function contentCharacters(){
             <CardCharacters
               id={character.id}
               key={character.id} 
-              style={{border:"1px solid white", marginTop:"10px"}}
               name_characters={character.name_characters}
               description={character.description}
               imgDefault={imgDefault}
-              // stars={renderStarCharacter(character.stars)}
               stars={<RenderStart stars={character.stars} />}
               weapon_type={character.weapon_type}
               character_type={character.character_type}

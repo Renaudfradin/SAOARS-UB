@@ -1,20 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./cardAbilitys.css"
 
-export default function cardAbilitys(props) {
-  const id = props.id
-  const name = props.name
-  const stars = props.stars
-  const type = props.type
-  const imgAbilityDefault = props.imgAbilityDefault
-
+export default function cardAbilitys({id,name,stars,type,imgAbilityDefault}) {
   return(
-    <div>
+    <div className="layoutAbility">
+      <div className="infoAbility">
+        <Link to={`/abilitys/${id}`}><img className="imgAbility" src={imgAbilityDefault} alt={imgAbilityDefault} /></Link>
+        {stars}
+      </div>
       <p>{name}</p>
-      {stars}
-      <p>{type}</p>
-      <Link to={`/ability/${id}`}>{id}</Link>
-      <img src={imgAbilityDefault} alt="" />
+      {/* <p>{type}</p> */}
     </div>
   )
 }

@@ -1,0 +1,9 @@
+.imgStart{
+  width: 10%;
+}
+
+@media screen and (max-width:425px) {
+  .imgStart{
+    width: 15%;
+  }
+}

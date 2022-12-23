@@ -1,17 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./cardBanners.css"
 
-export default function cardBanners(props) {
-  const idb = props.idb
-  const name_b = props.name_b
-  const img_baner = props.img_baner
+export default function cardBanners({idb,name_b,img_baner}) {
   const baseUrl = "https://api-saoars.vercel.app/"
 
   return(
-    <div>
+    <div className="cardBanner">
+      <Link to={`/banners/${idb}`}><img className="imgcardBanner" src={baseUrl+img_baner} alt="" /></Link>
       <p>{name_b}</p>
-      <Link to={`/banner/${idb}`}>{idb}</Link>
-      <img src={baseUrl+img_baner} alt="" />
     </div>
   )
 }

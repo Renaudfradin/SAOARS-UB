@@ -1,33 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./cardCharacters.css"
 
-export default function cardCharacters(props) {
-  const id = props.id
-  const name_characters = props.name_characters
-  const description = props.description
-  const imgDefault = props.imgDefault
-  const stars = props.stars
-  const weapon_type = props.weapon_type
-  const character_type = props.character_type
-  const atk1_type = props.atk1_type
-  const atk2_type = props.atk2_type
-  const atk3_type = props.atk3_type
-  // const starts = props.starts
-
+export default function cardCharacters({
+  id,
+  name_characters,
+  description,
+  imgDefault,
+  stars,
+  weapon_type,
+  character_type,
+  atk1_type,
+  atk2_type,
+  atk3_type
+}) {
   return(
-    <div>
-      <p>card characters</p>
+    <div className="layoutCharacter">
+      <div className="infoCharacter">
+        {stars}   
+        <Link to={`/characters/${id}`}><img className="imgCharacter" src={imgDefault} alt={imgDefault} /></Link>
+        <div className="listIconAtk">
+          <img className="imgatk" src={atk1_type} alt={atk1_type} />
+          <img className="imgatk" src={atk2_type} alt={atk2_type} />
+          <img className="imgatk" src={atk3_type} alt={atk3_type} />
+        </div>
+      </div>
       <p>{name_characters}</p>  
-      <p>{description}</p>
-      <img src={imgDefault} alt="" />
-      <br />
-      {stars}
-      <p>{weapon_type}</p>
-      <p>{character_type}</p>
-      <Link to={`/character/${id}`}>{id}</Link>
-      <img src={atk1_type} alt="" />
-      <img src={atk2_type} alt="" />
-      <img src={atk3_type} alt="" />
+      <p>[{description}]</p> 
+      {/* <p>{weapon_type}</p>
+      <p>{character_type}</p> */}
+      
     </div>
   )
 }
