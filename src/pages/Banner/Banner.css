@@ -1,5 +1,11 @@
 .containerBanner{
   text-align: center;
+  height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
 }
 
 .infoBanners{
@@ -9,16 +15,32 @@
   align-items: center;
 }
 
+.infoTitle{
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.infoTitle p{
+  display: flex;
+  padding: 10px;
+  background: rgba(54, 19, 89, 0.85);
+  width: 20%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .periode{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 15px;
+  margin: 0%;
 }
 
 .infoPeriode{
   border: 1px solid #765b7e;
-  width: 30%;
+  width: 40%;
   text-align: center;
 }
 
@@ -33,5 +55,141 @@
 }
 
 .imgBanner{
-  width: 20%;
+  width: 40%;
+  background-color: rgba(23, 23, 23, 0.5);
+  padding: 20px 30%;
+}
+
+.periodeFrom,
+.periodeTo{
+  background-color: rgba(23, 23, 23, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.periodeFrom p,
+.periodeTo p{
+  margin: 0%;
+}
+
+.From,
+.To{
+  font-size: 14px;
+}
+
+.FromP,
+.ToP{
+  font-size: 18px;
+}
+
+@media screen and (max-width:425px) {
+  .containerBanner{
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+  }
+  
+  .infoBanners {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .infoPeriode {
+    border: 1px solid #765b7e;
+    width: 90%;
+    text-align: center;
+  }
+
+  .infoPerso {
+    border: 1px solid #765b7e;
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .infoTitle{
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+
+  .imgBanner{
+    width: 90%;
+    background-color: rgba(23, 23, 23, 0.5);
+    padding: 10px 10px;
+  }
+
+  .infoTitle p {
+    display: flex;
+    padding: 10px;
+    background: rgba(54, 19, 89, 0.85);
+    width: 70%;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width:768px) and (min-width:426px) {
+  .containerBanner{
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+  }
+  
+  .infoBanners {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .infoPeriode {
+    border: 1px solid #765b7e;
+    width: 80%;
+    text-align: center;
+  }
+
+  .infoPerso {
+    border: 1px solid #765b7e;
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .infoTitle{
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+
+  .imgBanner{
+    width: 90%;
+    background-color: rgba(23, 23, 23, 0.5);
+    padding: 10px 10px;
+  }
+
+  .infoTitle p {
+    display: flex;
+    padding: 10px;
+    background: rgba(54, 19, 89, 0.85);
+    width: 70%;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 5%;
+  }
 }

@@ -44,10 +44,24 @@
   height: 60px;
 }
 
-.layoutIconNav a,
-.layoutIconNavActive a{
+.layoutIconNav p,
+.layoutIconNavActive p{
   color: rgba(255, 255, 255, 0.87);;
   text-decoration: none;
   font-weight: bold;
   padding-left: 10px;
+}
+
+.layoutTitle{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.layoutTitle p {
+  margin: 0%;
+}
+
+.layoutTitle h3{
+  margin: 0%;
+  font-size: 20px;
 }

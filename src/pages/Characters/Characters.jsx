@@ -7,13 +7,13 @@ import "./Characters.css"
 
 //import icon atk
 import imgDefault from "../../assets/img/imgDefault/character_250.png"
-import AIcon from "../../assets/img/icon_atk/icon_assult.png"
-import BIcon from "../../assets/img/icon_atk/icon_break.png"
-import CIcon from "../../assets/img/icon_atk/icon_charge.png"
-import EIcon from "../../assets/img/icon_atk/icon_enhance.png"
-import EMIcon from "../../assets/img/icon_atk/icon_enhance.m.png"
-import DIcon from "../../assets/img/icon_atk/icon_debuff.png"
-import HIcon from "../../assets/img/icon_atk/icon_heal.png"
+import AIcon from "../../assets/img/icon_atk/icon_assult.svg"
+import BIcon from "../../assets/img/icon_atk/icon_break.svg"
+import CIcon from "../../assets/img/icon_atk/icon_charge.svg"
+import EIcon from "../../assets/img/icon_atk/icon_enhance.svg"
+import EMIcon from "../../assets/img/icon_atk/icon_enhance-1.svg"
+import DIcon from "../../assets/img/icon_atk/icon_debuff.svg"
+import HIcon from "../../assets/img/icon_atk/icon_heal.svg"
 
 export default function contentCharacters(){
   const [characters, updateCharacters] = useState([]);
