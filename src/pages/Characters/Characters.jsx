@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo  } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
 import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
@@ -20,17 +20,18 @@ export default function contentCharacters(){
   const [inputvalue , updateInputValue] = useState("");
   const [filteredData, updateFilteredData] = useState([]);
 
-  useEffect(() => {
+  useMemo(() => {
     document.title = "List Characters";
 
     axios.get('https://api-saoars.vercel.app/perso')
       .then((response)=> {
         updateCharacters(response.data.characters);
+        console.log(response.data.characters);
       })
       .catch((error)=>{
         console.log(error);
       })
-  }, []);
+  }, [ ] );
 
   function renderTypeAtk(param) {
     switch (param) {
@@ -85,7 +86,7 @@ export default function contentCharacters(){
             name_characters={character.name_characters}
             description={character.description}
             imgDefault={imgDefault}
-            stars={<RenderStart stars={character.stars} />}
+            stars={<RenderStart list={true} stars={character.stars} />}
             weapon_type={character.weapon_type}
             character_type={character.character_type}
             atk1_type={renderTypeAtk(character.atk1_type)}
@@ -100,7 +101,7 @@ export default function contentCharacters(){
               name_characters={character.name_characters}
               description={character.description}
               imgDefault={imgDefault}
-              stars={<RenderStart stars={character.stars} />}
+              stars={<RenderStart list={true} stars={character.stars} />}
               weapon_type={character.weapon_type}
               character_type={character.character_type}
               atk1_type={renderTypeAtk(character.atk1_type)}

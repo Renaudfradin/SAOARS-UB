@@ -1,0 +1,113 @@
+.layoutAtkStat{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.statsLayout{
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 20%;
+  height: 30%;
+}
+
+.atkLayout{
+  width: 70%;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  margin-left: 20px;
+}
+
+.flexName{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.barHP{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(55, 250, 55) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barMP{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(35, 250, 235) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barATK{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(235, 70, 35) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barMATK{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(240, 200, 25) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barDEF{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(180, 10, 240) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barMDEF{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(200, 10, 145) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barCRIT{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(235, 150, 15) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.barSPD{
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(240, 200, 25) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+}
+
+.infoCharacters{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background: linear-gradient(rgba(66, 7, 54, 0.75) 0%, rgba(0, 0, 0, 0) 65%);
+  /* background-image: url("../../assets/img/circle_object_topa.cfa29486c96aabd4df3489151f4dc4a0.png"); */
+}
+
+.nameCharacter{
+  display: flex;
+}
+
+.imgCharacter{
+  width: 30%;
+}
+
+.btnEnhanceMode{
+  margin: 0%;
+}
+
+.imgEnhance{
+  width: 140px;
+}
+
+span{
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+}

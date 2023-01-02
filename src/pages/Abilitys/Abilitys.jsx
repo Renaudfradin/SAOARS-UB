@@ -27,7 +27,7 @@ export default function contentAbility(params) {
           key={ability.id}
           id={ability.id}
           name={ability.name}
-          stars={<RenderStart stars={ability.start} />}
+          stars={<RenderStart list={true} stars={ability.start} />}
           type={ability.type}
           imgAbilityDefault={imgAbilityDefault}
         ></CardAbilitys>
