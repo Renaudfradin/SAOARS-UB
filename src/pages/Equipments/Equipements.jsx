@@ -40,7 +40,7 @@ export default function Equipements(){
           spd={equipement.spd}
           effect_1={equipement.effect_1}
           effect_2={equipement.effect_2}
-          stars={<RenderStart stars={equipement.stars} />}
+          stars={<RenderStart list={true} stars={equipement.stars} />}
         ></CardEquipement>
       ))}
     </div>

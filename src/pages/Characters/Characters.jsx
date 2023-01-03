@@ -1,55 +1,29 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo  } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
 import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
-import "./Characters.css"
-
-//import icon atk
+import RenderTypeAtk from "../../components/renderTypeAtk/renderTypeAtk.jsx";
 import imgDefault from "../../assets/img/imgDefault/character_250.png"
-import AIcon from "../../assets/img/icon_atk/icon_assult.png"
-import BIcon from "../../assets/img/icon_atk/icon_break.png"
-import CIcon from "../../assets/img/icon_atk/icon_charge.png"
-import EIcon from "../../assets/img/icon_atk/icon_enhance.png"
-import EMIcon from "../../assets/img/icon_atk/icon_enhance.m.png"
-import DIcon from "../../assets/img/icon_atk/icon_debuff.png"
-import HIcon from "../../assets/img/icon_atk/icon_heal.png"
+import "./Characters.css"
 
 export default function contentCharacters(){
   const [characters, updateCharacters] = useState([]);
   const [inputvalue , updateInputValue] = useState("");
   const [filteredData, updateFilteredData] = useState([]);
 
-  useEffect(() => {
+  useMemo(() => {
     document.title = "List Characters";
 
     axios.get('https://api-saoars.vercel.app/perso')
       .then((response)=> {
         updateCharacters(response.data.characters);
+        console.log(response.data.characters);
       })
       .catch((error)=>{
         console.log(error);
       })
-  }, []);
-
-  function renderTypeAtk(param) {
-    switch (param) {
-      case 'A':
-        return AIcon
-      case 'B':
-        return BIcon
-      case 'C':
-        return CIcon
-      case 'D':
-        return DIcon
-      case 'E':
-        return EIcon
-      case 'EM':
-        return EMIcon
-      case 'H':
-        return HIcon
-    }
-  }
+  }, [ ] );
 
   function filterData(value) {
     updateInputValue(value);
@@ -85,12 +59,12 @@ export default function contentCharacters(){
             name_characters={character.name_characters}
             description={character.description}
             imgDefault={imgDefault}
-            stars={<RenderStart stars={character.stars} />}
+            stars={<RenderStart list={true} stars={character.stars} />}
             weapon_type={character.weapon_type}
             character_type={character.character_type}
-            atk1_type={renderTypeAtk(character.atk1_type)}
-            atk2_type={renderTypeAtk(character.atk2_type)}
-            atk3_type={renderTypeAtk(character.atk3_type)}
+            atk1_type={<RenderTypeAtk type={character.atk1_type} />}
+            atk2_type={<RenderTypeAtk type={character.atk2_type} />}
+            atk3_type={<RenderTypeAtk type={character.atk3_type} />}
           ></CardCharacters>
         ))) :(
           characters.map((character) => (
@@ -100,12 +74,12 @@ export default function contentCharacters(){
               name_characters={character.name_characters}
               description={character.description}
               imgDefault={imgDefault}
-              stars={<RenderStart stars={character.stars} />}
+              stars={<RenderStart list={true} stars={character.stars} />}
               weapon_type={character.weapon_type}
               character_type={character.character_type}
-              atk1_type={renderTypeAtk(character.atk1_type)}
-              atk2_type={renderTypeAtk(character.atk2_type)}
-              atk3_type={renderTypeAtk(character.atk3_type)}
+              atk1_type={<RenderTypeAtk type={character.atk1_type} />}
+              atk2_type={<RenderTypeAtk type={character.atk2_type} />}
+              atk3_type={<RenderTypeAtk type={character.atk3_type} />}
             ></CardCharacters>
           ))
         )

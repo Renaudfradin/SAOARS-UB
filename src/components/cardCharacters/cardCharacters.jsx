@@ -20,9 +20,9 @@ export default function cardCharacters({
         {stars}   
         <Link to={`/characters/${id}`}><img className="imgCharacter" src={imgDefault} alt={imgDefault} /></Link>
         <div className="listIconAtk">
-          <img className="imgatk" src={atk1_type} alt={atk1_type} />
-          <img className="imgatk" src={atk2_type} alt={atk2_type} />
-          <img className="imgatk" src={atk3_type} alt={atk3_type} />
+          {atk1_type}
+          {atk2_type}
+          {atk3_type}
         </div>
       </div>
       <p>{name_characters}</p>  

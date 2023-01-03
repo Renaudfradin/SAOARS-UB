@@ -28,7 +28,7 @@ export default function contentWeapons(params) {
           idw={weapon.idw}
           name_weapon={weapon.name_weapon}
           imgWeaponDefault={imgWeaponDefault}
-          stars={<RenderStart stars={weapon.stars} />}
+          stars={<RenderStart list={true} stars={weapon.stars} />}
         ></CardWeapon>
       ))}
     </div>

@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import imgDefault from '../../assets/img/imgDefault/stuff_303.png'
+import "./Equipement.css"
 
 export default function Equipement(params) {
   const param = useParams();

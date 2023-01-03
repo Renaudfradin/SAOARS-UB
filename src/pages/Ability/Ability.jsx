@@ -2,7 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import imgAbilityDefault from "../../assets/img/imgDefault/abilitys.jpg"
+import imgAbilityDefault from "../../assets/img/imgDefault/abilitys.jpg";
+import "./Ability.css";
 
 export default function Ability(params) {
   const param = useParams();

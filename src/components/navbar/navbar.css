@@ -1,9 +1,67 @@
 .layoutNavbar{
   margin: 0%;
-  width: 12%;
+  width: 11%;
   height: 100%;
   display: block;
   position: fixed;
   background: rgba(44, 36, 85, 0.84);
   border-right: 4px solid rgb(156, 122, 241);
+}
+
+.layoutIconNav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  height: 50px;
+  margin: 10px 0px 10px 8px;
+  padding: 5px 5px;
+  background-image: url("../../assets/img/icon_nav/background_button.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-decoration: none;
+}
+
+.layoutIconNavActive{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  height: 50px;
+  margin: 10px 0px 10px 8px;
+  padding: 5px 5px;
+  background-image: url("../../assets/img/icon_nav/background_button_selected.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-decoration: none;
+}
+
+.layoutIconNav img,
+.layoutIconNavActive img{
+  width: 60px;
+  height: 60px;
+}
+
+.layoutIconNav p,
+.layoutIconNavActive p{
+  color: rgba(255, 255, 255, 0.87);;
+  text-decoration: none;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.layoutTitle{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.layoutTitle p {
+  margin: 0%;
+}
+
+.layoutTitle h3{
+  margin: 0%;
+  font-size: 20px;
 }
