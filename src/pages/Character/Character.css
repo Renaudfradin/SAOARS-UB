@@ -5,6 +5,8 @@
   align-content: center;
   flex-wrap: nowrap;
   align-items: stretch;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .statsLayout{
@@ -21,7 +23,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  margin-left: 20px;
 }
 
 .flexName{
@@ -94,7 +95,7 @@
   display: flex;
 }
 
-.imgCharacter{
+.imgCharacters{
   width: 30%;
 }
 
@@ -110,4 +111,8 @@ span{
   display: flex;
   justify-content: flex-end;
   align-items: stretch;
+}
+
+.containerAtk{
+  display: flex;
 }

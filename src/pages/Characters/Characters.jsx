@@ -3,17 +3,9 @@ import React, { useEffect, useState, useMemo  } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
 import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
-import "./Characters.css"
-
-//import icon atk
+import RenderTypeAtk from "../../components/renderTypeAtk/renderTypeAtk.jsx";
 import imgDefault from "../../assets/img/imgDefault/character_250.png"
-import AIcon from "../../assets/img/icon_atk/icon_assult.svg"
-import BIcon from "../../assets/img/icon_atk/icon_break.svg"
-import CIcon from "../../assets/img/icon_atk/icon_charge.svg"
-import EIcon from "../../assets/img/icon_atk/icon_enhance.svg"
-import EMIcon from "../../assets/img/icon_atk/icon_enhance-1.svg"
-import DIcon from "../../assets/img/icon_atk/icon_debuff.svg"
-import HIcon from "../../assets/img/icon_atk/icon_heal.svg"
+import "./Characters.css"
 
 export default function contentCharacters(){
   const [characters, updateCharacters] = useState([]);
@@ -32,25 +24,6 @@ export default function contentCharacters(){
         console.log(error);
       })
   }, [ ] );
-
-  function renderTypeAtk(param) {
-    switch (param) {
-      case 'A':
-        return AIcon
-      case 'B':
-        return BIcon
-      case 'C':
-        return CIcon
-      case 'D':
-        return DIcon
-      case 'E':
-        return EIcon
-      case 'EM':
-        return EMIcon
-      case 'H':
-        return HIcon
-    }
-  }
 
   function filterData(value) {
     updateInputValue(value);
@@ -89,9 +62,9 @@ export default function contentCharacters(){
             stars={<RenderStart list={true} stars={character.stars} />}
             weapon_type={character.weapon_type}
             character_type={character.character_type}
-            atk1_type={renderTypeAtk(character.atk1_type)}
-            atk2_type={renderTypeAtk(character.atk2_type)}
-            atk3_type={renderTypeAtk(character.atk3_type)}
+            atk1_type={<RenderTypeAtk type={character.atk1_type} />}
+            atk2_type={<RenderTypeAtk type={character.atk2_type} />}
+            atk3_type={<RenderTypeAtk type={character.atk3_type} />}
           ></CardCharacters>
         ))) :(
           characters.map((character) => (
@@ -104,9 +77,9 @@ export default function contentCharacters(){
               stars={<RenderStart list={true} stars={character.stars} />}
               weapon_type={character.weapon_type}
               character_type={character.character_type}
-              atk1_type={renderTypeAtk(character.atk1_type)}
-              atk2_type={renderTypeAtk(character.atk2_type)}
-              atk3_type={renderTypeAtk(character.atk3_type)}
+              atk1_type={<RenderTypeAtk type={character.atk1_type} />}
+              atk2_type={<RenderTypeAtk type={character.atk2_type} />}
+              atk3_type={<RenderTypeAtk type={character.atk3_type} />}
             ></CardCharacters>
           ))
         )

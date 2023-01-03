@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import imgDefault from "../../assets/img/imgDefault/character_2502.png";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
-import EnhanceBtn from "../../assets/img/btn_enhance_mode.png"
+import EnhanceBtn from "../../assets/img/btn_enhance_mode.png";
+import RenderTypeAtk from "../../components/renderTypeAtk/renderTypeAtk.jsx"
 import "./Character.css"
 
 export default function Character() {
@@ -18,7 +19,7 @@ export default function Character() {
     axios.get(`https://api-saoars.vercel.app/perso/${idParam}`)
     .then((response) => {
       updateCharacter(response.data.character[0]);
-      //console.log(response.data.character[0]);
+      console.log(response.data.character[0]);
     })
     .catch((error)=>{
       console.log(error);
@@ -40,34 +41,60 @@ export default function Character() {
           <p>{character.name_characters}</p>
           <p>{character.description}</p>
         </div>
-        <img className="imgCharacter" src={imgDefault} alt={imgDefault} />
+        <img className="imgCharacters" src={imgDefault} alt={imgDefault} />
         <RenderStart list={false} stars={character.stars} />
         <p>{character.profile}</p>
       </div>
-      <span>
-        <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />
-      </span>
+      { character.enhance_atk1 ? 
+        <span>
+          <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />
+        </span>
+        :
+        ""
+      }
       <div className="layoutAtkStat">
         {enhance ? 
           <div className="atkLayout">
-            <p>{character.atk1}</p>
-            <p>{character.atk1_type}</p>
-            <p>{character.description_atk1}</p>
-            <p>{character.mp_atk1}</p>
-
-            <p>{character.atk2}</p>
-            <p>{character.atk2_type}</p>
-            <p>{character.description_atk2}</p>
-            <p>{character.mp_atk2}</p>
-
-            <p>{character.atk3}</p>
-            <p>{character.atk3_type}</p>
-            <p>{character.description_atk3}</p>
-            <p>{character.mp_atk3}</p>
-
-            <p>{character.ultime}</p>
-            <p>{character.ultime_description}</p>
-
+            <div>
+              <div className="containerAtk">
+                <div className="">
+                  <RenderTypeAtk type={character.atk1_type} />
+                </div>
+                <div className="">
+                  <p>{character.atk1}</p>
+                  <p>{character.description_atk1}</p>
+                </div>
+              </div>
+              <p>{character.mp_atk1}</p>
+            </div>
+            <div>
+              <div className="containerAtk">
+                <div>
+                  <RenderTypeAtk type={character.atk2_type} />
+                </div>
+                <div>
+                  <p>{character.atk2}</p>
+                  <p>{character.description_atk2}</p>
+                </div>
+              </div>
+              <p>{character.mp_atk2}</p>
+            </div>
+            <div>
+              <div className="containerAtk"> 
+                <div>
+                  <RenderTypeAtk type={character.atk3_type} />
+                </div>
+                <div>
+                  <p>{character.atk3}</p>
+                  <p>{character.description_atk3}</p>
+                </div>
+              </div>
+              <p>{character.mp_atk3}</p>
+            </div>
+            <div>
+              <p>{character.ultime}</p>
+              <p>{character.ultime_description}</p>
+            </div>
           </div> 
           : 
           <div className="atkLayout">
