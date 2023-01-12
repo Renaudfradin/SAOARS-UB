@@ -37,5 +37,5 @@ export default function renderStart({list,stars}) {
     
   }
   
-  return(<img className="imgStart" src={renderStar(stars)} alt="" />)
+  return(<img className="imgStart" src={renderStar(stars)} alt={renderStar(stars)} />)
 }
