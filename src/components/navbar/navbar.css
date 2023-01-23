@@ -65,3 +65,15 @@
   margin: 0%;
   font-size: 20px;
 }
+
+@media screen and (max-width: 425px) {
+  .layoutNavbar{
+    margin: 0%;
+    width: 11%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    background: rgba(44, 36, 85, 0.84);
+    border-right: 4px solid rgb(156, 122, 241);
+  }
+}
