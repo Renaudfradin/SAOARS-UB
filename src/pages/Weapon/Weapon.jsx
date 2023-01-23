@@ -3,17 +3,19 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import imgDefault from "../../assets/img/imgDefault/stuff_370.png"
+import RenderStart from "../../components/renderStars/renderStart";
+import Stats from "../../components/stats/stats";
+import Effect from "../../components/effect/effect";
+import "./Weapon.css"
 
-export default function Weapon(params) {
+export default function Weapon() {
   const param = useParams();
   const idParam = param.id;
   const [weapon , updateWeapon] = useState([]);
 
   useEffect(() => {
-    console.log(idParam);
     axios.get(`https://api-saoars.vercel.app/weapon/${idParam}`)
     .then((response) => {
-      console.log(response.data.weapon);
       updateWeapon(response.data.weapon);
     })
   }, [])
@@ -22,26 +24,38 @@ export default function Weapon(params) {
     document.title= `${weapon.name_weapon}`;
   })
 
-
   return(
     <div>
-      <p>Weapon</p>
-      <p>{weapon.idw}</p>
       <p>{weapon.name_weapon}</p>
-      <p>{weapon.effect_1}</p>
-      <p>{weapon.effect_2}</p>
-      <p>{weapon.effect_3}</p>
-      <p>{weapon.atk_w}</p>
-      <p>{weapon.hp_w}</p>
-      <p>{weapon.mp_w}</p>
-      <p>{weapon.atk_w}</p>
-      <p>{weapon.matk_w}</p>
-      <p>{weapon.def_w}</p>
-      <p>{weapon.mdef_w}</p>
-      <p>{weapon.crit_w}</p>
-      <p>{weapon.spd_w}</p>
-      <p>{weapon.stars}</p>
       <img src={imgDefault} alt="" />
+      <RenderStart list={false} stars={weapon.stars}/>
+
+      <div className="layoutStat">
+        <div className="containerEffect">
+          <Effect
+            character={false}
+            effect={weapon.effect_1}
+          ></Effect>
+          <Effect
+            character={false}
+            effect={weapon.effect_2}
+          ></Effect>
+          <Effect
+            character={false}
+            effect={weapon.effect_3}
+          ></Effect>
+        </div>
+        <Stats
+          hp={weapon.hp_w}
+          mp={weapon.mp_w}
+          atk={weapon.atk_w}
+          matk={weapon.matk_w}
+          def={weapon.def_w}
+          mdef={weapon.mdef_w}
+          crit={weapon.crit_w}
+          spd={weapon.spd_w}
+        ></Stats>
+      </div>
     </div>
   )
 }

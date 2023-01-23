@@ -1,15 +1,16 @@
-.layoutAtkStat{
+.layoutStat{
   display: flex;
   flex-direction: row-reverse;
   padding-right: 10%;
   padding-left: 10%;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.atkLayout{
+.containerEffect{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-content: center;
   padding: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -19,39 +20,9 @@
   width: 70%;
 }
 
-.infoCharacters{
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  background: linear-gradient(rgba(66, 7, 54, 0.75) 0%, rgba(0, 0, 0, 0) 65%);
-}
-
-.nameCharacter{
-  display: flex;
-}
-
-.imgCharacters{
-  width: 30%;
-}
-
-.btnEnhanceMode{
-  margin: 0%;
-}
-
-.imgEnhance{
-  width: 140px;
-}
-
-span{
-  display: flex;
-  justify-content: flex-end;
-  align-items: stretch;
-}
 
 @media screen and (max-width: 425px) {
-  .layoutAtkStat {
+  .layoutStat {
     display: flex;
     flex-direction: column-reverse;
     padding-right: 0%;
@@ -60,5 +31,18 @@ span{
     align-items: center;
   }
 
-
+  .containerEffect{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 90%;
+    margin-top: 20px;
+  }
 }

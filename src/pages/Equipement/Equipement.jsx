@@ -3,6 +3,8 @@ import React from "react";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import imgDefault from '../../assets/img/imgDefault/stuff_303.png'
+import Stats from "../../components/stats/stats";
+import Effect from "../../components/effect/effect";
 import "./Equipement.css"
 
 export default function Equipement(params) {
@@ -11,10 +13,8 @@ export default function Equipement(params) {
   const [equipement, updateEquipement] = useState([]);
 
   useEffect(()=>{
-    console.log(idPram);
     axios.get(`https://api-saoars.vercel.app/equipment/${idPram}`)
       .then((response)=>{
-        console.log(response.data.equipment[0]);
         updateEquipement(response.data.equipment[0]);
       })
       .catch((error)=>{
@@ -28,22 +28,31 @@ export default function Equipement(params) {
 
   return(
     <div>
-      <p>equipement</p>
       <p>{equipement.name}</p>
       <img src={imgDefault} alt="" />
-      
-      <p>{equipement.hp}</p>
-      <p>{equipement.mp}</p>
-      <p>{equipement.atk}</p>
-      <p>{equipement.matk}</p>
-      <p>{equipement.def}</p>
-      <p>{equipement.mdef}</p>
-      <p>{equipement.crit}</p>
-      <p>{equipement.spd}</p>
-      
-      <p>{equipement.effect_1}</p>
-      <p>{equipement.effect_2}</p>
 
+      <div className="layoutStat">
+        <div className="containerEffect">
+          <Effect
+            effect={equipement.effect_1}
+          ></Effect>
+          <Effect
+            effect={equipement.effect_2}
+          ></Effect>
+        </div>
+  
+        <Stats
+          hp={equipement.hp}
+          mp={equipement.mp}
+          atk={equipement.atk}
+          matk={equipement.matk}
+          def={equipement.def}
+          mdef={equipement.mdef}
+          crit={equipement.crit}
+          spd={equipement.spd}
+        ></Stats>
+      </div>
+      
     </div>
   )
 }
