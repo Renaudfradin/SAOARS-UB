@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
-import imgPop1 from "../../assets/img/pop_data1.png"
-import imgPop2 from "../../assets/img/pop_data2.png"
-import imgPop3 from "../../assets/img/pop_data3.png"
-import imgPop4 from "../../assets/img/pop_data4.png"
+import logo from "../../assets/img/logoSAO.png"
 import imgDefault from "../../assets/img/imgDefault/character_2502.png"
 import imgDefaultBanner from "../../assets/img/imgDefault/scout_130.jpg"
 import './Home.css'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import bankLogo from "../../assets/img/banklogo2.png"
 
 export default function Home(){
   useEffect(()=>{
@@ -14,29 +14,49 @@ export default function Home(){
   })
   
   return(
-    <div>
-      <div>
-        <h2>SAOARS/UB</h2>
-        <img src={imgPop1} alt={imgPop1} />
-        <img src={imgPop2} alt={imgPop2} />
-        <img src={imgPop3} alt={imgPop3} />
-        <img src={imgPop4} alt={imgPop4} />
+    <div className="containerHome">
+      <div className="layoutLogo">
+        <img src={logo} alt={logo} />
       </div>
-      <img src={imgDefault} alt={imgDefault} />
-      <div>
-        <img src={imgDefaultBanner} alt={imgDefaultBanner} />
-        <img src={imgDefaultBanner} alt={imgDefaultBanner} />
-        <img src={imgDefaultBanner} alt={imgDefaultBanner} />
-        <img src={imgDefaultBanner} alt={imgDefaultBanner} />
-        <img src={imgDefaultBanner} alt={imgDefaultBanner} />
+      <div className="divimgProm">
+        <img src={imgDefault} alt={imgDefault} />
       </div>
-      <div>
-        <p>banner : 100</p>
-        <p>character : 100</p>
-        <p>weapon : 100</p>
-        <p>equipement : 100</p>
-        <p>imaginations : 100</p>
-        <p>abilitys : 100</p>
+      <Swiper
+        slidesPerView={3}
+        className="swippeWrapper"
+      >
+        <SwiperSlide>
+          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+        </SwiperSlide>
+      </Swiper>
+
+      <div className="containerOverview">
+        <p className="pOverview">DATABASE <span>:overview</span></p>
+        <div className="divOverview"> 
+          <div className="infoOverviewLeft">
+            <p>100 <span>banner</span></p>
+            <p>100 <span>character</span></p>
+            <p>100 <span>weapon</span></p>
+          </div>
+          <img src={bankLogo} alt="" />
+          <div className="infoOverviewRight">
+            <p>100 <span>equipement</span></p>
+            <p>100 <span>imaginations</span></p>
+            <p>100 <span>abilitys</span></p>
+          </div>
+        </div>
       </div>
     </div>
   )
