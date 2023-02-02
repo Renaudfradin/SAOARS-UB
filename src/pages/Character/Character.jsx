@@ -7,7 +7,8 @@ import RenderStart from "../../components/renderStars/renderStart.jsx";
 import EnhanceBtn from "../../assets/img/btn_enhance_mode.png";
 import Stats from "../../components/stats/stats";
 import Effect from "../../components/effect/effect";
-import "./Character.css"
+import "./Character.css";
+import { Helmet } from "react-helmet-async";
 
 export default function Character() {
   const param = useParams();
@@ -25,17 +26,15 @@ export default function Character() {
     })
   }, [])
 
-  useEffect(()=>{
-    document.title = `${character.name_characters} [${character.description}]`;
-  })
-
   function enhanceMode() {
     updateEnhance(!enhance);
   }
 
   return(
     <div>
-
+      <Helmet>
+        <title>Character {idParam}</title>
+      </Helmet>
       <div className="infoCharacters">
         <div className="nameCharacter">
           <p>{character.name_characters}</p>
@@ -45,7 +44,6 @@ export default function Character() {
         <RenderStart list={false} stars={character.stars} />
         <p>{character.profile}</p>
       </div>
-
       { character.enhance_atk1 ? 
         <span>
           <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />
@@ -53,7 +51,6 @@ export default function Character() {
         :
         ""
       }
-      
       <div className="layoutAtkStat">
         {enhance ? 
           <div className="atkLayout">

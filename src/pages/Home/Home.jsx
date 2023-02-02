@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import logo from "../../assets/img/logoSAO.png"
 import imgDefault from "../../assets/img/imgDefault/character_2502.png"
 import imgDefaultBanner from "../../assets/img/imgDefault/scout_130.jpg"
@@ -7,14 +6,14 @@ import './Home.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import bankLogo from "../../assets/img/banklogo2.png"
+import { Helmet } from "react-helmet-async";
 
 export default function Home(){
-  useEffect(()=>{
-    document.title = "Home";
-  })
-  
   return(
     <div className="containerHome">
+      <Helmet>
+        <title>Home - Sword Art Online : Unleash Blading - Database</title>
+      </Helmet>
       <div className="layoutLogo">
         <img src={logo} alt={logo} />
       </div>

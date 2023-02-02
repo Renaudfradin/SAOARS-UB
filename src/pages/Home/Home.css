@@ -103,3 +103,64 @@
 .divimgProm {
   margin-top: 100px;
 }
+
+@media screen and (max-width: 425px) {
+  .containerHome{
+    margin: 0%;
+    border-radius: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .containerOverview{
+    border-width: 8px 1px 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255) rgba(255, 255, 255, 0.7) rgba(255, 255, 255, 0.7);
+    border-image: initial;
+    border-radius: 2px;
+    margin-top: 30px;
+    width: 90%;
+  }
+
+  .divOverview img{
+    width: auto;
+  }
+
+  .layoutLogo img{
+    width: 45%;
+  }
+
+  .divimgProm{
+    margin-top: 50px;
+  }
+
+  .divimgProm img {
+    width: 80%;
+    border-radius: 12px;
+    border: 2px solid rgba(132, 132, 132, 0.45);
+  } 
+
+  .swippeWrapper {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .layoutLogo img{
+    width: 40%;
+  }
+
+  .divimgProm img {
+    width: 80%;
+    border-radius: 12px;
+    border: 2px solid rgba(132, 132, 132, 0.45);
+  } 
+
+  .divimgProm{
+    margin-top: 50px;
+  }
+
+  .swippeWrapper {
+    margin-top: 50px;
+  }
+}

@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import imgDefault from '../../assets/img/imgDefault/stuff_303.png'
 import Stats from "../../components/stats/stats";
 import Effect from "../../components/effect/effect";
-import "./Equipement.css"
+import "./Equipement.css";
+import { Helmet } from "react-helmet-async";
 
 export default function Equipement(params) {
   const param = useParams();
@@ -22,12 +23,11 @@ export default function Equipement(params) {
       })
   },[])
 
-  useEffect(()=>{
-    document.title = `${equipement.name}`;
-  })
-
   return(
     <div>
+      <Helmet>
+        <title>Equipement {idPram}</title>
+      </Helmet>
       <p>{equipement.name}</p>
       <img src={imgDefault} alt="" />
 

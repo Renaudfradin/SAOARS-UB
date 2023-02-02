@@ -2,10 +2,11 @@ import axios from "axios";
 import React from "react";
 import { useState,useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import imgDefault from "../../assets/img/imgDefault/character_250.png"
-import "./Banner.css"
+import imgDefault from "../../assets/img/imgDefault/character_250.png";
+import "./Banner.css";
+import { Helmet } from "react-helmet-async";
 
-export default function Banner(params) {
+export default function Banner() {
   const param = useParams();
   const idParam = param.id;
   const [banner , updateBanner] = useState([]);
@@ -20,13 +21,11 @@ export default function Banner(params) {
     })
   }, [])
 
-  useEffect(()=>{
-    document.title = `${banner.name_b}`;
-  })
-
-
   return(
     <div className="containerBanner">
+      <Helmet>
+        <title>{banner.name_b}</title>
+      </Helmet>
       <div className="infoTitle">
         <p>{banner.name_b}</p>
         <img className="imgBanner" src={baseUrl+banner.img_baner} alt={baseUrl+banner.img_baner} />

@@ -3,14 +3,12 @@ import React, { useEffect, useState } from "react";
 import CardAbilitys from "../../components/cardAbilitys/cardAbilitys.jsx";
 import RenderStart from "../../components/renderStars/renderStart.jsx";
 import imgAbilityDefault from "../../assets/img/imgDefault/abilitys.jpg"
-import "./Abilitys.css"
+import { Helmet } from "react-helmet-async";
 
 export default function contentAbility(params) {
   const [Abilitys , updateAbilitys] = useState([])
 
   useEffect(()=>{
-    document.title = "List Ability";
-
     axios.get('https://api-saoars.vercel.app/ability')
       .then((response)=>{
         updateAbilitys(response.data.abilitys);
@@ -21,7 +19,10 @@ export default function contentAbility(params) {
   }, [])
   
   return(
-    <div className="layoutAbilitys">
+    <div className="cardList">
+      <Helmet>
+        <title>List Abilitys - Sword Art Online : Unleash Blading - Database</title>
+      </Helmet>
       {Abilitys.map((ability)=>(
         <CardAbilitys
           key={ability.id}

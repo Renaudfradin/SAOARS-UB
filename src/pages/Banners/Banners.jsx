@@ -1,15 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useMemo } from "react";
 import CardBanners from "../../components/cardBanners/cardBanners.jsx";
-import "./Banners.css"
+import { Helmet } from "react-helmet-async";
 
 export default function contentBanners(){
   const [banners, updateBanners ] = useState([]);
 
   useEffect(()=>{
-    document.title = "List Banners";
-
     axios.get('https://api-saoars.vercel.app/banner')
       .then((response) => {
         updateBanners(response.data.banners);
@@ -20,7 +17,10 @@ export default function contentBanners(){
   }, [])
 
   return(
-    <div className="layoutBanner">
+    <div className="cardList">
+      <Helmet>
+        <title>List Banners - Sword Art Online : Unleash Blading - Database</title>
+      </Helmet>
       {banners.map((banner)=>(
         <CardBanners
           key={banner.idb}

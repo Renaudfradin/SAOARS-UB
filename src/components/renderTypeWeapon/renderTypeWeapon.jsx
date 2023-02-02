@@ -127,8 +127,5 @@ export default function renderTypeWeapon({weapon_type, character_type}) {
         return maceWind
     }
   }
-  useEffect(()=>{
-    console.log(type);
-  })
   return(<img src={renderTypeWeapon(type)} alt="" />)
 }

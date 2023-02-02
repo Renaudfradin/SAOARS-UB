@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
-import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
+// import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
 import imgDefault from "../../assets/img/imgDefault/character_250.png"
-import "./Characters.css"
+import { Helmet } from "react-helmet-async";
 
 export default function contentCharacters(){
   const [character, updateCharacter] = useState([]);
@@ -16,7 +16,6 @@ export default function contentCharacters(){
     axios.get('https://api-saoars.vercel.app/perso')
       .then((response)=> {
         updateCharacter(response.data.characters);
-        console.log(response.data.characters);
       })
       .catch((error)=>{
         console.log(error);
@@ -40,12 +39,9 @@ export default function contentCharacters(){
 
   return(
     <div className="container_characters">
-      {/* <ElementsFilter
-        //characters={characters}
-        // updateData={updateFilteredData}
-        // filteredData={filteredData}
-      ></ElementsFilter> */}
-
+      <Helmet>
+        <title>List Characters - Sword Art Online : Unleash Blading - Database</title>
+      </Helmet>
       <div>
         <button onClick={searchAdvence}>Advanced search</button>
       </div>
@@ -56,7 +52,7 @@ export default function contentCharacters(){
         :""
       }
 
-      <div className="CardList">
+      <div className="cardList">
         { inputvalue && filteredData.length != 0 ? (
             filteredData.map((character) => (
               <CardCharacters
