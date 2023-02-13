@@ -17,6 +17,7 @@ export default function Weapon() {
   useEffect(() => {
     axios.get(`https://api-saoars.vercel.app/weapon/${idParam}`)
     .then((response) => {
+      console.log(response.data.weapon)
       updateWeapon(response.data.weapon);
     })
   }, [])

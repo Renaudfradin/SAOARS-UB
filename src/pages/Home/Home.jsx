@@ -1,14 +1,67 @@
-import React from "react";
-import logo from "../../assets/img/logoSAO.png"
-import imgDefault from "../../assets/img/imgDefault/character_2502.png"
-import imgDefaultBanner from "../../assets/img/imgDefault/scout_130.jpg"
+import React, { useEffect, useState } from "react";
+import logo from "@assets/img/logoSAO.png"
+import imgDefault from "@assets/img/imgDefault/character_2502.png"
+import imgDefaultBanner from "@assets/img/imgDefault/scout_130.jpg"
 import './Home.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import bankLogo from "../../assets/img/banklogo2.png"
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import bankLogo from "@assets/img/banklogo2.png"
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 export default function Home(){
+  const [bannerInfo, updateBannerInfo] = useState(100);
+  const [characterInfo, updateChracterInfo] = useState(100);
+  const [weaponInfo, updateWeaponInfo] = useState(100);
+  const [equipementInfo, updateEquipementInfo] = useState(100);
+  const [abilityInfo, updateAbilityInfo] = useState(100);
+  // const [imaginationsInfo, updateImaginationsInfo] = useState([]);
+  
+  // useMemo(()=>{
+  //   axios.get("https://api-saoars.vercel.app/banner")
+  //     .then((response)=>{
+  //       console.log(response.data)
+  //       updateBannerInfo(response.data.countBanners)
+  //     })
+  //     .catch((error)=>{
+  //       console.log(error)
+  //     })
+  //   axios.get("https://api-saoars.vercel.app/perso")
+  //   .then((response)=>{
+  //     console.log(response.data)
+  //     updateChracterInfo(response.data.countCharacters)
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  //   axios.get("https://api-saoars.vercel.app/weapon")
+  //   .then((response)=>{
+  //     console.log(response.data)
+  //     updateWeaponInfo(response.data.countWeapons)
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  //   axios.get("https://api-saoars.vercel.app/equipment")
+  //   .then((response)=>{
+  //     console.log(response.data)
+  //     updateEquipementInfo(response.data.countEquipments)
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  //   axios.get("https://api-saoars.vercel.app/ability")
+  //   .then((response)=>{
+  //     console.log(response.data)
+  //     updateAbilityInfo(response.data.countAbilitys)
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+  // })
+
   return(
     <div className="containerHome">
       <Helmet>
@@ -45,15 +98,15 @@ export default function Home(){
         <p className="pOverview">DATABASE <span>:overview</span></p>
         <div className="divOverview"> 
           <div className="infoOverviewLeft">
-            <p>100 <span>banner</span></p>
-            <p>100 <span>character</span></p>
-            <p>100 <span>weapon</span></p>
+            <p>{bannerInfo} <span>banner</span></p>
+            <p>{characterInfo} <span>character</span></p>
+            <p>{weaponInfo} <span>weapon</span></p>
           </div>
           <img src={bankLogo} alt="" />
           <div className="infoOverviewRight">
-            <p>100 <span>equipement</span></p>
+            <p>{equipementInfo} <span>equipement</span></p>
             <p>100 <span>imaginations</span></p>
-            <p>100 <span>abilitys</span></p>
+            <p>{abilityInfo} <span>abilitys</span></p>
           </div>
         </div>
       </div>

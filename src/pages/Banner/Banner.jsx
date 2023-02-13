@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState,useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import imgDefault from "../../assets/img/imgDefault/character_250.png";
+import imgDefault from "@assets/img/imgDefault/character_250.png";
 import "./Banner.css";
 import { Helmet } from "react-helmet-async";
 
@@ -10,11 +10,11 @@ export default function Banner() {
   const param = useParams();
   const idParam = param.id;
   const [banner , updateBanner] = useState([]);
-  const baseUrl = "https://api-saoars.vercel.app"
+  const baseUrl = import.meta.env.VITE_BACKEND_URL
 
   useEffect(() => {
     console.log("id param",idParam);
-    axios.get(`https://api-saoars.vercel.app/banner/${idParam}`)
+    axios.get(`${baseUrl}/banner/${idParam}`)
     .then((response) => {
       updateBanner(response.data.banner[0]);
       console.log("data",response.data.banner[0]);

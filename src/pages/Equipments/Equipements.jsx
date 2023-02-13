@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
-import CardEquipement from "../../components/cardEquipement/cardEquipement";
-import RenderStart from "../../components/renderStars/renderStart";
+import CardEquipement from "@components/cardEquipement/cardEquipement";
+import RenderStart from "@components/renderStars/renderStart";
 import { Helmet } from "react-helmet-async";
 
 export default function Equipements(){

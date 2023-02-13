@@ -1,6 +1,6 @@
 import React from "react";
-import iconatk from "../../assets/img/limit_break_0.svg";
-import iconatk1 from "../../assets/img/icon_passiv.svg";
+import iconatk from "@assets/img/limit_break_0.svg";
+import iconatk1 from "@assets/img/icon_passiv.svg";
 import RenderTypeAtk from "../renderTypeAtk/renderTypeAtk";
 import "./effect.css";
 

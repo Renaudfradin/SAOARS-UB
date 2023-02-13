@@ -2,11 +2,11 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "../../assets/img/imgDefault/character_2502.png";
-import RenderStart from "../../components/renderStars/renderStart.jsx";
-import EnhanceBtn from "../../assets/img/btn_enhance_mode.png";
-import Stats from "../../components/stats/stats";
-import Effect from "../../components/effect/effect";
+import imgDefault from "@assets/img/imgDefault/character_2502.png";
+import RenderStart from "@components/renderStars/renderStart.jsx";
+import EnhanceBtn from "@assets/img/btn_enhance_mode.png";
+import Stats from "@components/stats/stats";
+import Effect from "@components/effect/effect";
 import "./Character.css";
 import { Helmet } from "react-helmet-async";
 

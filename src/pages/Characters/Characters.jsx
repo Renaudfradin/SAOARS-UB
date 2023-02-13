@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CardCharacters from "../../components/cardCharacters/cardCharacters.jsx";
-// import ElementsFilter from "../../components/elementsFilter/elementsFilter.jsx";
-import imgDefault from "../../assets/img/imgDefault/character_250.png"
+import CardCharacters from "@components/cardCharacters/cardCharacters.jsx";
+// import ElementsFilter from "@components/elementsFilter/elementsFilter.jsx";
+import imgDefault from "@assets/img/imgDefault/character_250.png"
 import { Helmet } from "react-helmet-async";
 
 export default function contentCharacters(){

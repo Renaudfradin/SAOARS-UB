@@ -1,14 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import imgOpen from "../../assets/img/icon_nav/navigation.svg";
-import imgClose from "../../assets/img/icon_nav/navigation_close.svg";
-import imgHome from "../../assets/img/icon_nav/icon_main.svg";
-import imgBanner from "../../assets/img/icon_nav/icon_scout.svg";
-import imgCharacter from "../../assets/img/icon_nav/icon_character.svg";
-import imgWeapon from "../../assets/img/icon_nav/icon_weapon.svg";
-import imgEquipement from "../../assets/img/icon_nav/icon_equipment.svg";
-import imgImaginations from "../../assets/img/icon_nav/icon_item.svg";
-import imgAbility from "../../assets/img/icon_nav/icon_quest.svg";
+import imgOpen from "@assets/img/icon_nav/navigation.svg";
+import imgClose from "@assets/img/icon_nav/navigation_close.svg";
+import imgHome from "@assets/img/icon_nav/icon_main.svg";
+import imgBanner from "@assets/img/icon_nav/icon_scout.svg";
+import imgCharacter from "@assets/img/icon_nav/icon_character.svg";
+import imgWeapon from "@assets/img/icon_nav/icon_weapon.svg";
+import imgEquipement from "@assets/img/icon_nav/icon_equipment.svg";
+import imgImaginations from "@assets/img/icon_nav/icon_item.svg";
+import imgAbility from "@assets/img/icon_nav/icon_quest.svg";
 import "./navbar.css"
 
 export default function Navbar(params) {

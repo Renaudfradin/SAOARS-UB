@@ -164,3 +164,27 @@
     margin-top: 50px;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .divOverview {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-top: 30px;
+  }
+
+  .infoOverviewLeft p, 
+  .infoOverviewRight p{
+    margin: 5px 0px;
+    border-right: 4px solid rgb(255, 255, 255);
+    padding-right: 8px;
+    border-left: 4px solid rgb(255, 255, 255);
+    padding-left: 8px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    height: 32px;
+  }
+}

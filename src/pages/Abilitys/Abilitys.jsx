@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CardAbilitys from "../../components/cardAbilitys/cardAbilitys.jsx";
-import RenderStart from "../../components/renderStars/renderStart.jsx";
-import imgAbilityDefault from "../../assets/img/imgDefault/abilitys.jpg"
+import CardAbilitys from "@components/cardAbilitys/cardAbilitys.jsx";
+import RenderStart from "@components/renderStars/renderStart.jsx";
+import imgAbilityDefault from "@assets/img/imgDefault/abilitys.jpg"
 import { Helmet } from "react-helmet-async";
 
 export default function contentAbility(params) {

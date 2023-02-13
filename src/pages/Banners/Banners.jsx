@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import CardBanners from "../../components/cardBanners/cardBanners.jsx";
+import CardBanners from "@components/cardBanners/cardBanners.jsx";
 import { Helmet } from "react-helmet-async";
 
 export default function contentBanners(){

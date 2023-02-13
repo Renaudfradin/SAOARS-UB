@@ -2,9 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from '../../assets/img/imgDefault/stuff_303.png'
-import Stats from "../../components/stats/stats";
-import Effect from "../../components/effect/effect";
+import imgDefault from '@assets/img/imgDefault/stuff_303.png'
+import Stats from "@components/stats/stats";
+import Effect from "@components/effect/effect";
 import "./Equipement.css";
 import { Helmet } from "react-helmet-async";
 
