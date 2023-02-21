@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "@pages/Home/Home.jsx";
 import Weapons from "@pages/Weapons/Weapons.jsx"
 import Weapon from "@pages/Weapon/Weapon.jsx";
@@ -38,6 +38,9 @@ export default function Router(){
           <Route path="/about" element={<About />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
+      </div>
+      <div className="linkBtn">
+        <Link to="/about">About</Link>
       </div>
       </BrowserRouter>
     </div>

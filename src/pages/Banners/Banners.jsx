@@ -1,20 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CardBanners from "@components/cardBanners/cardBanners.jsx";
 import { Helmet } from "react-helmet-async";
+import useBanners from "@hook/useBanners.jsx";
 
 export default function contentBanners(){
-  const [banners, updateBanners ] = useState([]);
-
-  useEffect(()=>{
-    axios.get('https://api-saoars.vercel.app/banner')
-      .then((response) => {
-        updateBanners(response.data.banners);
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  }, [])
+  const { banners } = useBanners();
 
   return(
     <div className="cardList">

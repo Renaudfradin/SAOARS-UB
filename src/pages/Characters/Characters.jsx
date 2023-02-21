@@ -1,34 +1,23 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CardCharacters from "@components/cardCharacters/cardCharacters.jsx";
 // import ElementsFilter from "@components/elementsFilter/elementsFilter.jsx";
 import imgDefault from "@assets/img/imgDefault/character_250.png"
 import { Helmet } from "react-helmet-async";
+import useCharacters from "@hook/useCharacters.jsx";
 
 export default function contentCharacters(){
-  const [character, updateCharacter] = useState([]);
   const [inputvalue , updateInputValue] = useState("");
   const [filteredData, updateFilteredData] = useState([]);
   const [advancedsearch, updateAdvancedsearch] = useState(false);
-
-  useEffect(() => {
-    document.title = "List Characters";
-    axios.get('https://api-saoars.vercel.app/perso')
-      .then((response)=> {
-        updateCharacter(response.data.characters);
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  }, [ ] );
+  const { characters } = useCharacters();
 
   function handleChange(event) {
     updateInputValue(event.target.value);
-    const filter = character.filter(data => data.name_characters.toLowerCase().includes(inputvalue));
+    const filter = characters.filter(data => data.name_characters.toLowerCase().includes(inputvalue));
     if (inputvalue) {
       updateFilteredData(filter);
     }else{
-      updateCharacter(character);
+      return characters;
     }
   }
 
@@ -62,7 +51,7 @@ export default function contentCharacters(){
               ></CardCharacters>
             ))
           ):(
-            character.map((character) => (
+            characters.map((character) => (
               <CardCharacters
                 key = { character.id } 
                 infoCharacters = {{ ...character  }}

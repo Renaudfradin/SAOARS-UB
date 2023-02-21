@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import logo from "@assets/img/logoSAO.png"
 import imgDefault from "@assets/img/imgDefault/character_2502.png"
-import imgDefaultBanner from "@assets/img/imgDefault/scout_130.jpg"
-import './Home.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import banner1 from "@assets/img/icon_ban/scout_132.png"
+import banner2 from "@assets/img/icon_ban/scout_133.png"
+import banner3 from "@assets/img/icon_ban/scout_134.png"
+import banner4 from "@assets/img/icon_ban/scout_135.png"
+import banner5 from "@assets/img/icon_ban/scout_136.png"
+import "./Home.css"
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import bankLogo from "@assets/img/banklogo2.png"
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
@@ -76,21 +80,22 @@ export default function Home(){
       <Swiper
         slidesPerView={3}
         className="swippeWrapper"
+        spaceBetween={10}
       >
         <SwiperSlide>
-          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+          <img className="imgWrapper" src={banner1} alt={banner1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+          <img className="imgWrapper" src={banner2} alt={banner2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+          <img className="imgWrapper" src={banner3} alt={banner3} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+          <img className="imgWrapper" src={banner4} alt={banner4} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="imgWrapper" src={imgDefaultBanner} alt={imgDefaultBanner} />
+          <img className="imgWrapper" src={banner5} alt={banner5} />
         </SwiperSlide>
       </Swiper>
 

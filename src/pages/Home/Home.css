@@ -104,6 +104,10 @@
   margin-top: 100px;
 }
 
+.imgWrapper{
+  height: 120px;
+}
+
 @media screen and (max-width: 425px) {
   .containerHome{
     margin: 0%;
@@ -141,7 +145,7 @@
   } 
 
   .swippeWrapper {
-    margin-top: 50px;
+    margin-top: 0px;
   }
 }
 

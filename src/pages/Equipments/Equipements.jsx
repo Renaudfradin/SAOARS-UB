@@ -1,22 +1,11 @@
-import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
 import CardEquipement from "@components/cardEquipement/cardEquipement";
 import RenderStart from "@components/renderStars/renderStart";
 import { Helmet } from "react-helmet-async";
+import useEquipements from "../../hook/useEquipements";
 
 export default function Equipements(){
-  const [equipements, updateEquipement] = useState([]);
-
-  useEffect(()=>{
-    axios.get('https://api-saoars.vercel.app/equipment/')
-      .then((response)=>{
-        updateEquipement(response.data.equipments);
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  },[])
+  const { equipements } = useEquipements();
 
   return(
     <div className="cardList">

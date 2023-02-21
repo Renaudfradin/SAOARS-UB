@@ -10,6 +10,32 @@
 
 .layout{
   display: flex;
+  flex-direction: column;
+}
+
+.linkBtn{
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  background: rgba(46, 32, 111, 0.94);
+  border-radius: 7px;
+  border: 1px solid rgb(255, 68, 252);
+  transition: transform 0.1s ease 0s;
+}
+
+.linkBtn::before{
+  background: url("./assets/img/background_button_hover.png");
+  background-color: black;
+}
+
+.linkBtn a{
+  color: aliceblue;
+  text-decoration: none;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
 }
 
 @media screen and (max-width:425px) {

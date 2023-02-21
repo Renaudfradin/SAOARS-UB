@@ -1,28 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CardImaginations from "@components/cardImaginations/cardImaginations.jsx";
 import imgImganationDefault from "@assets/img/imgDefault/imaginations.jpg"
 import { Helmet } from "react-helmet-async";
+import useImaginations from "@hook/useImaginations";
 
 export default function contentImagination() {
-  const [Imaginations , updateImaginations] = useState([])
-
-  useEffect(()=>{
-    axios.get('https://api-saoars.vercel.app/imagination')
-      .then((response)=>{
-        updateImaginations(response.data.imaginations)
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  }, [])
+  const { imaginations } = useImaginations();
 
   return(
     <div className="cardList">
       <Helmet>
         <title>List Imaginations - Sword Art Online : Unleash Blading - Database</title>
       </Helmet>
-      {Imaginations.map((imagination)=>(
+      {imaginations.map((imagination)=>(
         <CardImaginations
           key={imagination.idconst}
           name={imagination.name}
