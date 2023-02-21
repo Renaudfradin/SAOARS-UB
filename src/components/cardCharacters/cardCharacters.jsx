@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import RenderStart from "../renderStars/renderStart";
 import RenderTypeAtk from "../renderTypeAtk/renderTypeAtk";
@@ -10,9 +9,6 @@ export default function cardCharacters({
   imgDefault,
   infoCharacters
 }) {
-  useEffect(()=>{
-    console.log(infoCharacters);
-  }, [])
   return(
     <div className="layoutCharacter">
       <div className="infoCharacter">

@@ -1,34 +1,32 @@
-import axios from "axios";
 import React from "react";
-import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import imgAbilityDefault from "../../assets/img/imgDefault/abilitys.jpg";
+import imgAbilityDefault from "@assets/img/imgDefault/abilitys.jpg";
 import "./Ability.css";
+import { Helmet } from "react-helmet-async";
+import useAbility from "@hook/useAbility";
+import RenderStart from "@components/renderStars/renderStart";
 
-export default function Ability(params) {
+export default function Ability() {
   const param = useParams();
   const idParam = param.id;
-  const [ability , updateAbility] = useState([]);
-
-  useEffect(() => {
-    console.log(idParam);
-    axios.get(`https://api-saoars.vercel.app/ability/${idParam}`)
-    .then((response) => {
-      updateAbility(response.data.Ability[0]);
-    })
-  }, [])
-
-  useEffect(()=>{
-    document.title= `${ability.name}`;
-  })
+  const { ability } = useAbility(idParam);
 
   return(
-    <div>
-      <p>Ability</p>
-      <p>{ability.name}</p>
-      <p>{ability.description}</p>
-      <p>{ability.type}</p>
-      <p>{ability.start}</p>
+    <div className="containerAbility">
+      <Helmet>
+        <title>{ability.name}</title>
+      </Helmet>
+      <div className="divTitle">
+        <p>{ability.name}</p>
+        <RenderStart
+          list={false}
+          stars={ability.start}
+        ></RenderStart>
+      </div>
+      <div className="divInfo">
+        <p>{ability.description}</p>
+        <p>{ability.type}</p>
+      </div>
       <img src={imgAbilityDefault} alt="" />
     </div>
   )

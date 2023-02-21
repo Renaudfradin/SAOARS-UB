@@ -4,13 +4,38 @@
   margin-right: auto;
   width: 70%;
   border-radius: 5px;
-  padding-bottom: 1px;
   margin-top: 70px;
   margin-bottom: 70px;
 }
 
 .layout{
   display: flex;
+  flex-direction: column;
+}
+
+.linkBtn{
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  background: rgba(46, 32, 111, 0.94);
+  border-radius: 7px;
+  border: 1px solid rgb(255, 68, 252);
+  transition: transform 0.1s ease 0s;
+}
+
+.linkBtn::before{
+  background: url("./assets/img/background_button_hover.png");
+  background-color: black;
+}
+
+.linkBtn a{
+  color: aliceblue;
+  text-decoration: none;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
 }
 
 @media screen and (max-width:425px) {
@@ -18,10 +43,9 @@
     background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
     width: 100%;
     border-radius: 5px;
-    padding-bottom: 1px;
     margin-top: 70px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 0%;
+    padding-right: 0%;
   }
 }
 
@@ -30,7 +54,65 @@
     background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
     width: 80%;
     border-radius: 5px;
-    padding-bottom: 1px;
     margin-top: 70px;
+  }
+}
+
+
+/*
+* list card template
+*/
+.cardList{
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  grid-column-gap: 15px;
+  grid-row-gap: 50px;
+  background: linear-gradient(rgba(66, 7, 54, 0.75) 0%, rgba(0, 0, 0, 0) 65%);
+  margin: 8%;
+  margin-top: 6%;
+  justify-content: center;
+  padding-top: 20px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width:425px) {
+  .cardList{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-column-gap: 0px;
+    grid-row-gap: 30px;
+    margin: 8%;
+    margin-top: 6%;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width:1025px) and (min-width:426px) {
+  .cardList{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+    margin: 8%;
+    margin-top: 6%;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width:2500px) {
+  .cardList{
+    display: grid;
+    grid-template-columns: repeat(4, 23%);
+    grid-column-gap: 15px;
+    grid-row-gap: 30px;
+    margin: 8%;
+    margin-top: 6%;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
   }
 }

@@ -1,33 +1,22 @@
-import axios from "axios";
 import React from "react";
-import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from '../../assets/img/imgDefault/stuff_303.png'
-import Stats from "../../components/stats/stats";
-import Effect from "../../components/effect/effect";
-import "./Equipement.css"
+import imgDefault from '@assets/img/imgDefault/stuff_303.png'
+import Stats from "@components/stats/stats";
+import Effect from "@components/effect/effect";
+import "./Equipement.css";
+import { Helmet } from "react-helmet-async";
+import useEquipement from "@hook/useEquipement";
 
 export default function Equipement(params) {
   const param = useParams();
   const idPram = param.id;
-  const [equipement, updateEquipement] = useState([]);
-
-  useEffect(()=>{
-    axios.get(`https://api-saoars.vercel.app/equipment/${idPram}`)
-      .then((response)=>{
-        updateEquipement(response.data.equipment[0]);
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  },[])
-
-  useEffect(()=>{
-    document.title = `${equipement.name}`;
-  })
+  const { equipement } = useEquipement(idPram);
 
   return(
     <div>
+      <Helmet>
+        <title>Equipement {idPram}</title>
+      </Helmet>
       <p>{equipement.name}</p>
       <img src={imgDefault} alt="" />
 

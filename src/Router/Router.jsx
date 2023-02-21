@@ -1,20 +1,20 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "../pages/Home/Home.jsx";
-import Weapons from "../pages/Weapons/Weapons.jsx"
-import Weapon from "../pages/Weapon/Weapon.jsx";
-import NotFound from "../pages/404/404.jsx"
-import Banners from "../pages/Banners/Banners.jsx"
-import Banner from "../pages/Banner/Banner.jsx";
-import Equipements from "../pages/Equipments/Equipements.jsx"
-import Equipement from "../pages/Equipement/Equipement.jsx";
-import Imaginations from "../pages/Imaginations/Imaginations.jsx"
-import Abilitys from "../pages/Abilitys/Abilitys.jsx"
-import Ability from "../pages/Ability/Ability.jsx";
-import Characters from "../pages/Characters/Characters.jsx"
-import Character from "../pages/Character/Character.jsx";
-import About from "../pages/About/About.jsx"
-import Navbar from "../components/navbar/navbar.jsx";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import Home from "@pages/Home/Home.jsx";
+import Weapons from "@pages/Weapons/Weapons.jsx"
+import Weapon from "@pages/Weapon/Weapon.jsx";
+import NotFound from "@pages/404/404.jsx"
+import Banners from "@pages/Banners/Banners.jsx"
+import Banner from "@pages/Banner/Banner.jsx";
+import Equipements from "@pages/Equipments/Equipements.jsx"
+import Equipement from "@pages/Equipement/Equipement.jsx";
+import Imaginations from "@pages/Imaginations/Imaginations.jsx"
+import Abilitys from "@pages/Abilitys/Abilitys.jsx"
+import Ability from "@pages/Ability/Ability.jsx";
+import Characters from "@pages/Characters/Characters.jsx"
+import Character from "@pages/Character/Character.jsx";
+import About from "@pages/About/About.jsx"
+import Navbar from "@components/navbar/navbar.jsx";
 
 export default function Router(){
   return(
@@ -38,6 +38,9 @@ export default function Router(){
           <Route path="/about" element={<About />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
+      </div>
+      <div className="linkBtn">
+        <Link to="/about">About</Link>
       </div>
       </BrowserRouter>
     </div>

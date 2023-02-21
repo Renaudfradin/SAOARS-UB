@@ -1,27 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import CardWeapon from "../../components/cardWeapons/cardWeapons.jsx";
-import RenderStart from "../../components/renderStars/renderStart.jsx";
-import imgWeaponDefault from "../../assets/img/imgDefault/stuff_370.png"
-import "./Weapons.css"
+import React from "react";
+import CardWeapon from "@components/cardWeapons/cardWeapons.jsx";
+import RenderStart from "@components/renderStars/renderStart.jsx";
+import imgWeaponDefault from "@assets/img/imgDefault/stuff_370.png"
+import { Helmet } from "react-helmet-async";
+import useWeapons from "@hook/useWeapons";
 
-export default function contentWeapons(params) {
-  const [weapons , updateWeapons ] = useState([])
-
-  useEffect(()=>{
-    document.title = "List Weapons";
-
-    axios.get('https://api-saoars.vercel.app/weapon')
-      .then((response)=>{
-        updateWeapons(response.data.weapons)
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
-  }, [])
+export default function contentWeapons() {
+  const { weapons } = useWeapons();
 
   return(
-    <div className="layoutWeapons">
+    <div className="cardList">
+      <Helmet>
+        <title>List Weapons - Sword Art Online : Unleash Blading - Database</title>
+      </Helmet>
       {weapons.map((weapon)=>(
         <CardWeapon
           key={weapon.idw}

@@ -1,33 +1,20 @@
-import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "../../assets/img/imgDefault/character_2502.png";
-import RenderStart from "../../components/renderStars/renderStart.jsx";
-import EnhanceBtn from "../../assets/img/btn_enhance_mode.png";
-import Stats from "../../components/stats/stats";
-import Effect from "../../components/effect/effect";
-import "./Character.css"
+import imgDefault from "@assets/img/imgDefault/character_2502.png";
+import RenderStart from "@components/renderStars/renderStart.jsx";
+import EnhanceBtn from "@assets/img/btn_enhance_mode.png";
+import Stats from "@components/stats/stats";
+import Effect from "@components/effect/effect";
+import "./Character.css";
+import { Helmet } from "react-helmet-async";
+import useCharacter from "@hook/useCharacter";
 
 export default function Character() {
   const param = useParams();
   const idParam = param.id;
-  const [character , updateCharacter] = useState([]);
   const [enhance, updateEnhance] = useState(true);
-
-  useEffect(() => {
-    axios.get(`https://api-saoars.vercel.app/perso/${idParam}`)
-    .then((response) => {
-      updateCharacter(response.data.character[0]);
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
-  }, [])
-
-  useEffect(()=>{
-    document.title = `${character.name_characters} [${character.description}]`;
-  })
+  const { character } = useCharacter(idParam);
 
   function enhanceMode() {
     updateEnhance(!enhance);
@@ -35,7 +22,9 @@ export default function Character() {
 
   return(
     <div>
-
+      <Helmet>
+        <title>Character {idParam}</title>
+      </Helmet>
       <div className="infoCharacters">
         <div className="nameCharacter">
           <p>{character.name_characters}</p>
@@ -45,7 +34,6 @@ export default function Character() {
         <RenderStart list={false} stars={character.stars} />
         <p>{character.profile}</p>
       </div>
-
       { character.enhance_atk1 ? 
         <span>
           <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />
@@ -53,7 +41,6 @@ export default function Character() {
         :
         ""
       }
-      
       <div className="layoutAtkStat">
         {enhance ? 
           <div className="atkLayout">
