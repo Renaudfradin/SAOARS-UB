@@ -1,26 +1,17 @@
-import axios from "axios";
 import React from "react";
-import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "../../assets/img/imgDefault/stuff_370.png"
-import RenderStart from "../../components/renderStars/renderStart";
-import Stats from "../../components/stats/stats";
-import Effect from "../../components/effect/effect";
+import imgDefault from "@assets/img/imgDefault/stuff_370.png"
+import RenderStart from "@components/renderStars/renderStart";
+import Stats from "@components/stats/stats";
+import Effect from "@components/effect/effect";
 import "./Weapon.css"
 import { Helmet } from "react-helmet-async";
+import useWeapon from "@hook/useWeapon";
 
 export default function Weapon() {
   const param = useParams();
   const idParam = param.id;
-  const [weapon , updateWeapon] = useState([]);
-
-  useEffect(() => {
-    axios.get(`https://api-saoars.vercel.app/weapon/${idParam}`)
-    .then((response) => {
-      console.log(response.data.weapon)
-      updateWeapon(response.data.weapon);
-    })
-  }, [])
+  const { weapon } = useWeapon(idParam)
 
   return(
     <div>
