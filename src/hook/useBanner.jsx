@@ -20,7 +20,7 @@ export default function useBanner(id) {
 
   useEffect(()=>{
     fetchBanner();
-  }, [banner])
+  }, [])
 
   return { banner }
 }

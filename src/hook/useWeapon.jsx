@@ -20,7 +20,7 @@ export default function useWeapon(id) {
 
   useEffect(()=>{
     fetchWeapon();
-  }, [weapon])
+  }, [])
 
   return { weapon }
 }

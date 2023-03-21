@@ -20,7 +20,7 @@ export default function useEquipements() {
 
   useEffect(()=>{
     fetchEquipements();
-  }, [equipements])
+  }, [])
 
   return { equipements }
 }
