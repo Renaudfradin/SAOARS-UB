@@ -20,7 +20,7 @@ export default function useAbility(id) {
 
   useEffect(()=>{
     fetchAbility();
-  }, [ability])
+  }, [])
 
   return { ability }
 }

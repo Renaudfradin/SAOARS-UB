@@ -20,7 +20,7 @@ export default function useCharacters() {
 
   useEffect(()=>{
     fetchCharacters();
-  },[characters])
+  },[])
 
   return { characters }
 }

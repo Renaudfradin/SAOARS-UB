@@ -20,7 +20,7 @@ export default function useImaginations() {
 
   useEffect(()=>{
     fetchImaginations();
-  }, [imaginations])
+  }, [])
 
   return { imaginations }
 }
