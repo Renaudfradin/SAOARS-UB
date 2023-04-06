@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import axios from "axios";
 
 export default function useBanners() {
@@ -18,8 +18,8 @@ export default function useBanners() {
     }
   };
 
-  useEffect(()=>{
-    fetchBanners();
+  useMemo(()=>{
+    fetchBanners()
   }, [])
 
   return { banners }
