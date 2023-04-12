@@ -1,0 +1,39 @@
+.containerNotFound{
+  text-align: center;
+  border-top: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(255, 255, 255);
+  background: rgba(46, 32, 111, 0.7);
+  font-size: 25px;
+}
+
+.containerNotFound div::before {
+  content: "";
+  position: absolute;
+  left: 16%;
+  top: 80px;
+  width: 6px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.containerNotFound div::after {
+  content: "";
+  position: absolute;
+  right: 16%;
+  top: 80px;
+  width: 6px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+@media screen and (max-width:425px) {
+  .containerNotFound div::before {
+    left: 2%;
+  }
+
+  .containerNotFound div::after {
+    right: 2%;
+  }
+}

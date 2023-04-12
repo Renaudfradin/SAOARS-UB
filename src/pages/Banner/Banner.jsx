@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import imgDefault from "@assets/img/imgDefault/character_250.png";
-import "./Banner.css";
 import { Helmet } from "react-helmet-async";
 import useBanner from "@hook/useBanner.jsx";
+import "./Banner.css";
 
 export default function Banner() {
   const param = useParams();
   const idParam = param.id;
-  const baseUrl = import.meta.env.VITE_BACKEND_URL
+  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const { banner } = useBanner(idParam);
 
   return(
