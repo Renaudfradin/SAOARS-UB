@@ -12,11 +12,17 @@ export default function Banner() {
   const { banner } = useBanner(idParam);
 
   return(
-    <div className="containerBanner">
+    <>
       <Helmet>
         <title>{banner.name_b}</title>
       </Helmet>
-      <div className="infoTitle">
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
+      </div>
+      <div className="imgMid">
+        <div className="infoTitle">
         <p>{banner.name_b}</p>
         <img className="imgBanner" src={baseUrl+banner.img_baner} alt={baseUrl+banner.img_baner} />
       </div>
@@ -39,6 +45,12 @@ export default function Banner() {
           <Link to={`/characters/${banner.chracters}`}><img className="imgPerso" src={imgDefault} alt={imgDefault} /></Link>
         </div>
       </div>
-    </div>
+      </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }

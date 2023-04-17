@@ -38,11 +38,6 @@ export default function Router(){
           <Route path="/about" element={<About />} />
           {/* redirection 404 */}
           <Route path="*" element={<NotFound />} />
-          <Route path="/banners/:id*" element={<NotFound />}/>
-          <Route path="/weapons/:id*" element={<NotFound />}/>
-          <Route path="/characters/:id*" element={<NotFound />}/>
-          <Route path="/equipements/:id*" element={<NotFound />}/>
-          <Route path="/abilitys/:id*" element={<NotFound />}/>
         </Routes>
       </div>
       <div className="linkBtn">

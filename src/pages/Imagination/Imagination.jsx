@@ -3,11 +3,23 @@ import { Helmet } from "react-helmet-async";
 
 export default function name() {
   return(
-    <div>
+    <>
       <Helmet>
         <title>Imagination</title>
       </Helmet>
-      <p>imagination</p>
-    </div>
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
+      </div>
+      <div className="imgMid">
+        <p>imagination</p>
+      </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }
