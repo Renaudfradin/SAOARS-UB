@@ -7,19 +7,33 @@ import useImaginations from "@hook/useImaginations";
 export default function contentImagination() {
   const { imaginations } = useImaginations();
 
-  return(
-    <div className="cardList">
+  return (
+    <>
       <Helmet>
         <title>List Imaginations - Sword Art Online : Unleash Blading - Database</title>
       </Helmet>
-      {imaginations.map((imagination)=>(
-        <CardImaginations
-          key={imagination.idconst}
-          name={imagination.name}
-          imgImganationDefault={imgImganationDefault}
-          description={imagination.description}
-        ></CardImaginations>
-      ))}
-    </div>
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
+      </div>
+      <div className="imgMid">
+        <div className="cardList">
+          {imaginations.map((imagination)=>(
+            <CardImaginations
+              key={imagination.idconst}
+              name={imagination.name}
+              imgImganationDefault={imgImganationDefault}
+              description={imagination.description}
+            ></CardImaginations>
+          ))}
+        </div>
+      </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }

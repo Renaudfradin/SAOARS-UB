@@ -8,21 +8,35 @@ import useAbilitys from "@hook/useAbilitys";
 export default function contentAbility() {
   const { abilitys } = useAbilitys();
 
-  return(
-    <div className="cardList">
+  return (
+    <>
       <Helmet>
         <title>List Abilitys - Sword Art Online : Unleash Blading - Database</title>
       </Helmet>
-      {abilitys.map((ability)=>(
-        <CardAbilitys
-          key={ability.id}
-          id={ability.id}
-          name={ability.name}
-          stars={<RenderStart list={true} stars={ability.start} />}
-          type={ability.type}
-          imgAbilityDefault={imgAbilityDefault}
-        ></CardAbilitys>
-      ))}
-    </div>
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
+      </div>
+      <div className="imgMid">
+        <div className="cardList">
+          {abilitys.map((ability)=>(
+            <CardAbilitys
+              key={ability.id}
+              id={ability.id}
+              name={ability.name}
+              stars={<RenderStart list={true} stars={ability.start} />}
+              type={ability.type}
+              imgAbilityDefault={imgAbilityDefault}
+            ></CardAbilitys>
+          ))}
+        </div>
+      </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }

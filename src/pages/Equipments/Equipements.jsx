@@ -7,19 +7,33 @@ import useEquipements from "../../hook/useEquipements";
 export default function Equipements(){
   const { equipements } = useEquipements();
 
-  return(
-    <div className="cardList">
+  return (
+    <>
       <Helmet>
         <title>List Equipements - Sword Art Online : Unleash Blading - Database</title>
       </Helmet>
-      {equipements.map((equipement)=>(
-        <CardEquipement
-          key={equipement.id}
-          id={equipement.id}
-          name={equipement.name}
-          stars={<RenderStart list={true} stars={equipement.stars} />}
-        ></CardEquipement>
-      ))}
-    </div>
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
+      </div>
+      <div className="imgMid">
+        <div className="cardList">
+          {equipements.map((equipement)=>(
+            <CardEquipement
+              key={equipement.id}
+              id={equipement.id}
+              name={equipement.name}
+              stars={<RenderStart list={true} stars={equipement.stars} />}
+            ></CardEquipement>
+          ))}
+        </div>
+      </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }

@@ -39,7 +39,7 @@
 }
 
 .imgMid {
-  padding: 20px 9% 40px;
+  padding: 10px 7% 10px;
   background-image: url("./assets/img/background/border_left.png"), url("./assets/img/background/border_right.png");
   background-repeat: repeat-y, repeat-y;
   background-position: left top, right top;
