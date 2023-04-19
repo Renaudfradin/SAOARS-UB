@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import axios from "axios";
 
 export default function useImaginations() {
@@ -18,7 +18,7 @@ export default function useImaginations() {
     }
   };
 
-  useEffect(()=>{
+  useMemo(()=>{
     fetchImaginations();
   }, [])
 

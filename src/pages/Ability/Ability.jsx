@@ -12,22 +12,34 @@ export default function Ability() {
   const { ability } = useAbility(idParam);
 
   return(
-    <div className="containerAbility">
+    <>
       <Helmet>
         <title>{ability.name}</title>
       </Helmet>
-      <div className="divTitle">
-        <p>{ability.name}</p>
-        <RenderStart
-          list={false}
-          stars={ability.start}
-        ></RenderStart>
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
       </div>
-      <div className="divInfo">
-        <p>{ability.description}</p>
-        <p>{ability.type}</p>
+      <div className="imgMid">
+        <div className="divTitle">
+          <p>{ability.name}</p>
+          <RenderStart
+            list={false}
+            stars={ability.start}
+          ></RenderStart>
+        </div>
+        <div className="divInfo">
+          <p>{ability.description}</p>
+          <p>{ability.type}</p>
+        </div>
+        <img src={imgAbilityDefault} alt="" />
       </div>
-      <img src={imgAbilityDefault} alt="" />
-    </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }

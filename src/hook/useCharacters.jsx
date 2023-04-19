@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import axios from "axios";
 
 export default function useCharacters() {
@@ -18,9 +18,9 @@ export default function useCharacters() {
     }
   }
 
-  useEffect(()=>{
+  useMemo(()=>{
     fetchCharacters();
-  },[])
+  }, [])
 
   return { characters }
 }

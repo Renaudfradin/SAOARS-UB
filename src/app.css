@@ -13,29 +13,74 @@
   flex-direction: column;
 }
 
-.linkBtn{
+.imgMid {
+  padding: 10px 7% 10px;
+  background-image: url("./assets/img/background/border_left.png"), url("./assets/img/background/border_right.png");
+  background-repeat: repeat-y, repeat-y;
+  background-position: left top, right top;
+  background-size: 73.5px, 90px;
+  overflow: hidden;
+}
+
+.imgHeader,
+.imgFooter {
   display: flex;
-  justify-content: center;
-  margin-right: auto;
+}
+
+.imgHeader div {
+  height: 157px;
+  background-position: left top;
+}
+
+.leftHeader {
+  width: 200px;
+  background-image: url("./assets/img/background/border_top_left.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.midHeader {
+  background-image: url("./assets/img/background/border_top.png");
+  background-repeat: repeat-x;
+  background-size: auto 51.5px;
+  flex: 1 1 auto;
+}
+
+.rightHeader {
+  background-image: url("./assets/img/background/border_top_right.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 90px;
   margin-left: auto;
-  margin-bottom: 20px;
-  background: rgba(46, 32, 111, 0.94);
-  border-radius: 7px;
-  border: 1px solid rgb(255, 68, 252);
-  transition: transform 0.1s ease 0s;
 }
 
-.linkBtn::before{
-  background: url("./assets/img/background_button_hover.png");
-  background-color: black;
+.leftFooter {
+  background-image: url("./assets/img/background/border_footer_left.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100% 100%;
+  width: 200px;
+  margin-left: auto;
+  height: 59px;
 }
 
-.linkBtn a{
-  color: aliceblue;
-  text-decoration: none;
-  padding: 15px;
-  width: 150px;
-  text-align: center;
+.midFooter {
+  background-image: url("./assets/img/background/border_footer.png");
+  background-repeat: repeat-x;
+  background-position: left top;
+  background-size: 100% 100%;
+  flex: 1 1 auto;
+  height: 59px;
+}
+
+.rightFooter {
+  background-image: url("./assets/img/background/border_footer_right.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 100% 100%;
+  width: 90px;
+  margin-left: auto;
+  height: 59px;
 }
 
 @media screen and (max-width:425px) {

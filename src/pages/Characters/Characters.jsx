@@ -26,41 +26,54 @@ export default function contentCharacters(){
     console.log(advancedsearch);
   }
 
-  return(
-    <div className="container_characters">
+  return (
+    <>
       <Helmet>
         <title>List Characters - Sword Art Online : Unleash Blading - Database</title>
       </Helmet>
-      <div>
-        <button onClick={searchAdvence}>Advanced search</button>
+      <div className="imgHeader">
+        <div className="leftHeader" />
+        <div className="midHeader" />
+        <div className="rightHeader" />
       </div>
-      { advancedsearch ? 
-        <div>
-          <input type="search" name="inputName" value={inputvalue} onChange={handleChange} />
+      <div className="imgMid">
+        <div className="container_characters">
+          <div>
+            <button onClick={searchAdvence}>Advanced search</button>
+          </div>
+          { advancedsearch ? 
+            <div>
+              <input type="search" name="inputName" value={inputvalue} onChange={handleChange} />
+            </div>
+            :""
+          }
+          <div className="cardList">
+            { inputvalue && filteredData.length != 0 ? (
+                filteredData.map((character) => (
+                  <CardCharacters
+                    key = { character.id } 
+                    infoCharacters = {{ ...character  }}
+                    imgDefault = { imgDefault }
+                  ></CardCharacters>
+                ))
+              ):(
+                characters.map((character) => (
+                  <CardCharacters
+                    key = { character.id } 
+                    infoCharacters = {{ ...character  }}
+                    imgDefault = { imgDefault }
+                  ></CardCharacters>
+                ))
+              )
+            }
+          </div>
         </div>
-        :""
-      }
-
-      <div className="cardList">
-        { inputvalue && filteredData.length != 0 ? (
-            filteredData.map((character) => (
-              <CardCharacters
-                key = { character.id } 
-                infoCharacters = {{ ...character  }}
-                imgDefault = { imgDefault }
-              ></CardCharacters>
-            ))
-          ):(
-            characters.map((character) => (
-              <CardCharacters
-                key = { character.id } 
-                infoCharacters = {{ ...character  }}
-                imgDefault = { imgDefault }
-              ></CardCharacters>
-            ))
-          )
-        }
       </div>
-    </div>
+      <div className="imgFooter">
+        <div className="leftFooter" />
+        <div className="midFooter" />
+        <div className="rightFooter" />
+      </div>
+    </>
   )
 }

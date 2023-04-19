@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import axios from "axios";
 
 export default function useEquipement(id) {
@@ -18,7 +18,7 @@ export default function useEquipement(id) {
     }
   };
 
-  useEffect(()=>{
+  useMemo(()=>{
     fetchEquipement();
   }, [])
 

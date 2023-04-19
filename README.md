@@ -17,7 +17,7 @@ npm run dev
 | Nom de variable            | Valeur                            | Explication                |
 | -------------------------- | --------------------------------- | -------------------------- |
 | PORT                       | 3000                              | Port du front              |
-| VITE_BACKEND_BASEURL       | https://api-saoars.vercel.app     | Port API                   |
+| VITE_BACKEND_URL           | https://api-saoars.vercel.app     | Port API                   |
 
 
 ![alt text](/public/saoub.PNG)
