@@ -1,0 +1,23 @@
+.swippeWrapper {
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 425px) {
+  .swippeWrapper {
+    margin-top: 0px;
+  }
+
+  .swiper-wrapper{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .swippeWrapper {
+    margin-top: 50px;
+  }
+
+  .swiper-wrapper {
+    text-align: center;
+  }
+}
