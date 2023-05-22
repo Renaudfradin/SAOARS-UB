@@ -15,6 +15,9 @@ export default function Banner() {
     <>
       <Helmet>
         <title>{banner.name_b}</title>
+        <meta name="description" content="List Banners - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgHeader">
         <div className="leftHeader" />
@@ -23,9 +26,9 @@ export default function Banner() {
       </div>
       <div className="imgMid">
         <div className="infoTitle">
-        <p>{banner.name_b}</p>
-        <img className="imgBanner" src={baseUrl+banner.img_baner} alt={baseUrl+banner.img_baner} />
-      </div>
+          <p>{banner.name_b}</p>
+          <img className="imgBanner" src={baseUrl+banner.img_baner} alt={baseUrl+banner.img_baner} />
+        </div>
       <div className="infoBanners">
         <div className="infoPeriode">
           <h3>periode</h3>

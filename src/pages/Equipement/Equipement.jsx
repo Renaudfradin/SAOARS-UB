@@ -16,6 +16,9 @@ export default function Equipement() {
     <>
       <Helmet>
         <title>Equipement {idPram}</title>
+        <meta name="description" content="List Equipements - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgHeader">
         <div className="leftHeader" />

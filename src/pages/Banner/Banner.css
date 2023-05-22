@@ -11,12 +11,9 @@
 }
 
 .infoTitle p{
-  display: flex;
   padding: 10px;
   background: rgba(54, 19, 89, 0.85);
-  width: 20%;
-  flex-direction: row;
-  justify-content: flex-start;
+  width: auto;
 }
 
 .periode{
@@ -29,14 +26,23 @@
 }
 
 .infoPeriode{
-  border: 1px solid #765b7e;
+  border: 2px solid #765b7e;
   width: 40%;
   text-align: center;
 }
 
+.infoPeriode h3{
+  text-transform: uppercase;
+}
+
 .infoPerso{
-  border: 1px solid #765b7e;
-  width: 30%;
+  border: 2px solid #765b7e;
+  width: 40%;
+  text-transform: uppercase;
+}
+
+.infoPerso{
+  text-align: center;
 }
 
 .imgPerso{
@@ -48,6 +54,10 @@
   width: 40%;
   background-color: rgba(23, 23, 23, 0.5);
   padding: 20px 30%;
+}
+
+.periodeTo{
+  margin-left: 10px;
 }
 
 .periodeFrom,
@@ -68,12 +78,12 @@
 
 .From,
 .To{
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .FromP,
 .ToP{
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media screen and (max-width:425px) {
@@ -86,37 +96,55 @@
   }
 
   .infoPeriode {
-    border: 1px solid #765b7e;
     width: 90%;
     text-align: center;
   }
 
+  .periode {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    margin: 0%;
+  }
+
+  .periodeTo {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+    
+  .periodeFrom,
+  .periodeTo {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
   .infoPerso {
-    border: 1px solid #765b7e;
     width: 90%;
     margin-top: 30px;
     margin-bottom: 30px;
   }
 
   .infoTitle{
-    margin-right: 0%;
-    margin-left: 0%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   .imgBanner{
     width: 90%;
-    background-color: rgba(23, 23, 23, 0.5);
+    background-color: rgba(23, 23, 23, 0);
     padding: 10px 10px;
   }
 
   .infoTitle p {
-    display: flex;
-    padding: 10px;
     background: rgba(54, 19, 89, 0.85);
-    width: 70%;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-left: 5%;
+    width: 85%;
   }
 }
 
@@ -130,36 +158,41 @@
   }
 
   .infoPeriode {
-    border: 1px solid #765b7e;
-    width: 80%;
+    width: 90%;
     text-align: center;
   }
 
   .infoPerso {
-    border: 1px solid #765b7e;
-    width: 80%;
+    width: 90%;
     margin-top: 30px;
-    margin-bottom: 30px;
   }
 
   .infoTitle{
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
   }
 
   .imgBanner{
-    width: 90%;
+    width: 85%;
     background-color: rgba(23, 23, 23, 0.5);
     padding: 10px 10px;
   }
 
   .infoTitle p {
-    display: flex;
     padding: 10px;
     background: rgba(54, 19, 89, 0.85);
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+  .imgBanner {
     width: 70%;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-left: 5%;
+    background-color: rgba(23, 23, 23, 0.5);
+    padding: 15px 15%;
   }
 }

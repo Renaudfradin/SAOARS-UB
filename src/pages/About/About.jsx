@@ -6,6 +6,9 @@ export default function About() {
     <>
       <Helmet>
         <title>About - Sword Art Online : Unleash Blading - Database</title>
+        <meta name="description" content="About - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgHeader">
         <div className="leftHeader" />

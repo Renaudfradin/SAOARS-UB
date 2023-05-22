@@ -15,6 +15,9 @@ export default function Ability() {
     <>
       <Helmet>
         <title>{ability.name}</title>
+        <meta name="description" content="List Abilitys - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgHeader">
         <div className="leftHeader" />

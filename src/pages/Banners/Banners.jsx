@@ -10,6 +10,9 @@ export default function contentBanners(){
     <> 
       <Helmet>
         <title>List Banners - Sword Art Online : Unleash Blading - Database</title>
+        <meta name="description" content="List Banners - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgHeader">
         <div className="leftHeader" />

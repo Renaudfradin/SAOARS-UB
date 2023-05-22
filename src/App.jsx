@@ -1,7 +1,7 @@
-import React from "react"
-import Router from "./Router/Router"
+import React from "react";
+import Router from "./Router/Router";
 import { HelmetProvider , Helmet } from "react-helmet-async";
-import "./app.css"
+import "./app.css";
 
 export default function App() {
   return (
