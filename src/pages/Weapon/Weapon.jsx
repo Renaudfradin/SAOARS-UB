@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "@assets/img/imgDefault/stuff_370.png"
+import imgDefault from "@assets/img/imgDefault/stuff_375.jpg"
 import RenderStart from "@components/renderStars/renderStart";
 import Stats from "@components/stats/stats";
 import Effect from "@components/effect/effect";
@@ -22,8 +22,14 @@ export default function Weapon() {
         <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgMid">
-        <p>{weapon.name_weapon}</p>
-        <img src={imgDefault} alt="" />
+        <div className="infoWeapons">
+          <div className="bg1">
+            <div className="bg2">
+              <p>{weapon.name_weapon}</p>
+              <img src={imgDefault} alt={imgDefault} />
+            </div>
+          </div>
+        </div>
         <RenderStart list={false} stars={weapon.stars}/>
         <div className="layoutStat">
           <div className="containerEffect">
@@ -35,10 +41,12 @@ export default function Weapon() {
               character={false}
               effect={weapon.effect_2}
             ></Effect>
-            <Effect
-              character={false}
-              effect={weapon.effect_3}
-            ></Effect>
+            {weapon.effect_3 ? 
+              <Effect
+                character={false}
+                effect={weapon.effect_3}
+              ></Effect>
+            :null}
           </div>
           <Stats
             stats={{ ...weapon }}

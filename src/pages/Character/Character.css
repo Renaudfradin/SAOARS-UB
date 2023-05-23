@@ -93,6 +93,36 @@ span{
   width: 68px;
   height: 68px;
 }
+
+.infoCharacterss {
+  margin-bottom: 20px;
+  background: linear-gradient(rgba(66, 7, 54, 0.75) 0%, rgba(0, 0, 0, 0) 65%);
+  width: 83.33333333%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+
+.infoCharacterss img {
+  max-width: 350px;
+  border: 3px solid rgb(24, 25, 43);
+}
+
+.infoCharacterss p {
+  padding: 10px 40px 10px 10px;
+  background: rgba(54, 19, 89, 0.85);
+  width: auto;
+  margin: 0%;
+  margin-bottom: 10px;
+  position: absolute;
+  left: 30%;
+  top: 28.5%;
+}
+
 @media screen and (max-width: 425px) {
   .layoutAtkStat {
     display: flex;
@@ -122,5 +152,57 @@ span{
 
   .imgCharacters {
     width: 100%;
+  }
+
+  .infoCharacterss {
+    margin-bottom: 0px;
+    width: 100%;
+  }
+
+  .infoCharacterss p {
+    padding: 10px 40px 10px 10px;
+    background: rgba(54, 19, 89, 0.85);
+    width: 65%;
+    margin: 0%;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 12%;
+    top: 28.5%;
+  }
+
+  .infoCharacterss img {
+    max-width: 275px;
+    border: 3px solid rgb(24, 25, 43);
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .infoCharacterss {
+    margin-bottom: 0px;
+    width: 100%;
+  }
+
+  .infoCharacterss p {
+    padding: 10px 40px 10px 10px;
+    background: rgba(54, 19, 89, 0.85);
+    width: auto;
+    margin: 0%;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 25%;
+    top: 28.5%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .infoCharacterss p {
+    padding: 10px 40px 10px 10px;
+    background: rgba(54, 19, 89, 0.85);
+    width: 30%;
+    margin: 0%;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 25%;
+    top: 28.5%;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "@assets/stuff_306.jpg";
+import imgDefault from "@assets/img/imgDefault/stuff_306.jpg";
 import Stats from "@components/stats/stats";
 import Effect from "@components/effect/effect";
 import { Helmet } from "react-helmet-async";

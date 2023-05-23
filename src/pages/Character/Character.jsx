@@ -29,20 +29,19 @@ export default function Character() {
         <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgMid">
-        <div className="infoCharacters">
-          <div className="nameCharacter">
-            <p>{character.name_characters}</p>
-            <p>{character.description}</p>
+        <div className="infoCharacterss">
+          <div className="bg1">
+            <div className="bg2">
+              <p>{character.name_characters} {character.description}</p>
+              <img src={imgDefault} alt={imgDefault} />
+            </div>
           </div>
-          <img className="imgCharacters" src={imgDefault} alt={imgDefault} />
+        </div>
+        <div className="infoCharacters">
           <div className="starrss">
             <RenderStart list={false} stars={character.stars} />
           </div>
-          
-          {console.log(character)}
         </div>
-
-
         { character.enhance_atk1 ?
           <span>
             <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />

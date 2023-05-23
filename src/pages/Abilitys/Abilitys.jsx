@@ -19,17 +19,14 @@ export default function contentAbility() {
       <div className="imgMid">
         <div className="cardList">
           {abilitys.map((ability) => (
-            <>
-              {console.log(ability)}
-               <CardAbilitys
-                key={ability.id}
-                id={ability.id}
-                name={ability.name}
-                stars={ability.start}
-                type={ability.type}
-                imgAbilityDefault={imgAbilityDefault}
-              ></CardAbilitys>
-            </>
+              <CardAbilitys
+              key={ability.id}
+              id={ability.id}
+              name={ability.name}
+              stars={ability.start}
+              type={ability.type}
+              imgAbilityDefault={imgAbilityDefault}
+            ></CardAbilitys>
           ))}
         </div>
       </div>
