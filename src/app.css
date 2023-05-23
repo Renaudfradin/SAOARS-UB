@@ -97,7 +97,7 @@
   border-radius: 5px;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:600px) {
   .container {
     background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
     width: 100%;
@@ -122,7 +122,7 @@
   }
 }
 
-@media screen and (max-width:1024px) and (min-width:426px) {
+@media screen and (max-width:1024px) and (min-width:601px) {
   .container {
     background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
     width: 80%;

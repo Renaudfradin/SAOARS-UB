@@ -5,13 +5,14 @@
 .listIconAtk{
   display: flex;
   flex-direction: column;
-  align-content: center;
   align-items: center;
+  width: 40px;
+  height: auto;
 }
 
 .infoCharacter{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   background-color: rgba(23, 23, 23, 0.5);
   padding: 10px 5%;
@@ -19,7 +20,7 @@
 }
 
 .imgCharacter{
-  width: 70%;
+  width: 145px;
 }
 
 .listIconAtk img{
@@ -29,4 +30,21 @@
 
 .layoutCharacter p {
   margin: 0%;
+}
+
+@media screen and (max-width:768px) {
+  .imgCharacter {
+    width: 135px;
+  }
+
+  .listIconAtk {
+    width: 40px;
+    margin-top: -20px;
+  }
+}
+
+@media screen and (min-width:2500px) {
+  .imgCharacter {
+    width: 160px;
+  }
 }

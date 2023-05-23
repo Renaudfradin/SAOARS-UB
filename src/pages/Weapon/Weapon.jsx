@@ -21,11 +21,6 @@ export default function Weapon() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <p>{weapon.name_weapon}</p>
         <img src={imgDefault} alt="" />
@@ -46,21 +41,9 @@ export default function Weapon() {
             ></Effect>
           </div>
           <Stats
-            hp={weapon.hp_w}
-            mp={weapon.mp_w}
-            atk={weapon.atk_w}
-            matk={weapon.matk_w}
-            def={weapon.def_w}
-            mdef={weapon.mdef_w}
-            crit={weapon.crit_w}
-            spd={weapon.spd_w}
+            stats={{ ...weapon }}
           ></Stats>
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

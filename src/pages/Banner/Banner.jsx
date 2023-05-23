@@ -19,11 +19,6 @@ export default function Banner() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div className="infoTitle">
           <p>{banner.name_b}</p>
@@ -48,11 +43,6 @@ export default function Banner() {
           <Link to={`/characters/${banner.chracters}`}><img className="imgPerso" src={imgDefault} alt={imgDefault} /></Link>
         </div>
       </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

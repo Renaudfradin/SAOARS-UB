@@ -1,5 +1,5 @@
 .statsLayout{
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(0, 0, 0, 0.3);
   width: 30%;
   height: 30%;
@@ -16,54 +16,54 @@
 .barHP{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(55, 250, 55) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(55, 250, 55) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barMP{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(35, 250, 235) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(35, 250, 235) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barATK{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(235, 70, 35) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(235, 70, 35) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barMATK{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(240, 200, 25) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(240, 200, 25) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barDEF{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(180, 10, 240) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(180, 10, 240) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barMDEF{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(200, 10, 145) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(200, 10, 145) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barCRIT{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(235, 150, 15) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(235, 150, 15) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 .barSPD{
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(240, 200, 25) 23%, transparent 23%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
+  background: linear-gradient(90deg, rgb(240, 200, 25) 70%, transparent 100%), linear-gradient(90deg, rgb(190, 190, 190) 48%, transparent 48%), linear-gradient(90deg, rgb(190, 190, 190) 73%, transparent 73%), linear-gradient(90deg, rgb(190, 190, 190) 95%, transparent 95%), linear-gradient(90deg, rgb(89, 62, 133) 98%, rgb(255, 255, 255) 100%);
 }
 
 @media screen and (max-width: 425px) {
   .statsLayout{
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
     height: auto;

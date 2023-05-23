@@ -16,29 +16,22 @@ export default function contentAbility() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div className="cardList">
-          {abilitys.map((ability)=>(
-            <CardAbilitys
-              key={ability.id}
-              id={ability.id}
-              name={ability.name}
-              stars={<RenderStart list={true} stars={ability.start} />}
-              type={ability.type}
-              imgAbilityDefault={imgAbilityDefault}
-            ></CardAbilitys>
+          {abilitys.map((ability) => (
+            <>
+              {console.log(ability)}
+               <CardAbilitys
+                key={ability.id}
+                id={ability.id}
+                name={ability.name}
+                stars={ability.start}
+                type={ability.type}
+                imgAbilityDefault={imgAbilityDefault}
+              ></CardAbilitys>
+            </>
           ))}
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

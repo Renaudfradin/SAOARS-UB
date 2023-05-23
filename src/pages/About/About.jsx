@@ -10,11 +10,6 @@ export default function About() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div>
           <h2>The Database</h2>
@@ -26,11 +21,6 @@ export default function About() {
           <p>This Privacy Policy may be changed at our discretion forms of additions or deletions.Your continued use of the website after any changes indicates that you accept the changes.</p>
           <p>You must refer to this web page, which displays the most recent version of our privacy policy.</p>
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

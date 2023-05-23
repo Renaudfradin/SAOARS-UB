@@ -15,11 +15,6 @@ export default function contentImagination() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div className="cardList">
           {imaginations.map((imagination)=>(
@@ -31,11 +26,6 @@ export default function contentImagination() {
             ></CardImaginations>
           ))}
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

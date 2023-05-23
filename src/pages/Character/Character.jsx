@@ -2,6 +2,7 @@ import React,{ useState } from "react";
 import { useParams } from "react-router-dom";
 import imgDefault from "@assets/img/imgDefault/character_2502.png";
 import EnhanceBtn from "@assets/img/btn_enhance_mode.png";
+import imgPartner from "@assets/special_partner.png";
 import RenderStart from "@components/renderStars/renderStart.jsx";
 import Stats from "@components/stats/stats";
 import Effect from "@components/effect/effect";
@@ -27,11 +28,6 @@ export default function Character() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div className="infoCharacters">
           <div className="nameCharacter">
@@ -39,18 +35,21 @@ export default function Character() {
             <p>{character.description}</p>
           </div>
           <img className="imgCharacters" src={imgDefault} alt={imgDefault} />
-          <RenderStart list={false} stars={character.stars} />
-          <p>{character.profile}</p>
+          <div className="starrss">
+            <RenderStart list={false} stars={character.stars} />
+          </div>
+          
+          {console.log(character)}
         </div>
-        { character.enhance_atk1 ? 
+
+
+        { character.enhance_atk1 ?
           <span>
             <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />
           </span>
-          :
-          ""
-        }
+          : null }
         <div className="layoutAtkStat">
-          {enhance ? 
+          {enhance ?
             <div className="atkLayout">
               <Effect
                 character={true}
@@ -79,8 +78,8 @@ export default function Character() {
                 title={character.ultime}
                 description={character.ultime_description}
               ></Effect>
-            </div> 
-            : 
+            </div>
+            :
             <div className="atkLayout">
               <Effect
                 character={true}
@@ -100,25 +99,22 @@ export default function Character() {
                 description={character.enhance_ultime_description}
                 mp={character.enhance_ultime_mp}
               ></Effect>
-            </div> 
+            </div>
           }
-          <Stats 
-            hp={character.hp}
-            mp={character.mp}
-            atk={character.atk}
-            matk={character.matk}
-            def={character.def}
-            mdef={character.mdef}
-            crit={character.crit}
-            spd={character.spd}
+          <Stats
+            stats={{ ...character }}
           ></Stats>
         </div>
-        <p>{character.special_partner}</p>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
+        <div className="profileInfo">
+          <div className="profile">
+            <h3 className="titleProfil">Description</h3>
+            <p>{character.profile}</p>
+          </div>
+          {/* <div className="partner">
+            <img src={imgPartner} alt={imgPartner} />
+            <p>{character.special_partner}</p>
+          </div> */}
+        </div>
       </div>
     </>
   )
