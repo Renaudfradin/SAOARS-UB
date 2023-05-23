@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from '@assets/img/imgDefault/stuff_303.png';
+import imgDefault from "@assets/stuff_306.jpg";
 import Stats from "@components/stats/stats";
 import Effect from "@components/effect/effect";
 import { Helmet } from "react-helmet-async";
@@ -21,8 +21,14 @@ export default function Equipement() {
         <link rel="icon" href="/logo.ico" />
       </Helmet>
       <div className="imgMid">
-        <p>{equipement.name}</p>
-        <img src={imgDefault} alt="" />
+        <div className="infoEquipment">
+          <div className="bg1">
+            <div className="bg2">
+              <p>{equipement.name}</p>
+              <img src={imgDefault} alt={imgDefault} />
+            </div>
+          </div>
+        </div>
         <div className="layoutStat">
           <div className="containerEffect">
             <Effect

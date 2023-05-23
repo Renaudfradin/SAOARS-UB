@@ -97,6 +97,23 @@
   border-radius: 5px;
 }
 
+@media screen and (max-width: 768px) {
+  .containerEffect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
 @media screen and (max-width:600px) {
   .container {
     background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);

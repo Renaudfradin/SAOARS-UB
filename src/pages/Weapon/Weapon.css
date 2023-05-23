@@ -21,7 +21,7 @@
 }
 
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .layoutStat {
     display: flex;
     flex-direction: column-reverse;
@@ -29,20 +29,5 @@
     padding-left: 0%;
     justify-content: center;
     align-items: center;
-  }
-
-  .containerEffect{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 90%;
-    margin-top: 20px;
   }
 }

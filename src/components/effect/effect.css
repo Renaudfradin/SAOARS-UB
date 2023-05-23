@@ -49,6 +49,7 @@
 .infoEffectrighttt{
   width: 100%;
 }
+
 .infoEffectrightt p{
   margin: 0%;
   font-size: 14px;
@@ -83,4 +84,21 @@
 
 .infoEffectleft img{
   width: 57px;
+}
+
+@media screen and (max-width: 425px) {
+  .containerInfo {
+    padding-left: 0px;
+    padding-right: 0px;
+    height: auto;
+  }
+
+  .infoEffectleft{
+    display: none;
+  }
+
+  .infoEffectright{
+    height: 50px;
+    margin-left: 0px;
+  }
 }

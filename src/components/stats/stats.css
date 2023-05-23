@@ -69,3 +69,12 @@
     height: auto;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .statsLayout {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: auto;
+  }
+}
