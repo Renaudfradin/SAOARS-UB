@@ -9,8 +9,17 @@ import "./swiperHome.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import useBanners from "@hook/useBanners.jsx";
 
 export default function swiperHome() {
+  const { banners } = useBanners();
+
+  function randomBanner() {
+    const random = banners[Math.floor(Math.random() * banners.length)];
+    return random
+  }
+
+  console.log(randomBanner());
   return (
     <Swiper
       className="swippeWrapper"

@@ -8,7 +8,6 @@ import "./Banner.css";
 export default function Banner() {
   const param = useParams();
   const idParam = param.id;
-  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const { banner } = useBanner(idParam);
 
   return(
@@ -22,7 +21,7 @@ export default function Banner() {
       <div className="imgMid">
         <div className="infoTitle">
           <p>{banner.name_b}</p>
-          <img className="imgBanner" src={baseUrl+banner.img_baner} alt={baseUrl+banner.img_baner} />
+          <img className="imgBanner" src={banner.img_baner} alt={banner.img_baner} />
         </div>
       <div className="infoBanners">
         <div className="infoPeriode">
