@@ -126,5 +126,5 @@ export default function renderTypeWeapon({weapon_type, character_type}) {
         return maceWind
     }
   }
-  return(<img src={renderTypeWeapon(type)} alt="" />)
+  return(<img className="imgStart" src={renderTypeWeapon(type)} alt={renderTypeWeapon(type)} />)
 }

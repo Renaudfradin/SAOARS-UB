@@ -22,24 +22,34 @@ export default function Router(){
     <div className="layout">
       <BrowserRouter>
       <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/weapons" element={<Weapons />}/>
-          <Route path="/weapons/:id" element={<Weapon />}/>
-          <Route path="/characters" element={<Characters />}/>
-          <Route path="/characters/:id" element={<Character />}/>
-          <Route path="/banners" element={<Banners />}/>
-          <Route path="/banners/:id" element={<Banner />}/>
-          <Route path="/equipements" element={<Equipements />}/>
-          <Route path="/equipements/:id" element={<Equipement />}/>
-          <Route path="/imaginations" element={<Imaginations />}/>
-          <Route path="/abilitys" element={<Abilitys />}/>
-          <Route path="/abilitys/:id" element={<Ability />}/>
-          <Route path="/about" element={<About />} />
-          {/* redirection 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="container">
+          <div className="imgHeader">
+            <div className="leftHeader" />
+            <div className="midHeader" />
+            <div className="rightHeader" />
+          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/weapons" element={<Weapons />}/>
+            <Route path="/weapons/:id" element={<Weapon />}/>
+            <Route path="/characters" element={<Characters />}/>
+            <Route path="/characters/:id" element={<Character />}/>
+            <Route path="/banners" element={<Banners />}/>
+            <Route path="/banners/:id" element={<Banner />}/>
+            <Route path="/equipements" element={<Equipements />}/>
+            <Route path="/equipements/:id" element={<Equipement />}/>
+            {/* <Route path="/imaginations" element={<Imaginations />}/> */}
+            <Route path="/abilitys" element={<Abilitys />}/>
+            <Route path="/abilitys/:id" element={<Ability />}/>
+            <Route path="/about" element={<About />} />
+            {/* redirection 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <div className="imgFooter">
+            <div className="leftFooter" />
+            <div className="midFooter" />
+            <div className="rightFooter" />
+          </div>
       </div>
       <Footer />
       </BrowserRouter>

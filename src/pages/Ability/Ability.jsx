@@ -15,30 +15,27 @@ export default function Ability() {
     <>
       <Helmet>
         <title>{ability.name}</title>
+        <meta name="description" content="List Abilitys - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
-        <div className="divTitle">
-          <p>{ability.name}</p>
+        <div className="infoAbilitys">
+          <div className="bg1">
+            <div className="bg2">
+              <p>{ability.name}</p>
+              <img src={imgAbilityDefault} alt={imgAbilityDefault} />
+            </div>
+          </div>
+        </div>
           <RenderStart
             list={false}
             stars={ability.start}
           ></RenderStart>
-        </div>
         <div className="divInfo">
           <p>{ability.description}</p>
-          <p>{ability.type}</p>
+          {/* <p>{ability.type}</p> */}
         </div>
-        <img src={imgAbilityDefault} alt="" />
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "@assets/img/imgDefault/stuff_370.png"
+import imgDefault from "@assets/img/imgDefault/stuff_375.jpg"
 import RenderStart from "@components/renderStars/renderStart";
 import Stats from "@components/stats/stats";
 import Effect from "@components/effect/effect";
@@ -17,15 +17,19 @@ export default function Weapon() {
     <>
       <Helmet>
         <title>Weapon {idParam}</title>
+        <meta name="description" content="List Weapons - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
-        <p>{weapon.name_weapon}</p>
-        <img src={imgDefault} alt="" />
+        <div className="infoWeapons">
+          <div className="bg1">
+            <div className="bg2">
+              <p>{weapon.name_weapon}</p>
+              <img src={imgDefault} alt={imgDefault} />
+            </div>
+          </div>
+        </div>
         <RenderStart list={false} stars={weapon.stars}/>
         <div className="layoutStat">
           <div className="containerEffect">
@@ -37,27 +41,17 @@ export default function Weapon() {
               character={false}
               effect={weapon.effect_2}
             ></Effect>
-            <Effect
-              character={false}
-              effect={weapon.effect_3}
-            ></Effect>
+            {weapon.effect_3 ? 
+              <Effect
+                character={false}
+                effect={weapon.effect_3}
+              ></Effect>
+            :null}
           </div>
           <Stats
-            hp={weapon.hp_w}
-            mp={weapon.mp_w}
-            atk={weapon.atk_w}
-            matk={weapon.matk_w}
-            def={weapon.def_w}
-            mdef={weapon.mdef_w}
-            crit={weapon.crit_w}
-            spd={weapon.spd_w}
+            stats={{ ...weapon }}
           ></Stats>
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

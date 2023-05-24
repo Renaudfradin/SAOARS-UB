@@ -8,24 +8,21 @@ import "./Banner.css";
 export default function Banner() {
   const param = useParams();
   const idParam = param.id;
-  const baseUrl = import.meta.env.VITE_BACKEND_URL;
   const { banner } = useBanner(idParam);
 
   return(
     <>
       <Helmet>
         <title>{banner.name_b}</title>
+        <meta name="description" content="List Banners - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div className="infoTitle">
-        <p>{banner.name_b}</p>
-        <img className="imgBanner" src={baseUrl+banner.img_baner} alt={baseUrl+banner.img_baner} />
-      </div>
+          <p>{banner.name_b}</p>
+          <img className="imgBanner" src={banner.img_baner} alt={banner.img_baner} />
+        </div>
       <div className="infoBanners">
         <div className="infoPeriode">
           <h3>periode</h3>
@@ -45,11 +42,6 @@ export default function Banner() {
           <Link to={`/characters/${banner.chracters}`}><img className="imgPerso" src={imgDefault} alt={imgDefault} /></Link>
         </div>
       </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

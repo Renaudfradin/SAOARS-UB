@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from '@assets/img/imgDefault/stuff_303.png';
+import imgDefault from "@assets/img/imgDefault/stuff_306.jpg";
 import Stats from "@components/stats/stats";
 import Effect from "@components/effect/effect";
 import { Helmet } from "react-helmet-async";
@@ -16,15 +16,19 @@ export default function Equipement() {
     <>
       <Helmet>
         <title>Equipement {idPram}</title>
+        <meta name="description" content="List Equipements - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
-        <p>{equipement.name}</p>
-        <img src={imgDefault} alt="" />
+        <div className="infoEquipment">
+          <div className="bg1">
+            <div className="bg2">
+              <p>{equipement.name}</p>
+              <img src={imgDefault} alt={imgDefault} />
+            </div>
+          </div>
+        </div>
         <div className="layoutStat">
           <div className="containerEffect">
             <Effect
@@ -35,21 +39,9 @@ export default function Equipement() {
             ></Effect>
           </div>
           <Stats
-            hp={equipement.hp}
-            mp={equipement.mp}
-            atk={equipement.atk}
-            matk={equipement.matk}
-            def={equipement.def}
-            mdef={equipement.mdef}
-            crit={equipement.crit}
-            spd={equipement.spd}
+            stats={{ ...equipement }}
           ></Stats>
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

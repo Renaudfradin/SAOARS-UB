@@ -30,12 +30,10 @@ export default function contentCharacters(){
     <>
       <Helmet>
         <title>List Characters - Sword Art Online : Unleash Blading - Database</title>
+        <meta name="description" content="List Characters - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div className="container_characters">
           <div>
@@ -45,8 +43,7 @@ export default function contentCharacters(){
             <div>
               <input type="search" name="inputName" value={inputvalue} onChange={handleChange} />
             </div>
-            :""
-          }
+            : null }
           <div className="cardList">
             { inputvalue && filteredData.length != 0 ? (
                 filteredData.map((character) => (
@@ -68,11 +65,6 @@ export default function contentCharacters(){
             }
           </div>
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

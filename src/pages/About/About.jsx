@@ -6,28 +6,21 @@ export default function About() {
     <>
       <Helmet>
         <title>About - Sword Art Online : Unleash Blading - Database</title>
+        <meta name="description" content="About - Sword Art Online : Unleash Blading - Database" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.ico" />
       </Helmet>
-      <div className="imgHeader">
-        <div className="leftHeader" />
-        <div className="midHeader" />
-        <div className="rightHeader" />
-      </div>
       <div className="imgMid">
         <div>
           <h2>The Database</h2>
-          <p>We are players who wish to set up a "guide" to help players in their adventure on the game.This website is completed by the contribution of the players of the game Sword Art Online Unleash Blading.</p>
-          <p>Made by Players for Players.</p>
+          <p>Nous sommes des joueurs qui souhaitent mettre en place un "guide" pour aider les joueurs dans leur aventure sur le jeu. Ce site web est complété par la contribution des joueurs du jeu Sword Art Online Unleash Blading.</p>
+          <p>Créé par des joueurs, pour les joueurs.</p>
         </div>
         <div>
-          <h2>Privacy Policy</h2>
-          <p>This Privacy Policy may be changed at our discretion forms of additions or deletions.Your continued use of the website after any changes indicates that you accept the changes.</p>
-          <p>You must refer to this web page, which displays the most recent version of our privacy policy.</p>
+          <h2>Politique de confidentialité</h2>
+          <p>Cette politique de confidentialité peut être modifiée à notre discrétion par des ajouts ou suppressions. Votre utilisation continue du site web après toute modification indique que vous acceptez les changements.</p>
+          <p>Vous devez vous référer à cette page web, qui affiche la version la plus récente de notre politique de confidentialité.</p>
         </div>
-      </div>
-      <div className="imgFooter">
-        <div className="leftFooter" />
-        <div className="midFooter" />
-        <div className="rightFooter" />
       </div>
     </>
   )

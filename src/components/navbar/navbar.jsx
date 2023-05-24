@@ -38,10 +38,10 @@ export default function Navbar(params) {
         <img src={imgEquipement} alt={imgEquipement} />
         <p>Equipement</p>
       </NavLink>
-      <NavLink to='/imaginations' className={({ isActive })=> (isActive ? 'layoutIconNavActive' : 'layoutIconNav')}>
+      {/* <NavLink to='/imaginations' className={({ isActive })=> (isActive ? 'layoutIconNavActive' : 'layoutIconNav')}>
         <img src={imgImaginations} alt={imgImaginations} />
         <p>Imaginations</p>
-      </NavLink>
+      </NavLink> */}
       <NavLink to='/abilitys' className={({ isActive })=> (isActive ? 'layoutIconNavActive' : 'layoutIconNav')}>
         <img src={imgAbility} alt={imgAbility} />
         <p>Capacité</p>

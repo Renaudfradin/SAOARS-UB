@@ -4,7 +4,7 @@
 
 .infoEquipement{
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   align-items: flex-start;
   background-color: rgba(23, 23, 23, 0.5);
   padding: 10px 0px;
@@ -16,4 +16,5 @@
 
 .layoutEquipement p {
   margin: 0%;
+  margin-top: 10px;
 }

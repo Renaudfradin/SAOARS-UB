@@ -83,27 +83,6 @@
   height: 59px;
 }
 
-@media screen and (max-width:425px) {
-  .container{
-    background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
-    width: 100%;
-    border-radius: 5px;
-    margin-top: 70px;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-}
-
-@media screen and (max-width:768px) and (min-width:426px) {
-  .container{
-    background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
-    width: 80%;
-    border-radius: 5px;
-    margin-top: 70px;
-  }
-}
-
-
 /*
 * list card template
 */
@@ -113,35 +92,66 @@
   grid-column-gap: 15px;
   grid-row-gap: 50px;
   background: linear-gradient(rgba(66, 7, 54, 0.75) 0%, rgba(0, 0, 0, 0) 65%);
-  margin: 8%;
-  margin-top: 6%;
   justify-content: center;
   padding-top: 20px;
   border-radius: 5px;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 768px) {
+  .containerEffect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 0px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .container {
+    background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 70px;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
   .cardList{
     display: grid;
     grid-template-columns: repeat(1, 100%);
     grid-column-gap: 0px;
     grid-row-gap: 30px;
-    margin: 8%;
-    margin-top: 6%;
     justify-content: center;
     padding: 20px;
     border-radius: 5px;
   }
+
+  .imgMid {
+    padding: 0px 10% 0px;
+  }
 }
 
-@media screen and (max-width:1025px) and (min-width:426px) {
+@media screen and (max-width:1024px) and (min-width:601px) {
+  .container {
+    background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
+    width: 80%;
+    border-radius: 5px;
+    margin-top: 70px;
+  }
+
   .cardList{
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-column-gap: 15px;
     grid-row-gap: 30px;
-    margin: 8%;
-    margin-top: 6%;
     justify-content: center;
     padding: 20px;
     border-radius: 5px;
@@ -154,8 +164,6 @@
     grid-template-columns: repeat(4, 23%);
     grid-column-gap: 15px;
     grid-row-gap: 30px;
-    margin: 8%;
-    margin-top: 6%;
     justify-content: center;
     padding: 20px;
     border-radius: 5px;

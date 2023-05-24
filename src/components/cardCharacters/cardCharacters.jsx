@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RenderStart from "../renderStars/renderStart";
-import RenderTypeAtk from "../renderTypeAtk/renderTypeAtk";
-import RenderTypeWeapon from "../renderTypeWeapon/renderTypeWeapon";
+import RenderStart from "../renderStars/renderStart.jsx";
+import RenderTypeAtk from "../renderTypeAtk/renderTypeAtk.jsx";
+import RenderTypeWeapon from "../renderTypeWeapon/renderTypeWeapon.jsx";
 import "./cardCharacters.css"
 
 export default function cardCharacters({

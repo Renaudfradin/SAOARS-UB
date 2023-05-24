@@ -20,8 +20,50 @@
   width: 70%;
 }
 
+.infoWeapons {
+  margin-bottom: 20px;
+  background: linear-gradient(rgba(66, 7, 54, 0.75) 0%, rgba(0, 0, 0, 0) 65%);
+  width: 83.33333333%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
 
-@media screen and (max-width: 425px) {
+.infoWeapons img {
+  max-width: 180px;
+  opacity: 1;
+}
+
+.infoWeapons p {
+  padding: 10px 40px 10px 10px;
+  background: rgba(54, 19, 89, 0.85);
+  width: auto;
+  margin: 0%;
+  margin-bottom: 10px;
+  position: absolute;
+  left: 36%;
+  top: 30%;
+}
+
+@media screen and (max-width:425px) {
+  .infoWeapons {
+    margin-bottom: 0px;
+    width: 100%;
+  }
+
+  .infoWeapons p {
+    margin-bottom: 10px;
+    position: absolute;
+    left: 12%;
+    top: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .layoutStat {
     display: flex;
     flex-direction: column-reverse;
@@ -31,18 +73,19 @@
     align-items: center;
   }
 
-  .containerEffect{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 90%;
-    margin-top: 20px;
+  .infoWeapons {
+    margin-bottom: 0px;
+    width: 100%;
+  }
+
+  .infoWeapons p {
+    padding: 10px 40px 10px 10px;
+    background: rgba(54, 19, 89, 0.85);
+    width: auto;
+    margin: 0%;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 25%;
+    top: 30%;
   }
 }
