@@ -6,14 +6,15 @@ import RenderTypeWeapon from "../renderTypeWeapon/renderTypeWeapon.jsx";
 import "./cardCharacters.css"
 
 export default function cardCharacters({
-  imgDefault,
   infoCharacters
 }) {
-  return(
+  return (
+    <>
+      {console.log(infoCharacters.img)}
     <div className="layoutCharacter">
       <div className="infoCharacter">
         <RenderStart list={true} stars={infoCharacters.stars} />
-        <Link to={`/characters/${infoCharacters.id}`}><img className="imgCharacter" src={imgDefault} alt={imgDefault} /></Link>
+        <Link to={`/characters/${infoCharacters.id}`}><img className="imgCharacter" src={infoCharacters.img} alt={infoCharacters.img} /></Link>
         <div className="listIconAtk">
           <RenderTypeWeapon weapon_type={infoCharacters.weapon_type} character_type={infoCharacters.character_type}/>
           <RenderTypeAtk type={infoCharacters.atk1_type} />
@@ -24,5 +25,7 @@ export default function cardCharacters({
       <p>{infoCharacters.name_characters}</p>  
       <p>[{infoCharacters.description}]</p> 
     </div>
+   </>
+    
   )
 }

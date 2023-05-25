@@ -1,6 +1,5 @@
 import React,{ useState } from "react";
 import { useParams } from "react-router-dom";
-import imgDefault from "@assets/img/imgDefault/character_2502.png";
 import EnhanceBtn from "@assets/img/btn_enhance_mode.png";
 import imgPartner from "@assets/special_partner.png";
 import RenderStart from "@components/renderStars/renderStart.jsx";
@@ -33,7 +32,7 @@ export default function Character() {
           <div className="bg1">
             <div className="bg2">
               <p>{character.name_characters} {character.description}</p>
-              <img src={imgDefault} alt={imgDefault} />
+              <img src={character.img} alt={character.img} />
             </div>
           </div>
         </div>
