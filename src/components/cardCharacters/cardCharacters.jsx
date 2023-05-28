@@ -9,8 +9,6 @@ export default function cardCharacters({
   infoCharacters
 }) {
   return (
-    <>
-      {console.log(infoCharacters.img)}
     <div className="layoutCharacter">
       <div className="infoCharacter">
         <RenderStart list={true} stars={infoCharacters.stars} />
@@ -25,7 +23,5 @@ export default function cardCharacters({
       <p>{infoCharacters.name_characters}</p>  
       <p>[{infoCharacters.description}]</p> 
     </div>
-   </>
-    
   )
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import banner1 from "@assets/img/icon_ban/scout_132.png";
 import banner2 from "@assets/img/icon_ban/scout_133.png";
 import banner3 from "@assets/img/icon_ban/scout_134.png";
 import banner4 from "@assets/img/icon_ban/scout_135.png";
@@ -9,17 +8,20 @@ import "./swiperHome.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useBanners from "@hook/useBanners.jsx";
+import useBanner from "@hook/useBanner.jsx";
 
 export default function swiperHome() {
-  const { banners } = useBanners();
-
-  function randomBanner() {
-    const random = banners[Math.floor(Math.random() * banners.length)];
-    return random
+  function randomId(min,max) {
+    const random = Math.floor(Math.random() * (max - min) + min);
+    return random;
   }
+  const { banner } = useBanner(randomId(0, 136));
+  const  banner2  = useBanner(randomId(0, 136));
+  const  banner3  = useBanner(randomId(0, 136));
+  const  banner4  = useBanner(randomId(0, 136));
+  const  banner5  = useBanner(randomId(0, 136));
 
-  console.log(randomBanner());
+  console.log(banner2.banner.img_baner);
   return (
     <Swiper
       className="swippeWrapper"
@@ -51,19 +53,19 @@ export default function swiperHome() {
       }}
     >
       <SwiperSlide>
-        <img className="imgWrapper" src={banner1} alt={banner1} />
+        <img className="imgWrapper" src={banner.img_baner} alt={banner.img_baner} />
       </SwiperSlide>
       <SwiperSlide>
-        <img className="imgWrapper" src={banner2} alt={banner2} />
+        <img className="imgWrapper" src={banner2.banner.img_baner} alt={banner2.banner.img_baner} />
       </SwiperSlide>
       <SwiperSlide>
-        <img className="imgWrapper" src={banner3} alt={banner3} />
+        <img className="imgWrapper" src={banner3.banner.img_baner} alt={banner3.banner.img_baner} />
       </SwiperSlide>
       <SwiperSlide>
-        <img className="imgWrapper" src={banner4} alt={banner4} />
+        <img className="imgWrapper" src={banner4.banner.img_baner} alt={banner4.banner.img_baner} />
       </SwiperSlide>
       <SwiperSlide>
-        <img className="imgWrapper" src={banner5} alt={banner5} />
+        <img className="imgWrapper" src={banner5.banner.img_baner} alt={banner5.banner.img_baner} />
       </SwiperSlide>
     </Swiper>
   )

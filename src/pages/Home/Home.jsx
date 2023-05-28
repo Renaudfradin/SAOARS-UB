@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "@assets/img/logoSAO.png";
-import SwiperHome from "@components/swiperHome/swiperHome.jsx";
+//import SwiperHome from "@components/swiperHome/swiperHome.jsx";
 import Overview from "@components/overview/overview.jsx";
 import HomeImg from "@components/homeImg/homeImg.jsx";
 import { Helmet } from "react-helmet-async";
