@@ -91,6 +91,10 @@
   margin-top: 10px;
 }
 
+.imgNav:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 425px) {
   .layoutNavbar {
     width: 45%;

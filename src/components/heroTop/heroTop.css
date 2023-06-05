@@ -4,6 +4,8 @@
   background: linear-gradient(rgb(63, 36, 85) 0%, rgb(44, 36, 85) 90%);
   transition: all 1s ease-out 0s;
   border-bottom: 1px solid #7767c7;
+  display: flex;
+  position: fixed;
 }
 
 .tophero2{
@@ -19,24 +21,28 @@
 .heroLeft{
   margin-top: 25px;
   margin-left: -70px;
-  width: 35%;
+  width: 25%;
   height: 100%;
   background: #2c2455;
-  transform: skew(-1deg);
+  transform: skew(-45deg) translateX(-6.8%);
   border-right: 1px solid #7767c7;
   border-bottom: 1px solid #7767c7;
 }
 
 .heroRight{
   margin-top: 25px;
-  width: 35%;
+  width: 25%;
   height: 100%;
   background: #2c2455;
-  transform: skew(1deg);
+  transform: skew(-0deg);
   border-left: 1px solid #7767c7;
   border-bottom: 1px solid #7767c7;
-  position: relative;
-  right: 0px;
+}
+
+.heroMid{
+  margin-top: 25px;
+  width: 55%;
+  height: 100%;
 }
 
 

@@ -20,7 +20,7 @@ export default function Navbar() {
         <p>Database</p>
       </div>
       {items.map(({ url, imgBtn, text }) => (
-        <NavLink to={url} className={({ isActive })=> (isActive ? 'layoutIconNavActive' : 'layoutIconNav')}>
+        <NavLink to={url} className={({ isActive })=> (isActive ? 'layoutIconNavActive' : 'layoutIconNav')} key={url}>
           <img src={imgBtn} alt={imgBtn} />
           <p className={openNav ? null : 'titleNav'}>{text}</p>
         </NavLink>
