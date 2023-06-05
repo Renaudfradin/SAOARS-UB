@@ -6,6 +6,25 @@
   position: fixed;
   background: rgba(44, 36, 85, 0.84);
   border-right: 4px solid rgb(156, 122, 241);
+  transition: all 0.2s ease 0s;
+  z-index: 2;
+}
+
+.layoutNavbarFalse {
+  margin: 0%;
+  width: 4%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  background: rgba(44, 36, 85, 0.84);
+  border-right: 4px solid rgb(156, 122, 241);
+  transition: all 0.2s ease 0s;
+  z-index: 2;
+}
+
+.titleNav{
+  transition: all 0.2s ease 0s;
+  display: none;
 }
 
 .layoutIconNav{
@@ -66,14 +85,62 @@
   font-size: 20px;
 }
 
+.imgNav{
+  width: 50px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.imgNav:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 425px) {
-  .layoutNavbar{
-    margin: 0%;
-    width: 11%;
-    height: 100%;
-    display: none;
-    position: fixed;
-    background: rgba(44, 36, 85, 0.84);
-    border-right: 4px solid rgb(156, 122, 241);
+  .layoutNavbar {
+    width: 45%;
+  }
+  
+  .layoutNavbarFalse {
+    width: 16%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .layoutNavbar {
+    width: 60%;
+  }
+
+  .layoutNavbarFalse {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width:426px) {
+  .layoutNavbar {
+    width: 30%;
+  }
+
+  .layoutNavbarFalse {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width:769px) {
+  .layoutNavbar {
+    width: 18%;
+  }
+
+  .layoutNavbarFalse {
+    width: 8%;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width:1025px) {
+  .layoutNavbar {
+    width: 15%;
+  }
+
+  .layoutNavbarFalse {
+    width: 5%;
   }
 }

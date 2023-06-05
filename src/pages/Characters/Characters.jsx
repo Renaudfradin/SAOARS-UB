@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CardCharacters from "@components/cardCharacters/cardCharacters.jsx";
 // import ElementsFilter from "@components/elementsFilter/elementsFilter.jsx";
-import imgDefault from "@assets/img/imgDefault/character_250.png"
 import { Helmet } from "react-helmet-async";
 import useCharacters from "@hook/useCharacters.jsx";
 
@@ -50,7 +49,6 @@ export default function contentCharacters(){
                   <CardCharacters
                     key = { character.id } 
                     infoCharacters = {{ ...character  }}
-                    imgDefault = { imgDefault }
                   ></CardCharacters>
                 ))
               ):(
@@ -58,7 +56,6 @@ export default function contentCharacters(){
                   <CardCharacters
                     key = { character.id } 
                     infoCharacters = {{ ...character  }}
-                    imgDefault = { imgDefault }
                   ></CardCharacters>
                 ))
               )

@@ -1,8 +1,12 @@
 import React from "react";
 import logo from "@assets/img/logoSAO.png";
-import imgDefault from "@assets/img/imgDefault/character_2502.png";
-import SwiperHome from "@components/swiperHome/swiperHome.jsx";
+import pop1 from "@assets/img/pop_data1.png";
+import pop2 from "@assets/img/pop_data2.png";
+import pop3 from "@assets/img/pop_data3.png";
+import pop4 from "@assets/img/pop_data4.png";
+//import SwiperHome from "@components/swiperHome/swiperHome.jsx";
 import Overview from "@components/overview/overview.jsx";
+import HomeImg from "@components/homeImg/homeImg.jsx";
 import { Helmet } from "react-helmet-async";
 import "./Home.css";
 
@@ -17,12 +21,18 @@ export default function Home(){
       </Helmet>
       <div className="imgMid">
         <div className="layoutLogo">
-          <img src={logo} alt={logo} />
+          <div>
+            <img src={pop1} alt={pop1} className="pop1"/>
+            <img src={pop2} alt={pop2} className="pop2"/>
+          </div>
+          <img src={logo} alt={logo} className="logo"/>
+          <div>
+            <img src={pop3} alt={pop3} className="pop3"/>
+            <img src={pop4} alt={pop4} className="pop4"/>
+          </div>
         </div>
-        <div className="divimgProm">
-          <img src={imgDefault} alt={imgDefault} />
-        </div>
-        <SwiperHome />
+        <HomeImg />
+        {/* <SwiperHome /> */}
         <Overview />
       </div>
     </>
