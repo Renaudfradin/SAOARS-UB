@@ -8,6 +8,7 @@ export default function notFound(){
     <div className="containerNotFound">
       <Helmet>
         <title>Not found - Sword Art Online : Unleash Blading - Database</title>
+        <meta name="title" content="Not found - Sword Art Online : Unleash Blading - Database" />
         <meta name="description" content="Not found - Sword Art Online : Unleash Blading - Database" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />

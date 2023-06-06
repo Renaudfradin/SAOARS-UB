@@ -7,7 +7,7 @@ import DIcon from "@assets/img/icon_atk/icon_debuff.svg"
 import HIcon from "@assets/img/icon_atk/icon_heal.svg"
 import SkillImg from "@assets/img/icon_atk/skill_i.svg"
 
-export default function renderTypeAtk({type}){
+export default function renderTypeAtk({ type }) {
   function renderTypeAtks(type) {
     switch (type) {
       case "A":
@@ -30,6 +30,6 @@ export default function renderTypeAtk({type}){
         return null
     }
   }
-
+  
   return(<img src={renderTypeAtks(type)} alt={renderTypeAtks(type)}/>)
 }
