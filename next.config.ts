@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   distDir: 'dist',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   }
 };
 
