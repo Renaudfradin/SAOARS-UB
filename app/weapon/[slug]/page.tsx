@@ -1,10 +1,11 @@
 import React from 'react';
 import '../weapon.css';
 
-export default function Weapon({ params }: { params: { slug: string } }) {
+export default async function Weapon({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   return (
     <div>
-      <h1>Weapon {params.slug}</h1>
+      <h1>Weapon {slug}</h1>
     </div>
   );
 }

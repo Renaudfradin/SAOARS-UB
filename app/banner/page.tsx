@@ -4,15 +4,16 @@ import { callApi } from '@/utils/api';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { BannerData, BannersApiResponse, PaginationMeta } from '@/types';
-import Pagination from '@/app/components/pagination/page';
+import Pagination from '@/app/components/pagination/Pagination';
 import './banner.css';
 
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams?: { page?: string };
+  searchParams?: Promise<{ page?: string }>;
 }): Promise<Metadata> {
-  const currentPage = searchParams?.page ? parseInt(searchParams.page) : 1;
+  const resolvedSearchParams = await searchParams;
+  const currentPage = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1;
 
   return {
     title: `List Banners - Sword Art Online : Unleash Blading - Database`,
@@ -47,12 +48,13 @@ export async function generateMetadata({
 export default async function Banner({
   searchParams,
 }: {
-  searchParams?: { page?: string };
+  searchParams?: Promise<{ page?: string }>;
 }) {
   let banners: BannerData[] = [];
   let meta: PaginationMeta | null = null;
 
-  const currentPage = searchParams?.page ? parseInt(searchParams.page) : 1;
+  const resolvedSearchParams = await searchParams;
+  const currentPage = resolvedSearchParams?.page ? parseInt(resolvedSearchParams.page) : 1;
 
   try {
     const response: BannersApiResponse = await callApi(

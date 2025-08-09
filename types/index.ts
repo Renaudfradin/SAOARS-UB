@@ -86,8 +86,8 @@ export type SearchParams = {
 };
 
 export type PageProps<T = Record<string, unknown>> = {
-  params?: T;
-  searchParams?: SearchParams;
+  params?: Promise<T>;
+  searchParams?: Promise<SearchParams>;
 };
 
 export type SlugPageProps = PageProps<{ slug: string }>;

@@ -1,10 +1,11 @@
 import React from 'react';
 import '../character.css';
 
-export default function Character({ params }: { params: { slug: string } }) {
+export default async function Character({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   return (
     <div>
-      <h1>Character {params.slug}</h1>
+      <h1>Character {slug}</h1>
     </div>
   );
 }
