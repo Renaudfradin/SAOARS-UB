@@ -1,7 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['apisaoars.s3.fr-par.scw.cloud'],
+  },
 };
 
 export default nextConfig;
