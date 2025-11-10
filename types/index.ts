@@ -21,15 +21,15 @@ export type PaginatedResponse<T> = {
 };
 
 export type BannerData = {
-  id: string;
+ id: string;
   name: string;
   slug: string;
   image: string;
   created_at: string;
-  updated_at?: string;
-  from?: string;
-  to?: string;
-  characters?: string[];
+  updated_at: string;
+  from: string;
+  to: string;
+  characters?: CharacterData[];
 };
 
 export type BannersApiResponse = BannerData[] | PaginatedResponse<BannerData>;
@@ -39,6 +39,7 @@ export type CharacterData = {
   name: string;
   slug: string;
   image?: string;
+  image2?: string;
   rarity?: number;
   element?: string;
   weapon_type?: string;

@@ -1,7 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { callApi } from '@/utils/api';
+import Link from 'next/link';
 import '../banner.css';
+
+type Character = {
+  name: string;
+  slug: string;
+  image2: string;
+};
 
 type BannerData = {
   id: string;
@@ -12,7 +19,7 @@ type BannerData = {
   updated_at: string;
   from: string;
   to: string;
-  characters: string[];
+  characters: Character[];
 };
 
 export default async function Banner({
@@ -56,18 +63,23 @@ export default async function Banner({
       </div>
 
       <div>
-        <h2>Characters</h2>
+        <h2>Images</h2>
         <ul>
-          {banner.characters.map((character: string, index: number) => (
+          {banner.characters.map((character: Character, index: number) => (
             <li key={`character-${index}`}>
-              {typeof character === 'object'
-                ? JSON.stringify(character)
-                : character}
+              <Link href={`/character/${character.slug}`}>
+              <Image
+                src={character.image2}
+                alt={character.name}
+                width={325}
+                height={125}
+                className="banner-image"
+                />
+                </Link>
             </li>
           ))}
         </ul>
       </div>
-
       <div>
         <h2>From</h2>
         <p>{banner.from}</p>

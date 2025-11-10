@@ -4,17 +4,6 @@
   border-top: 1px solid #e0e0e0;
 }
 
-.pagination-info {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.pagination-info p {
-  color: #666;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
 .pagination-controls {
   display: flex;
   justify-content: center;
@@ -62,12 +51,6 @@
   border-color: #0056b3;
 }
 
-.pagination-prev,
-.pagination-next {
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-}
-
 .pagination-ellipsis {
   padding: 0.5rem 0.25rem;
   color: #6c757d;
@@ -91,10 +74,6 @@
     height: 35px;
   }
 
-  .pagination-prev,
-  .pagination-next {
-    padding: 0.4rem 0.8rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -110,13 +89,5 @@
 
   .pagination-numbers {
     order: 2;
-  }
-
-  .pagination-prev {
-    order: 1;
-  }
-
-  .pagination-next {
-    order: 3;
   }
 }
