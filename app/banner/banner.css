@@ -1,0 +1,109 @@
+.banners {
+  padding: 0rem;
+}
+
+.banners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.banner-card {
+  overflow: hidden;
+}
+
+.banner-image-wrapper {
+  width: 100%;
+}
+
+.banner-image {
+  width: 75%;
+  height: 100%;
+}
+
+.banner-title {
+  padding: 1rem;
+}
+
+.banner-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .banners {
+    padding: 1rem;
+  }
+
+  .banners-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .banner-image-wrapper {
+    height: 150px;
+  }
+
+  .banner-title {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .pagination-controls {
+    gap: 0.25rem;
+  }
+
+  .pagination-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 35px;
+    height: 35px;
+  }
+
+  .pagination-prev,
+  .pagination-next {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .banners {
+    padding: 0.5rem;
+  }
+
+  .banners-grid {
+    gap: 1rem;
+  }
+
+  .pagination-container {
+    margin-top: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .pagination-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pagination-numbers {
+    order: 2;
+  }
+
+  .pagination-prev {
+    order: 1;
+  }
+
+  .pagination-next {
+    order: 3;
+  }
+}
