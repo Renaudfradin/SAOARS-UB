@@ -78,24 +78,19 @@ export default function Layout({ children }) {
           <span>Database</span>
         </Link>
         <nav className="sidebar__nav">
-          {navItems.map(({ to, icon, label, end }) => (
+          {navItems.map(({ to, icon, text, end }) => (
             <NavLink
               key={to}
               to={to}
               end={end}
-              title={t(label)}
               className={({ isActive }) => `navBtn ${isActive ? "navBtn--active" : ""}`}
             >
               <img src={icon} alt="" />
-              <span className="navBtn__label">{t(label)}</span>
+              <span className="navBtn__label">{text}</span>
             </NavLink>
           ))}
         </nav>
-        <a className="sidebar__discord" href="https://discord.com/invite/QuZwZBw" target="_blank" rel="noreferrer" aria-label="Discord">
-          <img src="/ui/nav/icon_discord.png" alt="" />
-        </a>
       </aside>
-      {open && <div className="shell__backdrop" onClick={() => setOpen(false)} />}
 
       <div className="shell__main">
         <main className="shell__content">{children}</main>

@@ -123,72 +123,75 @@
   bottom: 0;
   left: 0;
   z-index: 997;
+  box-sizing: content-box;
   width: 70px;
-  overflow: visible;
+  overflow: hidden;
   background: rgba(44, 36, 85, 0.84);
+  border-right: 4px solid rgb(156, 122, 241);
+  transition: width 0.2s;
+  user-select: none;
 }
 
+.sidebar:hover,
 .shell--open .sidebar {
-  width: 230px;
+  width: 216px;
+  overflow: visible;
+  box-shadow: rgba(0, 0, 0, 0.4) 4px 7px 10px;
 }
 
 .sidebar__title {
+  position: absolute;
+  top: 70px;
+  left: 10px;
   display: block;
-  width: 110px;
-  margin: 70px 0 10px 10px;
-  padding-left: 8px;
+  width: 100px;
+  height: 50px;
+  margin: 0;
   border-left: 5px solid #fff;
   color: #eaeaea;
   font-family: var(--mono);
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .sidebar__title h2 {
-  margin: 0;
+  margin: 0 0 0 10px;
+  height: 25px;
   font-size: 21px;
   font-weight: 500;
   line-height: 25px;
-  letter-spacing: -0.03em;
 }
 
 .sidebar__title span {
   display: block;
+  margin-left: 10px;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 22px;
 }
 
 .sidebar__nav {
   display: flex;
   flex-direction: column;
-  width: 80px;
-  overflow: hidden;
-}
-
-.shell--open .sidebar__nav {
-  width: 220px;
-  overflow: visible;
+  padding-top: 150px;
 }
 
 .navBtn {
-  display: flex;
-  align-items: center;
+  position: relative;
+  display: block;
   box-sizing: content-box;
   width: 200px;
   height: 50px;
   margin: 10px 8px;
-  padding: 3px 0 3px 3px;
+  padding: 3px 0;
   background: url("/ui/buttons/background_button.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   font-family: var(--mono);
   font-size: 14px;
   font-weight: 700;
+  line-height: 50px;
   white-space: nowrap;
-}
-
-.navBtn:hover {
-  filter: brightness(1.12);
 }
 
 .navBtn--active {
@@ -196,7 +199,9 @@
 }
 
 .navBtn img {
-  flex: 0 0 53px;
+  position: absolute;
+  top: 0;
+  left: 3px;
   width: 53px;
   height: 53px;
   max-width: none;
@@ -204,33 +209,9 @@
 }
 
 .navBtn__label {
-  margin-left: 18px;
+  display: inline-block;
+  padding-left: 68px;
   line-height: 50px;
-}
-
-.sidebar__discord {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 57px;
-  background: linear-gradient(0deg, rgba(187, 42, 151, 0.27) 80%, rgba(255, 255, 255, 0) 100%);
-}
-
-.sidebar__discord img {
-  width: 29px;
-  height: 29px;
-  object-fit: contain;
-}
-
-.shell__backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  background: rgba(0, 0, 0, 0.35);
 }
 
 .shell__main {
@@ -267,12 +248,6 @@
   margin: 0;
 }
 
-@media (max-height: 520px) {
-  .sidebar__discord {
-    display: none;
-  }
-}
-
 @media (max-width: 640px) {
   .shell__content {
     width: calc(100% - 16px);
@@ -283,8 +258,9 @@
     overflow: hidden;
   }
 
+  .sidebar:hover,
   .shell--open .sidebar {
-    width: 230px;
+    width: 216px;
     overflow: visible;
   }
 

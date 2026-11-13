@@ -103,9 +103,9 @@ const fr = {
 
 const en = {
   "nav.home": "Index",
-  "nav.banners": "Banners",
-  "nav.characters": "Characters",
-  "nav.weapons": "Weapons",
+  "nav.banners": "Banner",
+  "nav.characters": "Character",
+  "nav.weapons": "Weapon",
   "nav.equipments": "Equipment",
   "nav.abilities": "Abilities",
   "nav.attacks": "Attacks",

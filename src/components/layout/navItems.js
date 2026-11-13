@@ -1,9 +1,9 @@
 export const navItems = [
-  { to: "/", icon: "/ui/nav/icon_main.png", label: "nav.home", end: true },
-  { to: "/banners", icon: "/ui/nav/icon_scout.png", label: "nav.banners" },
-  { to: "/characters", icon: "/ui/nav/icon_character.png", label: "nav.characters" },
-  { to: "/weapons", icon: "/ui/nav/icon_weapon.png", label: "nav.weapons" },
-  { to: "/equipments", icon: "/ui/nav/icon_equipment.png", label: "nav.equipments" },
+  { to: "/", icon: "/ui/nav/icon_main.png", text: "Index", end: true },
+  { to: "/banners", icon: "/ui/nav/icon_scout.png", text: "Banner" },
+  { to: "/characters", icon: "/ui/nav/icon_character.png", text: "Character" },
+  { to: "/weapons", icon: "/ui/nav/icon_weapon.png", text: "Weapon" },
+  { to: "/equipments", icon: "/ui/nav/icon_equipment.png", text: "Equipment" },
 ];
 
 export const moreLinks = [
