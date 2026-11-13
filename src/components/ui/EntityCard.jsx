@@ -60,8 +60,10 @@ export function EquipmentCard({ item }) {
 export function BannerCard({ item }) {
   return (
     <Link className="bannerCard" to={`/banners/${item.slug}`}>
-      <SafeImage className="bannerCard__img" src={item.image} fallback={placeholders.character} alt={item.name} />
-      <div className="bannerCard__name">{item.name}</div>
+      <div className="bannerCard__plate">
+        <SafeImage className="bannerCard__img" src={item.image} alt={item.name} />
+      </div>
+      <h3 className="bannerCard__name">{item.name}</h3>
     </Link>
   );
 }

@@ -11,6 +11,7 @@ export default function Banners() {
       title={t("nav.banners")}
       label="PAGE: LIST/SCOUT"
       showRarity={false}
+      showFilters={false}
       gridClassName="cardGrid cardGrid--banners"
       pageSize={20}
       renderCard={(item) => <BannerCard key={item.id} item={item} />}

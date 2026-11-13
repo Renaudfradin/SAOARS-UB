@@ -32,6 +32,7 @@ export default function EntityList({
   showRarity = true,
   gridClassName = "cardGrid",
   pageSize = PAGE_SIZE,
+  showFilters = true,
 }) {
   const { t } = useLang();
   const [page, setPage] = useState(1);
@@ -74,7 +75,7 @@ export default function EntityList({
     <>
       <Seo title={title} />
       <Frame label={label}>
-        <div className="filters">
+        {showFilters && <div className="filters">
           {elementKey && <ElementFilter value={element} onChange={(value) => { setElement(value); setPage(1); }} />}
           <button type="button" className="filters__toggle" onClick={() => setAdvanced((v) => !v)}>
             {t("list.advancedSearch")}
@@ -123,7 +124,7 @@ export default function EntityList({
               </button>
             </div>
           )}
-        </div>
+        </div>}
 
         {source.isLoading && <Loading label={filtering ? t("list.loadingAll") : undefined} />}
         {source.isError && <ErrorState error={source.error} />}
