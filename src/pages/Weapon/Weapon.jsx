@@ -1,59 +1,85 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import imgDefault from "@assets/img/imgDefault/stuff_375.jpg"
-import RenderStart from "@components/renderStars/renderStart";
-import Stats from "@components/stats/stats";
-import Effect from "@components/effect/effect";
-import "./Weapon.css"
-import { Helmet } from "react-helmet-async";
-import useWeapon from "@hook/useWeapon";
+import { Link, useParams } from "react-router-dom";
+import { useLang } from "@/context/LangContext.jsx";
+import { translated } from "@/i18n/ui.js";
+import { useDetail } from "@/hook/queries.js";
+import Seo from "@components/ui/Seo.jsx";
+import Frame from "@components/ui/Frame.jsx";
+import DetailHero from "@components/ui/DetailHero.jsx";
+import StatsPanel from "@components/ui/StatsPanel.jsx";
+import LanguagesBox from "@components/ui/LanguagesBox.jsx";
+import LinkedCard from "@components/ui/LinkedCard.jsx";
+import { WeaponTypeIcon } from "@components/ui/icons.jsx";
+import { ErrorState, Loading } from "@components/ui/StateView.jsx";
+import { mediaUrl, placeholders } from "@components/ui/media.js";
+
+function Effects({ item, t }) {
+  const effects = [item.effect_1, item.effect_2, item.effect_3].filter(Boolean);
+  if (!effects.length) return null;
+  return (
+    <div className="panel">
+      <h2 className="panel__heading">&lt;{t("detail.effects")}&gt;</h2>
+      <div className="effects">
+        {effects.map((text, index) => (
+          <div key={index} className="effectItem">
+            {text}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Weapon() {
-  const param = useParams();
-  const idParam = param.id;
-  const { weapon } = useWeapon(idParam)
+  const { slug } = useParams();
+  const { t, lang } = useLang();
+  const { data, isLoading, isError, error } = useDetail("weapon", slug);
 
-  return(
+  if (isLoading) return <Loading />;
+  if (isError) return <ErrorState error={error} backTo="/weapons" />;
+  if (!data) return <ErrorState error={{ response: { status: 404 } }} backTo="/weapons" />;
+
+  const linked = data.characters_id;
+  const linkedName = linked ? translated(linked.name, lang) || linked.name : null;
+  const linkedSlug = linked?.slug;
+
+  return (
     <>
-      <Helmet>
-        <title>Weapon {idParam}</title>
-        <meta name="title" content="List Weapons - Sword Art Online : Unleash Blading - Database" />
-        <meta name="description" content="List Weapons - Sword Art Online : Unleash Blading - Database" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.ico" />
-      </Helmet>
-      <div className="imgMid">
-        <div className="infoWeapons">
-          <div className="bg1">
-            <div className="bg2">
-              <p>{weapon.name_weapon}</p>
-              <img src={imgDefault} alt={imgDefault} />
-            </div>
-          </div>
+      <Seo title={data.name} />
+      <Frame label="UNIT TYPE: WEAPON">
+        <DetailHero
+          name={data.name}
+          image={data.image || data.image2}
+          secondImage={data.image2 && data.image ? data.image2 : null}
+          fallback={placeholders.weapon}
+          badge={<WeaponTypeIcon type={data.type} element={data.element_weapons} />}
+          rarity={data.start}
+        >
+          {linked && (
+            <LinkedCard
+              to={linkedSlug ? `/characters/${linkedSlug}` : undefined}
+              image={mediaUrl(linked.image) || placeholders.character}
+              fallback={placeholders.character}
+              title={linkedName || `#${linked.id}`}
+            />
+          )}
+        </DetailHero>
+
+        <div className="detailGrid">
+          <Effects item={data} t={t} />
+          <StatsPanel item={data} />
         </div>
-        <RenderStart list={false} stars={weapon.stars}/>
-        <div className="layoutStat">
-          <div className="containerEffect">
-            <Effect
-              character={false}
-              effect={weapon.effect_1}
-            ></Effect>
-            <Effect
-              character={false}
-              effect={weapon.effect_2}
-            ></Effect>
-            {weapon.effect_3 ? 
-              <Effect
-                character={false}
-                effect={weapon.effect_3}
-              ></Effect>
-            :null}
-          </div>
-          <Stats
-            stats={{ ...weapon }}
-          ></Stats>
+
+        <div style={{ marginTop: 18 }}>
+          <LanguagesBox item={data} />
         </div>
-      </div>
+
+        <div style={{ marginTop: 18 }}>
+          <Link className="btnTag" to="/weapons">
+            {t("state.back")}
+          </Link>
+        </div>
+      </Frame>
     </>
-  )
+  );
 }

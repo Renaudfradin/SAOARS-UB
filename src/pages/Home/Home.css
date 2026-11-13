@@ -1,127 +1,194 @@
-.layoutLogo{
-  text-align: center;
-}
-
-.layoutLogo img{
-  width: 20%;
-}
-
-.divimgProm{
-  text-align: center;
-}
-
-.divimgProm img{
-  width: 40%;
-}
-
-.divimgProm img{
-  width: 35%;
-  border-radius: 12px;
-  border: 2px solid rgba(132, 132, 132, 0.45);
-}
-
-.divimgProm {
-  margin-top: 100px;
-}
-
-.imgWrapper{
-  height: 120px;
-}
-
-.layoutLogo div{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.layoutLogo div img{
-  width: 110px;
-  height: 75px;
-  background: linear-gradient(rgba(6, 2, 71, 0.7) 0%, rgba(92, 8, 78, 0.7) 91%);
+.hero {
   position: relative;
+  width: min(689px, 100%);
+  margin: 0 auto;
 }
 
-.pop1{
-  transform: rotate(-7deg);
-  left: 60px;
-  top: 20px;
-}
-.pop2 {
-  transform: rotate(9deg);
-  right: 60px;
-  top: 30px;
-}
-.pop3 {
-  transform: rotate(-8deg);
-  left: 20px;
-  bottom: 70px;
-}
-.pop4 {
-  transform: rotate(7deg);
-  right: 20px;
-  bottom: 70px;
+.hero__logo {
+  position: relative;
+  z-index: 2;
+  width: 250px;
+  height: 213px;
+  margin: 50px auto 0;
 }
 
-@media screen and (max-width: 425px) {
-  .containerHome{
-    margin: 0%;
-    border-radius: 0px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
+.hero__mark {
+  display: block;
+  width: 250px;
+  height: 213px;
+  max-width: none;
+  object-fit: contain;
+}
 
-  .divimgProm{
-    margin-top: 50px;
-  }
+.pop {
+  position: absolute;
+  width: 118px;
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+}
 
-  .divimgProm img {
-    width: 80%;
-    border-radius: 12px;
-    border: 2px solid rgba(132, 132, 132, 0.45);
-  }
+.pop--3 {
+  left: -50px;
+  top: -50px;
+}
 
-  .layoutLogo img{
-    width: 250px;
-  }
+.pop--2 {
+  left: 208px;
+  top: -20px;
+}
 
-  .pop1 {
-    transform: rotate(-7deg);
-    left: 0px;
-    top: 0px;
-  }
+.pop--1 {
+  left: -153px;
+  top: 85px;
+}
 
-  .pop2 {
-    transform: rotate(9deg);
-    right: 0px;
-    top: 0px;
-  }
+.pop--4 {
+  left: 285px;
+  top: 116px;
+}
 
-  .pop3 {
-    transform: rotate(-8deg);
-    left: 0px;
-    bottom: 0px;
-  }
+.hero__show {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 400px;
+  margin-top: 20px;
+}
 
-  .pop4 {
-    transform: rotate(7deg);
-    right: 0px;
-    bottom: 0px;
+.rings {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: calc(100% + 283px);
+  max-width: none;
+  overflow: visible;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.rings circle {
+  fill: none;
+  stroke: rgba(134, 72, 223, 0.55);
+}
+
+.rings__spin {
+  transform-origin: 50px 50px;
+  animation: rings-spin 28s linear infinite;
+}
+
+.rings__spin--rev {
+  animation-duration: 36s;
+  animation-direction: reverse;
+}
+
+@keyframes rings-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
-@media screen and (max-width: 1024px) {
+.hero__art {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 364px;
+  height: 274px;
+  transform: translate(-50%, -50%);
+}
 
-  .divimgProm img {
-    width: 80%;
-    border-radius: 12px;
-    border: 2px solid rgba(132, 132, 132, 0.45);
-  } 
+.hero__art img {
+  display: block;
+  width: 364px;
+  height: 274px;
+  max-width: none;
+  object-fit: fill;
+  border-radius: 12px;
+}
 
-  .divimgProm{
-    margin-top: 50px;
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 50px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.hero__arrow--prev {
+  left: -20px;
+}
+
+.hero__arrow--next {
+  right: -20px;
+}
+
+.hero__scouts {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  width: min(823px, 120%);
+  margin: 36px auto 10px;
+  overflow: hidden;
+}
+
+.hero__scout {
+  flex: 0 0 250px;
+}
+
+.hero__scout img {
+  display: block;
+  width: 250px;
+  height: 88px;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+@media (max-width: 560px) {
+  .hero__logo {
+    width: 180px;
+    height: 154px;
+    margin-top: 24px;
   }
 
-  .layoutLogo img {
-    width: 250px;
+  .hero__mark {
+    width: 180px;
+    height: 154px;
+  }
+
+  .pop {
+    width: 84px;
+  }
+
+  .pop--3 { left: -28px; top: -28px; }
+  .pop--2 { left: 140px; top: -8px; }
+  .pop--1 { left: -70px; top: 70px; }
+  .pop--4 { left: 170px; top: 86px; }
+
+  .hero__show {
+    height: 280px;
+  }
+
+  .hero__art,
+  .hero__art img {
+    width: min(280px, 78vw);
+    height: auto;
+  }
+
+  .hero__art img {
+    height: calc(min(280px, 78vw) * 0.75);
+  }
+
+  .hero__scout,
+  .hero__scout img {
+    flex-basis: 180px;
+    width: 180px;
+    height: 64px;
   }
 }

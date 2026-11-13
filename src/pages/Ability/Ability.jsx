@@ -1,43 +1,43 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import imgAbilityDefault from "@assets/img/imgDefault/abilitys.jpg";
-import "./Ability.css";
-import { Helmet } from "react-helmet-async";
-import useAbility from "@hook/useAbility";
-import RenderStart from "@components/renderStars/renderStart";
+import { Link, useParams } from "react-router-dom";
+import { useLang } from "@/context/LangContext.jsx";
+import { useDetail } from "@/hook/queries.js";
+import Seo from "@components/ui/Seo.jsx";
+import Frame from "@components/ui/Frame.jsx";
+import DetailHero from "@components/ui/DetailHero.jsx";
+import LanguagesBox from "@components/ui/LanguagesBox.jsx";
+import { ErrorState, Loading } from "@components/ui/StateView.jsx";
+import { placeholders } from "@components/ui/media.js";
 
 export default function Ability() {
-  const param = useParams();
-  const idParam = param.id;
-  const { ability } = useAbility(idParam);
+  const { slug } = useParams();
+  const { t } = useLang();
+  const { data, isLoading, isError, error } = useDetail("ability", slug);
 
-  return(
+  if (isLoading) return <Loading />;
+  if (isError) return <ErrorState error={error} backTo="/abilities" />;
+  if (!data) return <ErrorState error={{ response: { status: 404 } }} backTo="/abilities" />;
+
+  return (
     <>
-      <Helmet>
-        <title>{ability.name}</title>
-        <meta name="title" content="List Abilitys - Sword Art Online : Unleash Blading - Database" />
-        <meta name="description" content="List Abilitys - Sword Art Online : Unleash Blading - Database" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.ico" />
-      </Helmet>
-      <div className="imgMid">
-        <div className="infoAbilitys">
-          <div className="bg1">
-            <div className="bg2">
-              <p>{ability.name}</p>
-              <img src={imgAbilityDefault} alt={imgAbilityDefault} />
-            </div>
-          </div>
+      <Seo title={data.name} description={data.description || data.descripton} />
+      <Frame label="UNIT TYPE: ABILITY">
+        <DetailHero name={data.name} fallback={placeholders.ability} rarity={data.start} />
+        <div className="panel">
+          <h2 className="panel__heading">&lt;{t("detail.type")}&gt;</h2>
+          <p>{data.type || t("ability.skill")}</p>
+          <h2 className="panel__heading">&lt;{t("detail.description")}&gt;</h2>
+          <p>{data.description || data.descripton}</p>
         </div>
-          <RenderStart
-            list={false}
-            stars={ability.start}
-          ></RenderStart>
-        <div className="divInfo">
-          <p>{ability.description}</p>
-          {/* <p>{ability.type}</p> */}
+        <div style={{ marginTop: 18 }}>
+          <LanguagesBox item={data} />
         </div>
-      </div>
+        <div style={{ marginTop: 18 }}>
+          <Link className="btnTag" to="/abilities">
+            {t("state.back")}
+          </Link>
+        </div>
+      </Frame>
     </>
-  )
+  );
 }

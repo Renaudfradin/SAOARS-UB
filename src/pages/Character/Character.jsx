@@ -1,120 +1,115 @@
-import React,{ useState } from "react";
-import { useParams } from "react-router-dom";
-import EnhanceBtn from "@assets/img/btn_enhance_mode.png";
-import imgPartner from "@assets/special_partner.png";
-import RenderStart from "@components/renderStars/renderStart.jsx";
-import Stats from "@components/stats/stats";
-import Effect from "@components/effect/effect";
-import { Helmet } from "react-helmet-async";
-import useCharacter from "@hook/useCharacter";
-import "./Character.css";
+import React, { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Switch } from "antd";
+import { useLang } from "@/context/LangContext.jsx";
+import { translated } from "@/i18n/ui.js";
+import { useDetail } from "@/hook/queries.js";
+import Seo from "@components/ui/Seo.jsx";
+import Frame from "@components/ui/Frame.jsx";
+import DetailHero from "@components/ui/DetailHero.jsx";
+import StatsPanel from "@components/ui/StatsPanel.jsx";
+import SkillCard from "@components/ui/SkillCard.jsx";
+import LanguagesBox from "@components/ui/LanguagesBox.jsx";
+import LinkedCard from "@components/ui/LinkedCard.jsx";
+import { ElementIcon } from "@components/ui/icons.jsx";
+import { ErrorState, Loading } from "@components/ui/StateView.jsx";
+import { placeholders } from "@components/ui/media.js";
+import { mediaUrl } from "@components/ui/media.js";
 
 export default function Character() {
-  const param = useParams();
-  const idParam = param.id;
-  const [enhance, updateEnhance] = useState(true);
-  const { character } = useCharacter(idParam);
+  const { slug } = useParams();
+  const { t, lang } = useLang();
+  const { data, isLoading, isError, error } = useDetail("character", slug);
+  const [enhance, setEnhance] = useState(false);
 
-  function enhanceMode() {
-    updateEnhance(!enhance);
-  }
+  if (isLoading) return <Loading />;
+  if (isError) return <ErrorState error={error} backTo="/characters" />;
+  if (!data) return <ErrorState error={{ response: { status: 404 } }} backTo="/characters" />;
 
-  return(
+  const title = [data.name, data.description].filter(Boolean).join(" ");
+  const partner = data.special_partner;
+  const partnerName = partner ? translated(partner.name, lang) || partner.name : null;
+  const partnerSlug = partner?.slug;
+  const partnerImage = mediaUrl(partner?.image) || placeholders.character;
+  const hasEnhance = Boolean(data.enhance_atk || data.enhance_atk2 || data.enhance);
+
+  return (
     <>
-      <Helmet>
-        <title>Character {idParam}</title>
-        <meta name="title" content="List Characters - Sword Art Online : Unleash Blading - Database" />
-        <meta name="description" content="List Characters - Sword Art Online : Unleash Blading - Database" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.ico" />
-      </Helmet>
-      <div className="imgMid">
-        <div className="infoCharacterss">
-          <div className="bg1">
-            <div className="bg2">
-              <p>{character.name_characters} {character.description}</p>
-              <img src={character.img} alt={character.img} />
+      <Seo title={title} description={data.profile} />
+      <Frame label="UNIT TYPE: CHARACTER">
+        <DetailHero
+          name={title}
+          image={data.image}
+          secondImage={data.image2}
+          fallback={placeholders.character}
+          badge={<ElementIcon element={data.element} size={30} />}
+          rarity={data.start}
+        >
+          {data.cost != null && (
+            <div className="panel" style={{ marginTop: 8 }}>
+              {t("detail.cost")}: {data.cost}
             </div>
-          </div>
-        </div>
-        <div className="infoCharacters">
-          <div className="starrss">
-            <RenderStart list={false} stars={character.stars} />
-          </div>
-        </div>
-        { character.enhance_atk1 ?
-          <span>
-            <img className="imgEnhance" onClick={enhanceMode} src={EnhanceBtn} alt={EnhanceBtn} />
-          </span>
-          : null }
-        <div className="layoutAtkStat">
-          {enhance ?
-            <div className="atkLayout">
-              <Effect
-                character={true}
-                typeAtk={character.atk1_type}
-                title={character.atk1}
-                description={character.description_atk1}
-                mp={character.mp_atk1}
-              ></Effect>
-              <Effect
-                character={true}
-                typeAtk={character.atk2_type}
-                title={character.atk2}
-                description={character.description_atk2}
-                mp={character.mp_atk2}
-              ></Effect>
-              <Effect
-                character={true}
-                typeAtk={character.atk3_type}
-                title={character.atk3}
-                description={character.description_atk3}
-                mp={character.mp_atk3}
-              ></Effect>
-              <Effect
-                character={true}
-                typeAtk={"U"}
-                title={character.ultime}
-                description={character.ultime_description}
-              ></Effect>
+          )}
+        </DetailHero>
+
+        <div className="detailGrid">
+          <div className="skills">
+            <div className="panel__title" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span>{enhance ? t("detail.enhance") : t("detail.skills")}</span>
+              {hasEnhance && (
+                <label style={{ display: "flex", gap: 8, alignItems: "center", fontSize: 12 }}>
+                  <Switch size="small" checked={enhance} onChange={setEnhance} />
+                  {t("detail.enhance")}
+                </label>
+              )}
             </div>
-            :
-            <div className="atkLayout">
-              <Effect
-                character={true}
-                title={character.enhance_atk1}
-                description={character.enhance_atk1_description}
-                mp={character.enhance_atk1_mp}
-              ></Effect>
-              <Effect
-                character={true}
-                title={character.enhance_atk2}
-                description={character.enhance_atk2_description}
-                mp={character.enhance_atk2_mp}
-              ></Effect>
-              <Effect
-                character={true}
-                title={character.enhance_ultime}
-                description={character.enhance_ultime_description}
-                mp={character.enhance_ultime_mp}
-              ></Effect>
-            </div>
-          }
-          <Stats
-            stats={{ ...character }}
-          ></Stats>
-        </div>
-        <div className="profileInfo">
-          <div className="profile">
-            <h3 className="titleProfil">Description</h3>
-            <p>{character.profile}</p>
+            {!enhance ? (
+              <>
+                <SkillCard attack={data.atk1} />
+                <SkillCard attack={data.atk2} />
+                <SkillCard attack={data.atk3} />
+                <SkillCard type="U" title={data.ultime} description={data.ultime_description} />
+              </>
+            ) : (
+              <>
+                <SkillCard attack={data.enhance_atk} />
+                <SkillCard attack={data.enhance_atk2} />
+                <SkillCard type="EM" title={data.enhance} description={data.enhance} />
+              </>
+            )}
           </div>
-          {/* <div className="partner">
-            <img src={imgPartner} alt={imgPartner} />
-            <p>{character.special_partner}</p>
-          </div> */}
+          <StatsPanel item={data} />
         </div>
-      </div>
+
+        {partner && (
+          <div className="panel" style={{ marginTop: 18 }}>
+            <h2 className="panel__heading">&lt;{t("detail.partner")}&gt;</h2>
+            <LinkedCard
+              to={partnerSlug ? `/characters/${partnerSlug}` : undefined}
+              image={partnerImage}
+              fallback={placeholders.character}
+              title={partnerName || `#${partner.id}`}
+            />
+          </div>
+        )}
+
+        {data.profile && (
+          <div className="panel" style={{ marginTop: 18 }}>
+            <h2 className="panel__heading">&lt;{t("detail.profile")}&gt;</h2>
+            <p>{data.profile}</p>
+          </div>
+        )}
+
+        <div style={{ marginTop: 18 }}>
+          <LanguagesBox item={data} />
+        </div>
+
+        <div style={{ marginTop: 18 }}>
+          <Link className="btnTag" to="/characters">
+            {t("state.back")}
+          </Link>
+        </div>
+      </Frame>
     </>
-  )
+  );
 }

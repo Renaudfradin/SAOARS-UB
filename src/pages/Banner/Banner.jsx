@@ -1,49 +1,81 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import imgDefault from "@assets/img/imgDefault/character_250.png";
-import { Helmet } from "react-helmet-async";
-import useBanner from "@hook/useBanner.jsx";
-import "./Banner.css";
+import { useLang } from "@/context/LangContext.jsx";
+import { translated } from "@/i18n/ui.js";
+import { useDetail } from "@/hook/queries.js";
+import Seo from "@components/ui/Seo.jsx";
+import Frame from "@components/ui/Frame.jsx";
+import DetailHero from "@components/ui/DetailHero.jsx";
+import LanguagesBox from "@components/ui/LanguagesBox.jsx";
+import SafeImage from "@components/ui/SafeImage.jsx";
+import { ErrorState, Loading } from "@components/ui/StateView.jsx";
+import { mediaUrl, placeholders } from "@components/ui/media.js";
 
 export default function Banner() {
-  const param = useParams();
-  const idParam = param.id;
-  const { banner } = useBanner(idParam);
+  const { slug } = useParams();
+  const { t, lang } = useLang();
+  const { data, isLoading, isError, error } = useDetail("banner", slug);
 
-  return(
+  if (isLoading) return <Loading />;
+  if (isError) return <ErrorState error={error} backTo="/banners" />;
+  if (!data) return <ErrorState error={{ response: { status: 404 } }} backTo="/banners" />;
+
+  const characters = Array.isArray(data.characters) ? data.characters : [];
+
+  return (
     <>
-      <Helmet>
-        <title>{banner.name_b}</title>
-        <meta name="title" content="List Banners - Sword Art Online : Unleash Blading - Database" />
-        <meta name="description" content="List Banners - Sword Art Online : Unleash Blading - Database" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.ico" />
-      </Helmet>
-      <div className="imgMid">
-        <div className="infoTitle">
-          <p>{banner.name_b}</p>
-          <img className="imgBanner" src={banner.img_baner} alt={banner.img_baner} />
+      <Seo title={data.name} />
+      <Frame label="SCOUT TYPE: BANNER">
+        <DetailHero name={data.name} image={data.image} fallback={placeholders.character} />
+
+        <div className="panel">
+          <h2 className="panel__heading">&lt;{t("detail.period")}&gt;</h2>
+          <p>
+            {t("detail.from")} {data.from || "—"} — {t("detail.to")} {data.to || "—"}
+          </p>
         </div>
-      <div className="infoBanners">
-        <div className="infoPeriode">
-          <h3>periode</h3>
-          <div className="periode">
-            <div className="periodeFrom">
-              <p className="From">From</p>
-              <p className="FromP">{banner.from}</p>
-            </div>
-            <div className="periodeTo">
-              <p className="To">To</p>
-              <p className="ToP">{banner.to}</p>
+
+        {characters.length > 0 && (
+          <div className="panel" style={{ marginTop: 18 }}>
+            <h2 className="panel__heading">&lt;{t("detail.characters")}&gt;</h2>
+            <div className="avatars">
+              {characters.map((character) => {
+                const name = translated(character.name, lang) || character.name || `#${character.id}`;
+                const to = character.slug ? `/characters/${character.slug}` : null;
+                const body = (
+                  <>
+                    <SafeImage
+                      src={mediaUrl(character.image)}
+                      fallback={placeholders.character}
+                      alt={name}
+                    />
+                    <span>{name}</span>
+                  </>
+                );
+                return to ? (
+                  <Link key={character.id} className="avatar" to={to}>
+                    {body}
+                  </Link>
+                ) : (
+                  <div key={character.id} className="avatar">
+                    {body}
+                  </div>
+                );
+              })}
             </div>
           </div>
+        )}
+
+        <div style={{ marginTop: 18 }}>
+          <LanguagesBox item={data} />
         </div>
-        <div className="infoPerso">
-          <h3>personnage</h3>
-          <Link to={`/characters/${banner.chracters}`}><img className="imgPerso" src={imgDefault} alt={imgDefault} /></Link>
+
+        <div style={{ marginTop: 18 }}>
+          <Link className="btnTag" to="/banners">
+            {t("state.back")}
+          </Link>
         </div>
-      </div>
-      </div>
+      </Frame>
     </>
-  )
+  );
 }
