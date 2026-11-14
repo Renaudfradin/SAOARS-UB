@@ -82,16 +82,20 @@ export default function Banner() {
       <Seo title={data.name} />
       <Frame label="SCOUT TYPE: CHARACTER">
         <div className="scout">
-          <div className="scout__name">{data.name}</div>
-          <div className="scout__line" aria-hidden="true" />
+          <div className="scout__name">
+            <span>{data.name}</span>
+            <i className="scout__elbow" />
+          </div>
           <div className="scout__art">
-            <SafeImage src={data.image} fallback={placeholders.character} alt={data.name} />
+            <SafeImage src={data.image} fallback={data.image_fallback || placeholders.character} alt={data.name} />
           </div>
 
           <div className="scout__cols">
             <Folder title="&lt;PERIOD&gt;">
-              <PeriodRow label={t("detail.from")} date={splitDate(data.from, lang)} />
-              <PeriodRow label={t("detail.to")} date={splitDate(data.to, lang)} />
+              <div className="periods">
+                <PeriodRow label={t("detail.from")} date={splitDate(data.from, lang)} />
+                <PeriodRow label={t("detail.to")} date={splitDate(data.to, lang)} />
+              </div>
             </Folder>
             <Folder title="&lt;CHARACTER&gt;">
               <div className="scout__faces">

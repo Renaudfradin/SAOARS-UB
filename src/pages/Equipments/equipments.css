@@ -1,0 +1,108 @@
+.eqBoard {
+  width: 100%;
+  margin-top: 10px;
+  padding: 26px 12px 8px;
+  background: linear-gradient(180deg, #6d348c 0%, #4d206e 42%, #3c165c 100%);
+  border-radius: 6px 6px 0 0;
+}
+
+.eqGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 12px;
+}
+
+.eqCard {
+  color: #f2f2f2;
+  text-align: center;
+}
+
+.eqCard__plate {
+  position: relative;
+  width: min(100%, 176px);
+  margin: 8px auto 0;
+  padding: 3px;
+  background: linear-gradient(160deg, #f6c6ff 0%, #b06cff 42%, #7d4dff 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.eqCard__img {
+  display: block;
+  width: 100%;
+  height: 154px;
+  object-fit: contain;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(120, 80, 180, 0.35), transparent 62%),
+    linear-gradient(180deg, #2a1848, #140c28);
+}
+
+.eqCard__elem {
+  position: absolute;
+  top: -16px;
+  right: -14px;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.45));
+}
+
+.eqCard__rarity {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 34px;
+  height: 34px;
+}
+
+.eqCard__name {
+  margin: 8px 4px 0;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.typeGlyph {
+  width: 36px;
+  height: 36px;
+  color: inherit;
+}
+
+.choiceBtn--type .typeGlyph {
+  width: 46px;
+  height: 46px;
+  color: #d7d7d7;
+}
+
+.choiceBtn--type.is-on .typeGlyph {
+  color: #fff;
+  filter: drop-shadow(0 0 5px #fff);
+}
+
+@media (min-width: 700px) {
+  .charList .adv {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .charList .adv__side {
+    flex-direction: column;
+    width: 108px;
+    flex: 0 0 108px;
+  }
+}
+
+@media (max-width: 900px) {
+  .eqGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .eqGrid {
+    grid-template-columns: 1fr;
+  }
+}

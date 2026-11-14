@@ -33,17 +33,44 @@
   background: rgb(204, 80, 190);
 }
 
-.scout__line {
-  width: min(260px, 55%);
+.scout__name span {
+  position: relative;
+}
+
+.scout__elbow {
+  position: absolute;
+  left: 100%;
+  top: 18px;
+  width: 48px;
   height: 1px;
-  margin: 2px 0 0 8px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.scout__elbow::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.scout__elbow::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 30px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
 }
 
 .scout__art {
   display: flex;
   justify-content: center;
-  padding: 18px 15px 8px;
+  padding: 8px 15px 8px;
 }
 
 .scout__art img {
@@ -127,10 +154,17 @@
   background-position: -5px -90px;
 }
 
+.periods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
 .period {
-  width: 200px;
-  margin: 0 auto 10px;
-  padding: 4px 10px 8px;
+  width: 168px;
+  margin: 0;
+  padding: 6px 12px 10px;
   border-radius: 7px;
   background: rgba(23, 23, 23, 0.5);
   color: #e3e3e3;
@@ -162,9 +196,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 18px;
   min-height: 100px;
-  padding: 8px 0 4px;
+  padding: 8px 0 12px;
 }
 
 .scout__faces img {

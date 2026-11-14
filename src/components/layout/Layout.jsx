@@ -23,7 +23,7 @@ function LangButton() {
   return (
     <div className="langBtn">
       <button type="button" className="langBtn__toggle" aria-label="Language" onClick={() => setOpen((value) => !value)}>
-        <img src="/ui/flags/button_us.png" alt="" />
+        <img src={`/ui/flags/button_${lang}.png`} alt="" />
       </button>
       {open && (
         <div className="langBtn__menu">

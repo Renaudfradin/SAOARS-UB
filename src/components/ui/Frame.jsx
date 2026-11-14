@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Frame({ label, children }) {
+export default function Frame({ label, className = "", children }) {
   return (
-    <section className="modal">
+    <section className={className ? `modal ${className}` : "modal"}>
       <div className="modal__top">
         <div className="modal__topLeft" />
         <div className="modal__topMid" />
