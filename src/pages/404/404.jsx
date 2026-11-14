@@ -1,22 +1,22 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
-import img404 from "@assets/img/bunis.gif"
-import "./404.css";
+import { Link } from "react-router-dom";
+import { useLang } from "@/context/LangContext.jsx";
+import Seo from "@components/ui/Seo.jsx";
+import Frame from "@components/ui/Frame.jsx";
 
-export default function notFound(){
-  return(
-    <div className="containerNotFound">
-      <Helmet>
-        <title>Not found - Sword Art Online : Unleash Blading - Database</title>
-        <meta name="title" content="Not found - Sword Art Online : Unleash Blading - Database" />
-        <meta name="description" content="Not found - Sword Art Online : Unleash Blading - Database" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.ico" />
-      </Helmet>
-      <div>
-        <h1>"CODE:404"</h1>
-        <img src={img404} alt={img404} />
-      </div>
-    </div>
-  )
+export default function NotFound() {
+  const { t } = useLang();
+  return (
+    <>
+      <Seo title={t("notFound.title")} />
+      <Frame label="PAGE: 404">
+        <div className="state">
+          <h1>{t("notFound.title")}</h1>
+          <Link className="btnTag" to="/">
+            {t("notFound.back")}
+          </Link>
+        </div>
+      </Frame>
+    </>
+  );
 }

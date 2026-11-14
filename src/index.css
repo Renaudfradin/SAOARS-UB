@@ -1,33 +1,80 @@
-:root {
-  font-family: 'Oswald', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+@font-face {
+  font-family: "Fira Mono";
+  src: url("./assets/font/FiraMono-Regular.ttf") format("truetype");
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-image: url("./assets/img/backgroud_main.png");
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Mono";
+  src: url("./assets/font/FiraMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SAOUI";
+  src: url("./assets/font/SAOUI-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0c0c08;
+  --panel: #0f0b33;
+  --panel-2: #1a0f3d;
+  --panel-3: #2a0d33;
+  --line: #5b4bc4;
+  --line-soft: rgba(124, 108, 230, 0.45);
+  --accent: #a64ee6;
+  --accent-2: #4f36c9;
+  --text: #eaeaea;
+  --muted: rgba(234, 234, 234, 0.65);
+  --mono: "Fira Mono", Consolas, monospace;
+  --topbar-h: 64px;
+  --sidebar-w: 70px;
+
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #eaeaea;
+  color-scheme: dark;
+  background-color: #090906;
+  background-image: url("/ui/main.png");
+  background-repeat: repeat;
+  background-position: center top;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #392e3e;
+  background-color: #1b1530;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5853b9; 
+  background: #5853b9;
   border-radius: 10px;
-}
-
-body{
-  margin: 0%;
-  padding: 0%;
-  width: 100% !important;
 }

@@ -1,0 +1,272 @@
+.shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 64px;
+}
+
+.topbar__strip {
+  height: 25px;
+  background: linear-gradient(rgb(63, 36, 85) 0%, rgb(44, 36, 85) 90%);
+}
+
+.topbar__trap {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  height: 38px;
+  padding-bottom: 3px;
+  pointer-events: none;
+}
+
+.topbar__slant {
+  flex: 1 1 25%;
+  height: 35px;
+  background: rgb(44, 36, 85);
+  border-bottom: 1px solid rgb(119, 103, 199);
+}
+
+.topbar__mid {
+  flex: 1 1 50%;
+  height: 35px;
+}
+
+.topbar__slant--left {
+  transform: skewX(-45deg);
+  transform-origin: left center;
+}
+
+.topbar__slant--right {
+  transform: skewX(45deg);
+  transform-origin: right center;
+}
+
+.topbar__menu {
+  position: absolute;
+  top: 5px;
+  left: 24px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.topbar__menu img,
+.langBtn__toggle img {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.langBtn {
+  position: absolute;
+  top: 5px;
+  right: 24px;
+  z-index: 2;
+}
+
+.langBtn__toggle {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.langBtn__menu {
+  position: absolute;
+  top: 58px;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: 220px;
+  padding: 10px;
+  background: rgba(18, 12, 48, 0.96);
+  border: 1px solid rgba(119, 103, 199, 0.8);
+}
+
+.langBtn__menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.langBtn__menu img {
+  width: 25px;
+  height: 18px;
+  object-fit: cover;
+}
+
+.langBtn__menu .is-active {
+  outline: 1px solid #fff;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 997;
+  box-sizing: content-box;
+  width: 70px;
+  overflow: hidden;
+  background: rgba(44, 36, 85, 0.84);
+  border-right: 4px solid rgb(156, 122, 241);
+  transition: width 0.2s;
+  user-select: none;
+}
+
+.sidebar:hover,
+.shell--open .sidebar {
+  width: 216px;
+  overflow: visible;
+  box-shadow: rgba(0, 0, 0, 0.4) 4px 7px 10px;
+}
+
+.sidebar__title {
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  display: block;
+  width: 100px;
+  height: 50px;
+  margin: 0;
+  border-left: 5px solid #fff;
+  color: #eaeaea;
+  font-family: var(--mono);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.sidebar__title h2 {
+  margin: 0 0 0 10px;
+  height: 25px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.sidebar__title span {
+  display: block;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 150px;
+}
+
+.navBtn {
+  position: relative;
+  display: block;
+  box-sizing: content-box;
+  width: 200px;
+  height: 50px;
+  margin: 10px 8px;
+  padding: 3px 0;
+  background: url("/ui/buttons/background_button.png") no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+.navBtn--active {
+  background-image: url("/ui/buttons/background_button_selected.png");
+}
+
+.navBtn img {
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 53px;
+  height: 53px;
+  max-width: none;
+  object-fit: contain;
+}
+
+.navBtn__label {
+  display: inline-block;
+  padding-left: 68px;
+  line-height: 50px;
+}
+
+.shell__main {
+  min-height: calc(100vh - 64px);
+}
+
+.shell__content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.footer {
+  margin-top: 80px;
+  padding: 10px 24px 18px 80px;
+  text-align: center;
+  font-size: 13px;
+  color: #eaeaea;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 28px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.footer a:hover {
+  color: #d7a6ff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .shell__content {
+    width: calc(100% - 16px);
+  }
+
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+
+  .sidebar:hover,
+  .shell--open .sidebar {
+    width: 216px;
+    overflow: visible;
+  }
+
+  .topbar__menu {
+    left: 8px;
+  }
+}

@@ -1,9 +1,0 @@
-.layoutImagination{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(23, 23, 23, 0.5);
-  padding: 20px 20px;
-  flex-direction: column;
-  align-content: center;
-}
