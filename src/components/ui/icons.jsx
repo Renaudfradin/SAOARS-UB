@@ -1,5 +1,7 @@
 import React from "react";
 import { useLang } from "@/context/LangContext.jsx";
+import { assetSrc } from "@/lib/assetSrc.js";
+import { weaponIcons } from "./weaponIcons.js";
 import rarity1 from "@assets/img/icon_stars/rarity_1.svg";
 import rarity2 from "@assets/img/icon_stars/rarity_2.svg";
 import rarity3 from "@assets/img/icon_stars/rarity_3.svg";
@@ -25,11 +27,6 @@ const RARITY_ICONS = { 1: rarity1, 2: rarity2, 3: rarity3, 4: rarity4 };
 const STARS_ICONS = { 1: stars1, 2: stars2, 3: stars3, 4: stars4 };
 const ATTACK_ICONS = { A: atkA, B: atkB, C: atkC, D: atkD, E: atkE, EM: atkEM, H: atkH, U: atkU };
 
-const weaponIcons = import.meta.glob("../../assets/img/icon_typeCharacter/*.svg", {
-  eager: true,
-  import: "default",
-});
-
 const WEAPON_FILE = {
   sword: (el) => [`sword_${el}1`],
   rapier: (el) => [`rapier_${el}`],
@@ -52,8 +49,8 @@ function weaponIcon(type, element) {
   const elementNames = ELEMENT_FILE[element] || [element];
   for (const el of elementNames) {
     for (const name of names(el)) {
-      const icon = weaponIcons[`../../assets/img/icon_typeCharacter/${name}.svg`];
-      if (icon) return icon;
+      const icon = weaponIcons[name];
+      if (icon) return assetSrc(icon);
     }
   }
   return null;
@@ -79,19 +76,19 @@ export function ElementIcon({ element, size = 26, active = true, title }) {
 export function RarityIcon({ rarity, className = "rarityIcon" }) {
   const icon = RARITY_ICONS[Number(rarity)];
   if (!icon) return null;
-  return <img className={className} src={icon} alt={`Rarity ${rarity}`} title={`★${rarity}`} />;
+  return <img className={className} src={assetSrc(icon)} alt={`Rarity ${rarity}`} title={`★${rarity}`} />;
 }
 
 export function StarsIcon({ rarity }) {
   const icon = STARS_ICONS[Number(rarity)];
   if (!icon) return null;
-  return <img className="starsIcon" src={icon} alt={`${rarity} stars`} />;
+  return <img className="starsIcon" src={assetSrc(icon)} alt={`${rarity} stars`} />;
 }
 
 export function AttackTypeIcon({ type, className = "attackIcon" }) {
   const icon = ATTACK_ICONS[type];
   if (!icon) return null;
-  return <img className={className} src={icon} alt={type} title={type} />;
+  return <img className={className} src={assetSrc(icon)} alt={type} title={type} />;
 }
 
 export function WeaponTypeIcon({ type, element, className = "weaponIcon" }) {

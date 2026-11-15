@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { mediaUrl } from "./media.js";
 
 export default function SafeImage({ src, fallback, alt = "", ...props }) {
   const resolved = mediaUrl(src) || fallback;
-  const [current, setCurrent] = useState(resolved);
-
-  useEffect(() => setCurrent(resolved), [resolved]);
+  const [failedSrc, setFailedSrc] = useState(null);
+  const current = failedSrc === resolved && fallback ? fallback : resolved;
 
   if (!current) return null;
 
@@ -14,7 +13,9 @@ export default function SafeImage({ src, fallback, alt = "", ...props }) {
       src={current}
       alt={alt}
       loading="lazy"
-      onError={() => fallback && current !== fallback && setCurrent(fallback)}
+      onError={() => {
+        if (fallback && current !== fallback) setFailedSrc(resolved);
+      }}
       {...props}
     />
   );

@@ -70,7 +70,7 @@ const fr = {
     "SAOUB Database est un projet de fan qui regroupe les informations du jeu mobile Sword Art Online Alicization Rising Steel / Unleash Blading. Les données sont servies par l'API SAOARS.",
   "privacy.title": "Politique de confidentialité",
   "privacy.body":
-    "Ce site ne crée pas de compte et ne collecte aucune donnée personnelle. Seule la langue choisie est enregistrée dans le stockage local de votre navigateur. Une mesure d'audience anonyme (Google Analytics) peut être utilisée.",
+    "Ce site ne crée pas de compte et ne collecte aucune donnée personnelle. Seule la langue choisie est enregistrée dans un cookie de votre navigateur. Une mesure d'audience anonyme (Google Analytics) peut être utilisée.",
   "notFound.title": "Page introuvable",
   "notFound.back": "Retour à l'accueil",
   "element.neutral": "Neutre",
@@ -163,7 +163,7 @@ const en = {
     "SAOUB Database is a fan project gathering information about the mobile game Sword Art Online Alicization Rising Steel / Unleash Blading. Data is served by the SAOARS API.",
   "privacy.title": "Privacy policy",
   "privacy.body":
-    "This site has no accounts and collects no personal data. Only your chosen language is stored in your browser's local storage. Anonymous audience measurement (Google Analytics) may be used.",
+    "This site has no accounts and collects no personal data. Only your chosen language is stored in a cookie in your browser. Anonymous audience measurement (Google Analytics) may be used.",
   "notFound.title": "Page not found",
   "notFound.back": "Back to index",
   "element.neutral": "Neutral",

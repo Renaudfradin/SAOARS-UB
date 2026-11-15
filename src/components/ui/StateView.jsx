@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Spin } from "antd";
 import { useLang } from "@/context/LangContext.jsx";
 
@@ -25,7 +25,7 @@ export function ErrorState({ error, backTo }) {
       <p>{message}</p>
       {status && status !== 404 && <p className="state__detail">HTTP {status}</p>}
       {backTo && (
-        <Link className="btnTag" to={backTo}>
+        <Link className="btnTag" href={backTo}>
           {t("state.back")}
         </Link>
       )}

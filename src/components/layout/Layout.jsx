@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLang } from "@/context/LangContext.jsx";
-import { LOCALES } from "@/api/client.js";
+import { LOCALES } from "@/i18n/locale.js";
 import { LANG_LABELS } from "@/i18n/ui.js";
 import { moreLinks, navItems } from "./navItems.js";
-import "./layout.css";
 
 const FLAGS = {
   fr: "/ui/flags/flag_fr.png",
@@ -47,14 +49,30 @@ function LangButton() {
   );
 }
 
+function NavItem({ to, icon, text, end }) {
+  const pathname = usePathname();
+  const active = end ? pathname === to : pathname === to || pathname.startsWith(`${to}/`);
+  return (
+    <Link href={to} className={`navBtn ${active ? "navBtn--active" : ""}`}>
+      <img src={icon} alt="" />
+      <span className="navBtn__label">{text}</span>
+    </Link>
+  );
+}
+
 export default function Layout({ children }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
   const { t } = useLang();
-  const { pathname } = useLocation();
+
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setOpen(false);
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setOpen(false);
   }, [pathname]);
 
   return (
@@ -73,21 +91,13 @@ export default function Layout({ children }) {
       </header>
 
       <aside className="sidebar">
-        <Link to="/" className="sidebar__title">
+        <Link href="/" className="sidebar__title">
           <h2>SAO UB</h2>
           <span>Database</span>
         </Link>
         <nav className="sidebar__nav">
-          {navItems.map(({ to, icon, text, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              className={({ isActive }) => `navBtn ${isActive ? "navBtn--active" : ""}`}
-            >
-              <img src={icon} alt="" />
-              <span className="navBtn__label">{text}</span>
-            </NavLink>
+          {navItems.map((item) => (
+            <NavItem key={item.to} {...item} />
           ))}
         </nav>
       </aside>
@@ -97,15 +107,15 @@ export default function Layout({ children }) {
         <footer className="footer">
           <div className="footer__links">
             {moreLinks.map(({ to, label }) => (
-              <Link key={to} to={to}>
+              <Link key={to} href={to}>
                 {t(label)}
               </Link>
             ))}
-            <Link to="/about">{t("footer.about")}</Link>
-            <Link to="/privacy">{t("footer.privacy")}</Link>
+            <Link href="/about">{t("footer.about")}</Link>
+            <Link href="/privacy">{t("footer.privacy")}</Link>
           </div>
           <p>
-            SAOUB's Database v4. {t("footer.dev")}{" "}
+            SAOUB&apos;s Database v4. {t("footer.dev")}{" "}
             <a href="https://github.com/Renaudfradin" target="_blank" rel="noreferrer">
               RenaudFradin
             </a>

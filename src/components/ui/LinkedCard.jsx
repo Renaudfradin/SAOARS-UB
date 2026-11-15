@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import SafeImage from "./SafeImage.jsx";
 
 export default function LinkedCard({ to, image, fallback, title, children }) {
@@ -14,7 +14,7 @@ export default function LinkedCard({ to, image, fallback, title, children }) {
   );
 
   return to ? (
-    <Link className="linked" to={to}>
+    <Link className="linked" href={to}>
       {content}
     </Link>
   ) : (

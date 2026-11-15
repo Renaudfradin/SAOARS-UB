@@ -1,35 +1,34 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
-import { DEFAULT_LOCALE, LOCALES, setApiLang } from "@/api/client.js";
+"use client";
+
+import React, { createContext, useContext, useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { LANG_COOKIE, LOCALES, writeLangCookie } from "@/i18n/locale.js";
 import { translate } from "@/i18n/ui.js";
-
-const STORAGE_KEY = "saoub.lang";
-
-function initialLang() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (LOCALES.includes(stored)) return stored;
-  const browser = navigator.language?.slice(0, 2);
-  return LOCALES.includes(browser) ? browser : DEFAULT_LOCALE;
-}
 
 const LangContext = createContext(null);
 
-export function LangProvider({ children }) {
-  const [lang, setLangState] = useState(() => {
-    const value = initialLang();
-    setApiLang(value);
-    return value;
-  });
+export function LangProvider({ lang, children }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const stored = localStorage.getItem(LANG_COOKIE);
+    if (!stored) return;
+    localStorage.removeItem(LANG_COOKIE);
+    if (LOCALES.includes(stored) && stored !== lang) {
+      writeLangCookie(stored);
+      router.refresh();
+    }
+  }, [lang, router]);
 
   const value = useMemo(() => {
     const setLang = (next) => {
-      if (!LOCALES.includes(next)) return;
-      localStorage.setItem(STORAGE_KEY, next);
-      setApiLang(next);
+      if (!LOCALES.includes(next) || next === lang) return;
+      writeLangCookie(next);
       document.documentElement.lang = next;
-      setLangState(next);
+      router.refresh();
     };
     return { lang, setLang, t: (key) => translate(lang, key) };
-  }, [lang]);
+  }, [lang, router]);
 
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
 }

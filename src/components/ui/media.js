@@ -1,15 +1,16 @@
+import { assetSrc } from "@/lib/assetSrc.js";
 import characterPlaceholder from "@assets/img/imgDefault/character_250.png";
 import weaponPlaceholder from "@assets/img/imgDefault/stuff_370.png";
 import equipmentPlaceholder from "@assets/img/imgDefault/stuff_303.png";
 import abilityPlaceholder from "@assets/img/imgDefault/abilitys.jpg";
 
-const MEDIA_URL = (import.meta.env.VITE_MEDIA_URL || "https://apisaoars.s3.fr-par.scw.cloud").replace(/\/$/, "");
+const MEDIA_URL = (process.env.NEXT_PUBLIC_MEDIA_URL || "https://apisaoars.s3.fr-par.scw.cloud").replace(/\/$/, "");
 
 export const placeholders = {
-  character: characterPlaceholder,
-  weapon: weaponPlaceholder,
-  equipment: equipmentPlaceholder,
-  ability: abilityPlaceholder,
+  character: assetSrc(characterPlaceholder),
+  weapon: assetSrc(weaponPlaceholder),
+  equipment: assetSrc(equipmentPlaceholder),
+  ability: assetSrc(abilityPlaceholder),
 };
 
 export function mediaUrl(path) {

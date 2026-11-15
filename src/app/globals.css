@@ -1,0 +1,15 @@
+@layer reset, antd;
+
+@import "antd/dist/reset.css" layer(reset);
+@import "../index.css";
+@import "../theme/ui.css";
+@import "../app.css";
+@import "../components/layout/layout.css";
+@import "../views/Home/Home.css";
+@import "../views/Banner/Banner.css";
+@import "../views/Weapon/weapon.css";
+@import "../views/Equipment/equipment.css";
+@import "../views/Equipments/equipments.css";
+@import "../views/Weapons/weapons.css";
+@import "../views/Characters/characters.css";
+@import "../views/Character/character.css";

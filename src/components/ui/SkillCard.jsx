@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useLang } from "@/context/LangContext.jsx";
 import { translated } from "@/i18n/ui.js";
 import { AttackTypeIcon } from "./icons.jsx";
@@ -14,7 +14,7 @@ export default function SkillCard({ attack, type, title, description, mp, to }) 
 
   if (!name && !text) return null;
 
-  const heading = link ? <Link to={link}>{name}</Link> : name;
+  const heading = link ? <Link href={link}>{name}</Link> : name;
 
   return (
     <div className="skill">

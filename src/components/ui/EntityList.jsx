@@ -5,7 +5,6 @@ import { useAllItems, usePagedList } from "@/hook/queries.js";
 import Frame from "./Frame.jsx";
 import ElementFilter from "./ElementFilter.jsx";
 import { Empty, ErrorState, Loading } from "./StateView.jsx";
-import Seo from "./Seo.jsx";
 
 const PAGE_SIZE = 21;
 
@@ -24,7 +23,6 @@ function sortItems(items, sort) {
 export default function EntityList({
   resource,
   label,
-  title,
   renderCard,
   elementKey,
   typeKey,
@@ -33,6 +31,8 @@ export default function EntityList({
   gridClassName = "cardGrid",
   pageSize = PAGE_SIZE,
   showFilters = true,
+  initialPage,
+  seededAt,
 }) {
   const { t } = useLang();
   const [page, setPage] = useState(1);
@@ -44,7 +44,7 @@ export default function EntityList({
   const [advanced, setAdvanced] = useState(false);
 
   const filtering = Boolean(search.trim() || element || rarity || type || sort !== "new");
-  const paged = usePagedList(resource, page);
+  const paged = usePagedList(resource, page, initialPage, seededAt);
   const all = useAllItems(resource, filtering);
 
   const source = filtering ? all : paged;
@@ -73,7 +73,6 @@ export default function EntityList({
 
   return (
     <>
-      <Seo title={title} />
       <Frame label={label}>
         {showFilters && <div className="filters">
           {elementKey && <ElementFilter value={element} onChange={(value) => { setElement(value); setPage(1); }} />}
