@@ -226,11 +226,13 @@
 }
 
 .footer {
-  margin-top: 80px;
-  padding: 10px 24px 18px 80px;
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  padding: 10px 0 10px 80px;
   text-align: center;
   font-size: 13px;
-  color: #eaeaea;
+  color: #fff;
 }
 
 .footer__links {
@@ -246,8 +248,74 @@
   color: #d7a6ff;
 }
 
+.footer__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.footerBtn {
+  position: relative;
+  z-index: 0;
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+  padding: 7px;
+  border: 1px solid #ff44fc;
+  border-radius: 7px;
+  background: rgba(46, 32, 111, 0.94);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.footerBtn:hover {
+  transform: scale(1.03);
+}
+
+.footerBtn::before {
+  content: "";
+  position: absolute;
+  top: -25.5%;
+  left: -5%;
+  z-index: -1;
+  width: 110%;
+  height: 150%;
+  background: url("/ui/buttons/background_button_hover.png") 0 0 / 100% 100% no-repeat;
+}
+
+.footerBtn a {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.footerBtn a:hover {
+  color: #fff;
+}
+
 .footer p {
-  margin: 0;
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.footer p a {
+  color: #ffd59c;
+  font-weight: 700;
+}
+
+@media (max-width: 994px) {
+  .footer {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 640px) {

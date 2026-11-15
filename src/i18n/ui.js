@@ -19,7 +19,7 @@ const fr = {
   "nav.imaginations": "Imaginations",
   "nav.gallery": "Galerie",
   "footer.about": "À propos",
-  "footer.privacy": "Confidentialité",
+  "footer.privacy": "Politique de Confidentialité",
   "footer.credits":
     "Crédits des données/images du jeu Sword Art Online Unleash Blading à Bandai Namco Entertainment Inc. et autres auteurs respectifs.",
   "footer.dev": "Développé par",

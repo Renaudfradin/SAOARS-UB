@@ -111,8 +111,14 @@ export default function Layout({ children }) {
                 {t(label)}
               </Link>
             ))}
-            <Link href="/about">{t("footer.about")}</Link>
-            <Link href="/privacy">{t("footer.privacy")}</Link>
+          </div>
+          <div className="footer__actions">
+            <div className="footerBtn">
+              <Link href="/about">{t("footer.about")}</Link>
+            </div>
+            <div className="footerBtn">
+              <Link href="/privacy">{t("footer.privacy")}</Link>
+            </div>
           </div>
           <p>
             SAOUB&apos;s Database v4. {t("footer.dev")}{" "}

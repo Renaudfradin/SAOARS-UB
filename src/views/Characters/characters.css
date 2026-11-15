@@ -37,121 +37,287 @@
 }
 
 .elemBtn img {
+  position: relative;
+  z-index: 2;
   display: block;
   width: 50px;
   height: 50px;
+}
+
+.elemStroke {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: 3;
+  width: 54px;
+  height: 54px;
+  pointer-events: none;
+}
+
+.elemStroke path {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.elemBtn.is-on .elemStroke path {
+  animation: diamondDraw 1s ease-in-out forwards;
+}
+
+.elemBtn:active .elemStroke path {
+  fill: rgba(255, 255, 255, 0.45);
 }
 
 .elemBtn.is-off {
   filter: grayscale(0.55) brightness(0.55);
 }
 
-.elemBtn.is-on img {
-  filter: drop-shadow(0 0 4px #fff);
-}
-
 .advToggle {
   position: relative;
   z-index: 1;
-  min-width: 280px;
-  height: 34px;
-  margin-top: 6px;
-  padding: 2px 48px 0;
-  border: 0;
+  width: min(420px, 72%);
+  height: 25px;
+  margin-top: 18px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 0;
+  border-radius: 50px 50px 0 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.advToggle span {
+  display: block;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
   border-radius: 40px 40px 0 0;
-  background: #f3f3f3;
+  background: rgba(255, 255, 255, 0.9);
   color: #6a6a6a;
   font-family: "Fira Mono", Consolas, monospace;
   font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
+  line-height: 25px;
+  transition: background 0.5s ease-out;
+}
+
+.advToggle:hover span {
+  background: rgba(247, 230, 199, 0.9);
+}
+
+.advToggle::before {
+  content: "";
+  position: absolute;
+  bottom: -36px;
+  left: 0;
+  width: 145%;
+  height: 36px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 .adv {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  position: relative;
   width: min(920px, 100%);
-  margin-top: 6px;
+  margin-top: 36px;
 }
 
-.adv__side {
+.adv__wire {
+  position: absolute;
+  top: -44px;
+  left: 18px;
+  width: min(250px, 46%);
+  height: 36px;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+.adv__wireLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 8px;
+}
+
+.adv__wireLine path {
+  fill: rgba(255, 255, 255, 0.55);
+  transform-origin: 0 0;
+  animation: wireGrow 0.45s ease-out both;
+}
+
+.adv__wireElbow {
+  position: absolute;
+  top: 0;
+  left: 95%;
+  width: 16px;
+  height: 56px;
+  overflow: visible;
+}
+
+.adv__wireElbow path {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: diamondDraw 0.7s ease-in-out 0.12s forwards;
+}
+
+.adv__layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.adv__rail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   width: 108px;
   flex: 0 0 108px;
 }
 
+.adv__side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.adv__side::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  right: 0;
+  width: 2px;
+  background: rgb(202, 81, 245);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.adv__side::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  z-index: 1;
+  width: 10px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  animation: inkTravel 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .advTab {
   position: relative;
-  width: 92px;
-  height: 78px;
-  padding: 8px 6px 16px;
-  border: 2px solid rgba(255, 255, 255, 0.82);
-  background: rgba(28, 16, 58, 0.55);
-  color: #fff;
+  width: 75px;
+  height: 75px;
+  padding: 5px 2px;
+  border: 3px solid #ccc;
+  background: transparent;
+  color: #ccc;
+  font-family: "Fira Mono", Consolas, monospace;
+  font-size: 9px;
+  line-height: 1;
   cursor: pointer;
+  transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 .advTab strong {
+  position: relative;
+  z-index: 1;
   display: block;
-  font-family: "Fira Mono", Consolas, monospace;
-  font-size: 12px;
+  font-size: 9px;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
-.advTab img {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
+.advTab > svg {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  transform: translateX(-50%);
 }
 
 .advTab::after {
   content: "";
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 18px 18px;
-  border-color: transparent transparent rgba(255, 255, 255, 0.85) transparent;
+  right: 1px;
+  bottom: -7px;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-left: 1rem solid #ccc;
+  transform: rotate(45deg);
+  pointer-events: none;
+  transition: border-color 0.25s ease-in-out;
 }
 
-.advTab--weapon::after {
-  border-color: transparent transparent #e39a32 transparent;
-}
-
-.advTab--name::after {
-  border-color: transparent transparent #b15cff transparent;
-}
-
+.advTab:hover,
 .advTab.is-on {
-  background: rgba(255, 255, 255, 0.92);
-  color: #2a2a2a;
+  color: rgb(181, 105, 23);
+  border-color: rgb(181, 105, 23);
+}
+
+.advTab:hover::after,
+.advTab.is-on::after {
+  border-left-color: rgb(181, 105, 23);
 }
 
 .adv__close {
-  width: 34px;
-  height: 34px;
-  margin-top: 8px;
-  border: 2px solid #fff;
-  border-radius: 50%;
+  width: 33px;
+  height: 56px;
+  margin-top: 2px;
+  padding: 0;
+  border: 0;
   background: transparent;
-  color: #fff;
-  font-size: 18px;
-  line-height: 1;
   cursor: pointer;
+}
+
+.adv__close svg {
+  display: block;
+}
+
+.adv__close path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.4;
+  stroke-linecap: round;
 }
 
 .adv__panel {
   flex: 1;
   min-height: 148px;
+  min-width: 0;
+  max-height: 320px;
   padding: 22px 16px;
-  background: rgba(16, 8, 40, 0.55);
+  overflow: auto;
+  background: rgba(47, 47, 47, 0.44);
   border-radius: 10px;
+  animation: advPanelIn 0.45s ease-out both;
+}
+
+.advTab .typeGlyph {
+  color: #fff;
+}
+
+.advTab:hover .typeGlyph {
+  color: rgb(255, 235, 175);
 }
 
 .adv__choices {
@@ -168,6 +334,112 @@
   border: 0;
   background: transparent;
   cursor: pointer;
+  animation: choicePop 0.4s ease-out both;
+}
+
+.choiceBtn:nth-child(2) { animation-delay: 0.04s; }
+.choiceBtn:nth-child(3) { animation-delay: 0.08s; }
+.choiceBtn:nth-child(4) { animation-delay: 0.12s; }
+.choiceBtn:nth-child(5) { animation-delay: 0.16s; }
+.choiceBtn:nth-child(6) { animation-delay: 0.2s; }
+.choiceBtn:nth-child(7) { animation-delay: 0.24s; }
+.choiceBtn:nth-child(8) { animation-delay: 0.28s; }
+
+.mark__lite { fill: #fff; transition: fill 0.1s linear; }
+.mark__shade { fill: #c8c8c8; transition: fill 0.1s linear; }
+.mark__spark { fill: rgb(255, 235, 175); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.mark__pop,
+.blade { transform-box: fill-box; transform-origin: center; }
+.mark__pop { animation: markPop 0.3s ease-out both; }
+.blade--a { animation: swordInA 0.45s ease-out both; }
+.blade--b { animation: swordInB 0.45s ease-out both; }
+
+.advTab:hover .mark__lite { fill: rgb(255, 235, 175); }
+.advTab:hover .mark__shade { fill: rgb(189, 174, 128); animation: shadeFlick 0.2s ease-out; }
+.advTab:hover .mark__pop { animation: markPop 0.3s ease-out; }
+.advTab:hover .s1 { animation: sparkA 1.6s linear infinite; }
+.advTab:hover .s2 { animation: sparkB 1.2s linear infinite; }
+.advTab:hover .s3 { animation: sparkC 2s linear infinite; }
+.advTab:hover .s4 { animation: sparkD 1.6s linear infinite; }
+.advTab:hover .blade--a { animation: swordHoverA 0.4s ease-in-out; }
+.advTab:hover .blade--b { animation: swordHoverB 0.4s ease-in-out; }
+
+@keyframes diamondDraw {
+  to { stroke: #fff5ff; stroke-dashoffset: 0; }
+}
+
+@keyframes wireGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes inkTravel {
+  0%, 100% { top: 12px; }
+  50% { top: calc(100% - 30px); }
+}
+
+@keyframes advPanelIn {
+  from { opacity: 0; transform: translateX(-36px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes choicePop {
+  from { opacity: 0.55; transform: scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes markPop {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(0.8, 1.2); }
+}
+
+@keyframes shadeFlick {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes swordInA {
+  from { opacity: 0; transform: translate(16px, 16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes swordInB {
+  from { opacity: 0; transform: translate(-16px, 16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes swordHoverA {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes swordHoverB {
+  0% { transform: rotate(2deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes sparkA {
+  0%, 80%, 100% { opacity: 0; transform: scale(1); }
+  30% { opacity: 0.5; transform: scale(1.25); }
+  55% { opacity: 0.9; transform: scale(1.5); }
+}
+
+@keyframes sparkB {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  40% { opacity: 0.5; transform: scale(0.8); }
+  70% { opacity: 0.5; transform: scale(1); }
+}
+
+@keyframes sparkC {
+  0%, 25%, 100% { opacity: 0; }
+  50%, 75% { opacity: 0.5; }
+}
+
+@keyframes sparkD {
+  0%, 65%, 100% { opacity: 0; }
+  25%, 45% { opacity: 0.5; }
 }
 
 .choiceBtn img,
@@ -383,22 +655,33 @@
   .personGrid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .adv {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .adv__side {
-    flex-direction: row;
-    width: 100%;
-    flex-basis: auto;
-  }
 }
 
 @media (max-width: 640px) {
   .charGrid,
   .personGrid {
     grid-template-columns: 1fr;
+  }
+
+  .adv__layout {
+    flex-direction: column;
+  }
+
+  .adv__rail,
+  .adv__side {
+    flex-direction: row;
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .adv__side {
+    justify-content: center;
+  }
+
+  .adv__wire,
+  .advToggle::before,
+  .adv__side::before,
+  .adv__side::after {
+    display: none;
   }
 }

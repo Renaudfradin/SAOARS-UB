@@ -82,18 +82,6 @@
   filter: drop-shadow(0 0 5px #fff);
 }
 
-@media (min-width: 700px) {
-  .charList .adv {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .charList .adv__side {
-    flex-direction: column;
-    width: 108px;
-    flex: 0 0 108px;
-  }
-}
 
 @media (max-width: 900px) {
   .eqGrid {

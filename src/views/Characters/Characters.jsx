@@ -7,6 +7,7 @@ import { useAllItems, usePagedList } from "@/hook/queries.js";
 import Frame from "@components/ui/Frame.jsx";
 import SafeImage from "@components/ui/SafeImage.jsx";
 import { AttackTypeIcon, RarityIcon, WeaponTypeIcon } from "@components/ui/icons.jsx";
+import { DiamondTrace, NameMark, SearchClose, SearchWire, StarMark, SwordsMark } from "@components/ui/SearchMarks.jsx";
 import { Empty, ErrorState, Loading } from "@components/ui/StateView.jsx";
 import { placeholders } from "@components/ui/media.js";
 
@@ -82,7 +83,7 @@ function CharacterTile({ item }) {
 }
 
 export default function Characters({ initialPage, seededAt }) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [page, setPage] = useState(1);
   const [advanced, setAdvanced] = useState(false);
   const [tab, setTab] = useState("rarity");
@@ -143,47 +144,50 @@ export default function Characters({ initialPage, seededAt }) {
                   onClick={() => pick(setElements, element.id)}
                 >
                   <img src={element.icon} alt={element.label} />
+                  <DiamondTrace />
                 </button>
               );
             })}
           </div>
 
           <button type="button" className="advToggle" onClick={() => setAdvanced((open) => !open)}>
-            Advanced search
+            <span>{t("list.advancedSearch")}</span>
           </button>
 
           {advanced && (
             <div className="adv">
+              <SearchWire />
+              <div className="adv__layout">
+              <div className="adv__rail">
               <div className="adv__side">
                 <button
                   type="button"
                   className={`advTab ${tab === "rarity" ? "is-on" : ""}`}
                   onClick={() => setTab("rarity")}
                 >
-                  <strong>&lt;RARITY&gt;</strong>
-                  <RarityIcon rarity={4} className="rarityIcon" />
+                  <strong>{lang === "fr" ? "<RARETÉ>" : "<RARITY>"}</strong>
+                  <StarMark />
                 </button>
                 <button
                   type="button"
-                  className={`advTab advTab--weapon ${tab === "weapon" ? "is-on" : ""}`}
+                  className={`advTab ${tab === "weapon" ? "is-on" : ""}`}
                   onClick={() => setTab("weapon")}
                 >
-                  <strong>&lt;WEAPON&gt;</strong>
-                  <img src="/ui/diamonds/sword.png" alt="" />
+                  <strong>{lang === "fr" ? "<ARME>" : "<WEAPON>"}</strong>
+                  <SwordsMark />
                 </button>
                 <button
                   type="button"
-                  className={`advTab advTab--name ${tab === "name" ? "is-on" : ""}`}
+                  className={`advTab ${tab === "name" ? "is-on" : ""}`}
                   onClick={() => setTab("name")}
                 >
-                  <strong>&lt;NAME&gt;</strong>
-                  <span style={{ fontFamily: "SAOUI, serif", fontSize: 28 }}>T</span>
-                </button>
-                <button type="button" className="adv__close" aria-label="Close" onClick={() => setAdvanced(false)}>
-                  ×
+                  <strong>{lang === "fr" ? "<NOM>" : "<NAME>"}</strong>
+                  <NameMark />
                 </button>
               </div>
-              <div className="adv__panel">
+              <SearchClose label={lang === "fr" ? "Fermer" : "Close"} onClick={() => setAdvanced(false)} />
+              </div>
+              <div className="adv__panel" key={tab}>
                 {tab === "rarity" && (
                   <div className="adv__choices">
                     {[1, 2, 3, 4].map((rarity) => {
@@ -250,6 +254,7 @@ export default function Characters({ initialPage, seededAt }) {
                     )}
                   </>
                 )}
+              </div>
               </div>
             </div>
           )}

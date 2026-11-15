@@ -7,6 +7,7 @@ import { useAllItems, usePagedList } from "@/hook/queries.js";
 import Frame from "@components/ui/Frame.jsx";
 import SafeImage from "@components/ui/SafeImage.jsx";
 import { RarityIcon } from "@components/ui/icons.jsx";
+import { DiamondTrace, SearchClose, SearchWire, StarMark } from "@components/ui/SearchMarks.jsx";
 import { Empty, ErrorState, Loading } from "@components/ui/StateView.jsx";
 import { placeholders } from "@components/ui/media.js";
 
@@ -134,17 +135,21 @@ export default function Equipments({ initialPage, seededAt }) {
                   onClick={() => pick(setElements, element.id)}
                 >
                   <img src={element.icon} alt={element.label} />
+                  <DiamondTrace />
                 </button>
               );
             })}
           </div>
 
           <button type="button" className="advToggle" onClick={() => setAdvanced((open) => !open)}>
-            Advanced search
+            <span>{t("list.advancedSearch")}</span>
           </button>
 
           {advanced && (
             <div className="adv">
+              <SearchWire />
+              <div className="adv__layout">
+              <div className="adv__rail">
               <div className="adv__side">
                 <button
                   type="button"
@@ -152,21 +157,20 @@ export default function Equipments({ initialPage, seededAt }) {
                   onClick={() => setTab("rarity")}
                 >
                   <strong>{rarityLabel}</strong>
-                  <RarityIcon rarity={4} className="rarityIcon" />
+                  <StarMark />
                 </button>
                 <button
                   type="button"
-                  className={`advTab advTab--weapon ${tab === "type" ? "is-on" : ""}`}
+                  className={`advTab ${tab === "type" ? "is-on" : ""}`}
                   onClick={() => setTab("type")}
                 >
                   <strong>{typeLabel}</strong>
                   <ArmorGlyph />
                 </button>
-                <button type="button" className="adv__close" aria-label="Close" onClick={() => setAdvanced(false)}>
-                  ×
-                </button>
               </div>
-              <div className="adv__panel">
+              <SearchClose label={lang === "fr" ? "Fermer" : "Close"} onClick={() => setAdvanced(false)} />
+              </div>
+              <div className="adv__panel" key={tab}>
                 {tab === "rarity" && (
                   <div className="adv__choices">
                     {[1, 2, 3, 4].map((rarity) => {
@@ -206,6 +210,7 @@ export default function Equipments({ initialPage, seededAt }) {
                     })}
                   </div>
                 )}
+              </div>
               </div>
             </div>
           )}
