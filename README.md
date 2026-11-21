@@ -4,6 +4,20 @@ Base de données non officielle de Sword Art Online Unleash Blading. L'interface
 [saoub.fanadata.com](https://saoub.fanadata.com/) (relevé dans [docs/fanadata](docs/fanadata/README.md)),
 et les données viennent de l'[API SAOARS](https://github.com/Renaudfradin/API-SAOARS).
 
+## Aperçu
+
+| Accueil | Personnages |
+| --- | --- |
+| <img src="docs/screenshots/home.png" alt="Accueil" width="100%"> | <img src="docs/screenshots/characters.png" alt="Liste des personnages" width="100%"> |
+
+| Fiche personnage | Armes |
+| --- | --- |
+| <img src="docs/screenshots/character.png" alt="Fiche d'un personnage" width="100%"> | <img src="docs/screenshots/weapons.png" alt="Liste des armes" width="100%"> |
+
+| Équipements | Galerie |
+| --- | --- |
+| <img src="docs/screenshots/equipments.png" alt="Liste des équipements" width="100%"> | <img src="docs/screenshots/gallery.png" alt="Galerie des personnages" width="100%"> |
+
 ## Project Setup
 
 ```sh
@@ -40,5 +54,3 @@ Le rendu est fait par Next.js. La langue est lue dans le cookie `saoub.lang` (ou
 Toutes les requêtes ajoutent `?lang=` (fr, en, zh, ko, ja, de, es), choisi avec le sélecteur de langue.
 L'API limite à 60 requêtes par minute : les listes sont paginées côté serveur, et toutes les pages
 ne sont chargées que lorsqu'un filtre ou une recherche est actif.
-
-![alt text](/public/saoub.PNG)
