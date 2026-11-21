@@ -706,6 +706,54 @@ button.filters__toggle {
   text-align: center;
 }
 
+.galleryCard__name span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.galleryFilters {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 16px;
+  overflow-x: auto;
+}
+
+.galleryFilters button {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.galleryFilters button.is-active {
+  border-color: #fff;
+  background: rgba(166, 78, 230, 0.45);
+}
+
+.galleryShot {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.galleryShot img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .prose {
   max-width: 720px;
   margin: 0 auto;

@@ -16,6 +16,14 @@ const nextConfig = {
       { source: "/abilitys/:slug", destination: "/abilities/:slug", permanent: true },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/models/cube.gltf",
+        destination: "https://saoub.fanadata.com/assets/aliceOI_by_ekoow.gltf",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

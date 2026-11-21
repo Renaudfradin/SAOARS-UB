@@ -65,6 +65,13 @@ const fr = {
   "home.intro":
     "Base de données non officielle du jeu Sword Art Online Unleash Blading : personnages, armes, équipements, bannières et plus encore.",
   "gallery.title": "Galerie des personnages",
+  "gallery.homeCharacters": "Galerie des personnages d'accueil",
+  "gallery.homeBackgrounds": "Galerie des fonds d'accueil",
+  "gallery.all": "Tous",
+  "home.stat.banner": "Bannière",
+  "home.stat.character": "Personnage",
+  "home.stat.weapon": "Arme",
+  "home.stat.equipment": "Équipement",
   "about.title": "À propos",
   "about.body":
     "SAOUB Database est un projet de fan qui regroupe les informations du jeu mobile Sword Art Online Alicization Rising Steel / Unleash Blading. Les données sont servies par l'API SAOARS.",
@@ -158,6 +165,13 @@ const en = {
   "home.intro":
     "Unofficial database of the game Sword Art Online Unleash Blading: characters, weapons, equipment, banners and more.",
   "gallery.title": "Character gallery",
+  "gallery.homeCharacters": "Home character gallery",
+  "gallery.homeBackgrounds": "Home background gallery",
+  "gallery.all": "All",
+  "home.stat.banner": "Banner",
+  "home.stat.character": "Character",
+  "home.stat.weapon": "Weapon",
+  "home.stat.equipment": "Equipment",
   "about.title": "About us",
   "about.body":
     "SAOUB Database is a fan project gathering information about the mobile game Sword Art Online Alicization Rising Steel / Unleash Blading. Data is served by the SAOARS API.",

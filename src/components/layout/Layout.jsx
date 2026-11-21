@@ -49,13 +49,15 @@ function LangButton() {
   );
 }
 
-function NavItem({ to, icon, text, end }) {
+function NavItem({ to, icon, text, textKey, mark, end }) {
   const pathname = usePathname();
+  const { t } = useLang();
   const active = end ? pathname === to : pathname === to || pathname.startsWith(`${to}/`);
+  const label = textKey ? t(textKey) : text;
   return (
     <Link href={to} className={`navBtn ${active ? "navBtn--active" : ""}`}>
-      <img src={icon} alt="" />
-      <span className="navBtn__label">{text}</span>
+      {icon ? <img src={icon} alt="" /> : <span className="navBtn__mark">{mark}</span>}
+      <span className="navBtn__label">{label}</span>
     </Link>
   );
 }

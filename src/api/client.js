@@ -32,10 +32,12 @@ function apiError(status, headers) {
   return error;
 }
 
-async function request(path, { lang, page, revalidate = false } = {}) {
+async function request(path, { lang, page, limit, perPage, revalidate = false } = {}) {
   const url = new URL(`${baseUrl()}${path}`);
   if (lang) url.searchParams.set("lang", lang);
   if (page != null) url.searchParams.set("page", String(page));
+  if (limit != null) url.searchParams.set("limit", String(limit));
+  if (perPage != null) url.searchParams.set("per_page", String(perPage));
 
   let attempt = 0;
   while (true) {
@@ -66,8 +68,8 @@ async function request(path, { lang, page, revalidate = false } = {}) {
   }
 }
 
-export async function fetchList(resource, page = 1, lang, { revalidate = false } = {}) {
-  return request(`/${resource}`, { lang, page, revalidate });
+export async function fetchList(resource, page = 1, lang, { revalidate = false, perPage } = {}) {
+  return request(`/${resource}`, { lang, page, perPage, revalidate });
 }
 
 export async function fetchDetail(resource, slug, lang, { revalidate = false } = {}) {
@@ -83,4 +85,15 @@ export async function fetchStats({ revalidate = false } = {}) {
 export async function fetchRandomCharacter(lang, { revalidate = false } = {}) {
   const data = await request("/character/random", { lang, revalidate });
   return data.data;
+}
+
+export async function fetchRandomCharacters(lang, limit = 8, { revalidate = false } = {}) {
+  const data = await request("/character/random", { lang, limit, revalidate });
+  if (Array.isArray(data.data)) return data.data;
+  return data.data ? [data.data] : [];
+}
+
+export async function fetchRandomBanners(lang, limit = 12, { revalidate = false } = {}) {
+  const data = await request("/banners/random", { lang, limit, revalidate });
+  return data.data ?? [];
 }

@@ -1,63 +1,45 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
-import Link from "next/link";
-import { Pagination } from "antd";
+import React from "react";
 import { useLang } from "@/context/LangContext.jsx";
-import { useAllItems } from "@/hook/queries.js";
-import Frame from "@components/ui/Frame.jsx";
-import SafeImage from "@components/ui/SafeImage.jsx";
-import { Empty, ErrorState, Loading } from "@components/ui/StateView.jsx";
-import { placeholders } from "@components/ui/media.js";
+import ArtworkGallery from "./ArtworkGallery.jsx";
 
-const PAGE_SIZE = 24;
+function mapCharacter(item) {
+  if (!item.artwork_thumbnail && !item.artwork) return [];
+  const cards = [
+    {
+      key: String(item.id),
+      filter: item.name,
+      filterLabel: item.name,
+      thumbnail: item.artwork_thumbnail || item.artwork,
+      large: item.artwork_large || item.artwork,
+      title: item.name,
+      subtitle: item.description,
+    },
+  ];
+  if (item.artwork_limit_break) {
+    cards.push({
+      key: `${item.id}-lb`,
+      filter: item.name,
+      filterLabel: item.name,
+      thumbnail: item.artwork_limit_break_thumbnail || item.artwork_limit_break,
+      large: item.artwork_limit_break,
+      title: item.name,
+      subtitle: item.description,
+    });
+  }
+  return cards;
+}
 
 export default function GalleryCharacters() {
   const { t } = useLang();
-  const [page, setPage] = useState(1);
-  const { data, isLoading, isError, error } = useAllItems("characters");
-
-  const withImages = useMemo(
-    () => (data || []).filter((item) => item.image || item.image2),
-    [data]
-  );
-  const pageItems = withImages.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
-    <>
-      <Frame label="PAGE: GALLERY/CHARACTER">
-        <h1 className="home__sectionTitle">{t("gallery.title")}</h1>
-        {isLoading && <Loading label={t("list.loadingAll")} />}
-        {isError && <ErrorState error={error} />}
-        {!isLoading && !isError && withImages.length === 0 && <Empty />}
-        {!isLoading && !isError && withImages.length > 0 && (
-          <>
-            <div className="cardGrid cardGrid--gallery">
-              {pageItems.map((item) => (
-                <Link key={item.id} className="galleryCard" href={`/characters/${item.slug}`}>
-                  <SafeImage
-                    src={item.image || item.image2}
-                    fallback={placeholders.character}
-                    alt={item.name}
-                  />
-                  <div className="galleryCard__name">{item.name}</div>
-                </Link>
-              ))}
-            </div>
-            {withImages.length > PAGE_SIZE && (
-              <div className="pager">
-                <Pagination
-                  current={page}
-                  pageSize={PAGE_SIZE}
-                  total={withImages.length}
-                  showSizeChanger={false}
-                  onChange={setPage}
-                />
-              </div>
-            )}
-          </>
-        )}
-      </Frame>
-    </>
+    <ArtworkGallery
+      resource="characters"
+      title={t("gallery.title")}
+      label="PAGE: GALLERY/CHARACTER"
+      mapItems={mapCharacter}
+    />
   );
 }
