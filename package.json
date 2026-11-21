@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
@@ -19,9 +20,12 @@
     "three": "^0.187.0"
   },
   "devDependencies": {
+    "@types/node": "^26.6.6",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.187.0",
     "eslint": "^9.39.0",
-    "eslint-config-next": "^16.4.6"
+    "eslint-config-next": "^16.4.6",
+    "typescript": "^6.0.3"
   }
 }
