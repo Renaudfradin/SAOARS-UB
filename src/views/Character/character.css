@@ -1,0 +1,397 @@
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px auto 28px;
+  max-width: 680px;
+  text-align: center;
+}
+
+.unit__name {
+  display: inline-block;
+  min-width: 280px;
+  max-width: 100%;
+  margin-bottom: 18px;
+  padding: 10px 28px 10px 16px;
+  background: rgba(54, 19, 89, 0.85);
+  box-shadow: inset 0 0 20px -3px rgba(255, 255, 255, 0.15);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+  font-size: 16px;
+}
+
+.unit__stage {
+  position: relative;
+  width: min(420px, 100%);
+}
+
+.unit__img {
+  display: block;
+  width: min(350px, 86%);
+  margin: 0 auto;
+  border: 3px solid #18192b;
+  background: #120818;
+  object-fit: cover;
+}
+
+.unit__img2 {
+  position: absolute;
+  right: 0;
+  bottom: -36px;
+  width: 168px;
+  border: 2px solid #27092d;
+  background: #120818;
+}
+
+.unit__marks {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 18px;
+  margin-left: 8px;
+  padding: 6px 28px 6px 8px;
+  background: rgba(54, 19, 89, 0.85);
+  box-shadow: inset 0 0 20px -3px rgba(255, 255, 255, 0.15);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+}
+
+.unit__marks img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.unit__marks .starsIcon {
+  width: auto;
+  height: 28px;
+}
+
+.combat {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr) auto;
+  gap: 14px 16px;
+  align-items: start;
+  margin-top: 36px;
+}
+
+.combat__stats {
+  grid-row: 1 / span 2;
+  padding: 10px 10px 14px;
+  background: rgba(12, 6, 28, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+}
+
+.lbHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-family: "Fira Mono", Consolas, monospace;
+  font-size: 13px;
+}
+
+.lbHead strong {
+  font-size: 15px;
+}
+
+.lbPicks {
+  display: flex;
+  gap: 4px;
+}
+
+.lbPicks button,
+.lbLabel {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lbPicks button {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+.lbPicks button.is-on,
+.lbLabel.is-on {
+  background: rgba(255, 209, 100, 0.2);
+  border-color: #ffefc0;
+}
+
+.lbLabel {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 92px 54px 1fr;
+  align-items: center;
+  height: 28px;
+  margin: 5px 0;
+  background: #100818;
+}
+
+.statRow__track {
+  height: 8px;
+  margin-left: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.statRow__track > span {
+  display: block;
+  height: 100%;
+  background: var(--c);
+}
+
+.statRow--hp { --c: #3dce4a; }
+.statRow--mp { --c: #3ec6e0; }
+.statRow--atk { --c: #e24b3b; }
+.statRow--matk { --c: #9b59e0; }
+.statRow--def { --c: #3b7de2; }
+.statRow--mdef { --c: #6aa8ea; }
+.statRow--crit { --c: #e08a3b; }
+.statRow--spd { --c: #e2c53b; }
+
+.statRow__label {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.statRow__value {
+  padding-right: 10px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.gear {
+  display: flex;
+  width: 280px;
+  overflow: hidden;
+  justify-self: end;
+  background: linear-gradient(180deg, #f7f0ff, #e4d0f6);
+  border: 3px solid #fff;
+  border-radius: 6px;
+  color: #241238;
+}
+
+.gear__img {
+  width: 74px;
+  height: 74px;
+  object-fit: cover;
+  background: #d9c4ee;
+}
+
+.gear__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px 10px;
+}
+
+.gear__name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.gear__icons {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.gear__icons img {
+  width: 22px;
+  height: 22px;
+}
+
+.enhanceBtn {
+  height: 64px;
+  padding: 0 16px;
+  border: 2px solid #fff6c2;
+  border-radius: 4px;
+  background: linear-gradient(#fff7b0, #f0d34a);
+  color: #6d5a12;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #c9a93a;
+}
+
+.enhanceBtn.is-on {
+  box-shadow: 0 0 14px #ffe56a;
+}
+
+.combat__skills {
+  grid-column: 2 / span 2;
+  position: relative;
+  min-height: 160px;
+  margin-left: 22px;
+  padding: 16px 14px 22px 28px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.skillRow {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, rgba(126, 58, 168, 0.72), rgba(74, 24, 112, 0.82));
+  border: 1px solid rgba(214, 164, 255, 0.35);
+  border-radius: 8px;
+}
+
+.combat--enhance .skillRow {
+  background: linear-gradient(180deg, rgba(112, 86, 48, 0.72), rgba(62, 44, 24, 0.82));
+  border-color: rgba(230, 196, 120, 0.35);
+}
+
+.skillRow__mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skillRow__mark img {
+  width: 52px;
+  height: 52px;
+}
+
+.skillRow__name {
+  font-weight: 700;
+}
+
+.skillRow__name a:hover {
+  color: #f0d7ff;
+}
+
+.skillRow__text {
+  margin: 4px 0 0;
+  color: #f2e9ff;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.mpBar {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin-top: 8px;
+  padding: 0 10px;
+  background: rgba(8, 4, 18, 0.45);
+  border-radius: 3px;
+  color: #efe4ff;
+  font-family: "Fira Mono", Consolas, monospace;
+  font-size: 12px;
+}
+
+.sheet {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.langList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.langRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 4px;
+  border: 0;
+  border-radius: 8px;
+  background: #2a143c;
+  color: #eee;
+  text-align: left;
+  cursor: pointer;
+}
+
+.langRow.is-on {
+  outline: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.langTag {
+  flex: 0 0 96px;
+  padding: 8px 6px;
+  border-radius: 8px;
+  background: linear-gradient(#8a6232, #5c3d1c);
+  color: #f6e7cf;
+  font-weight: 700;
+  text-align: center;
+}
+
+.langText {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.profileBox {
+  padding: 28px 26px;
+  border-radius: 18px;
+  background: #2915554f;
+  color: #acacac;
+}
+
+.profileBox h3 {
+  margin: 0 0 12px;
+  color: #d8d8d8;
+  font-family: "Fira Mono", Consolas, monospace;
+  font-weight: 500;
+  text-align: left;
+}
+
+.profileBox p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.origin {
+  display: block;
+  max-width: 640px;
+  margin: 22px auto 0;
+  text-align: center;
+}
+
+.origin img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.origin span {
+  display: block;
+  margin-top: 8px;
+}
+
+@media (max-width: 980px) {
+  .combat,
+  .sheet {
+    grid-template-columns: 1fr;
+  }
+
+  .combat__stats,
+  .combat__skills,
+  .gear,
+  .enhanceBtn {
+    grid-row: auto;
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+    margin-left: 0;
+  }
+}

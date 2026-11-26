@@ -1,0 +1,35 @@
+import type { ReactNode } from "react";
+import Link from "next/link";
+import SafeImage from "./SafeImage";
+
+export default function LinkedCard({
+  to,
+  image,
+  fallback,
+  title,
+  children,
+}: {
+  to?: string;
+  image?: string | null;
+  fallback?: string | null;
+  title?: ReactNode;
+  children?: ReactNode;
+}) {
+  const content = (
+    <>
+      <SafeImage className="linked__img" src={image} fallback={fallback} />
+      <div className="linked__info">
+        <div className="linked__title">{title}</div>
+        {children && <div className="linked__icons">{children}</div>}
+      </div>
+    </>
+  );
+
+  return to ? (
+    <Link className="linked" href={to}>
+      {content}
+    </Link>
+  ) : (
+    <div className="linked">{content}</div>
+  );
+}
