@@ -86,8 +86,14 @@ export default function Layout({ children }: { children: ReactNode }) {
           <div className="topbar__mid" />
           <div className="topbar__slant topbar__slant--right" />
         </div>
-        <button type="button" className="topbar__menu" onClick={() => setOpen(!open)} aria-label="Menu">
-          <img src="/ui/nav/navigation.png" alt="" />
+        <button
+          type="button"
+          className="topbar__menu"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Menu"}
+          aria-expanded={open}
+        >
+          <img src={open ? "/ui/nav/navigation_close.png" : "/ui/nav/navigation.png"} alt="" />
         </button>
         <LangButton />
       </header>

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef, useState, type PointerEvent } from "react";
+import React, { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { assetSrc } from "@/lib/assetSrc";
 import { useLang } from "@/context/LangContext";
 import { useRandomBanners, useRandomCharacters, useStats } from "@/hook/queries";
@@ -62,14 +63,22 @@ function Arrow({ dir }: { dir: "prev" | "next" }) {
 }
 
 function BannerSlider({ banners }: { banners: ApiRecord[] }) {
+  const router = useRouter();
   const count = banners.length;
   const track = count ? [...banners, ...banners, ...banners] : [];
   const [position, setPosition] = useState<number | null>(null);
   const [drag, setDrag] = useState(0);
   const [animate, setAnimate] = useState(true);
-  const dragStart = useRef<{ x: number; pointerId: number } | null>(null);
   const moved = useRef(false);
+  const opened = useRef(false);
+  const stopDrag = useRef<(() => void) | null>(null);
+  const positionRef = useRef(position);
+  const countRef = useRef(count);
+  positionRef.current = position;
+  countRef.current = count;
   const current = position ?? count;
+
+  useEffect(() => () => stopDrag.current?.(), []);
 
   const settle = (next: number) => {
     if (!count) return next;
@@ -81,9 +90,11 @@ function BannerSlider({ banners }: { banners: ApiRecord[] }) {
   };
 
   const go = (delta: number) => {
-    if (count < 2) return;
+    const total = countRef.current;
+    if (total < 2) return;
+    const currentPos = positionRef.current ?? total;
     setAnimate(true);
-    setPosition(current + delta);
+    setPosition(currentPos + delta);
   };
 
   const onTransitionEnd = () => {
@@ -93,47 +104,61 @@ function BannerSlider({ banners }: { banners: ApiRecord[] }) {
     setPosition(next);
   };
 
-  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (event.button != null && event.button !== 0) return;
-    dragStart.current = { x: event.clientX, pointerId: event.pointerId };
+  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) return;
+    const startX = event.clientX;
+    const pointerId = event.pointerId;
     moved.current = false;
+    opened.current = false;
     setAnimate(false);
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
 
-  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (!dragStart.current) return;
-    const delta = event.clientX - dragStart.current.x;
-    if (Math.abs(delta) > 6) moved.current = true;
-    setDrag(delta);
-  };
+    const onMove = (moveEvent: PointerEvent) => {
+      if (moveEvent.pointerId !== pointerId) return;
+      const delta = moveEvent.clientX - startX;
+      if (Math.abs(delta) > 6) moved.current = true;
+      setDrag(delta);
+    };
 
-  const endDrag = (event: PointerEvent<HTMLDivElement>) => {
-    if (!dragStart.current) return;
-    const delta = event.clientX - dragStart.current.x;
-    dragStart.current = null;
-    setDrag(0);
-    setAnimate(true);
-    if (Math.abs(delta) < 8) return;
-    const slides = Math.max(1, Math.round(Math.abs(delta) / STRIDE));
-    go(delta < 0 ? slides : -slides);
+    const onUp = (upEvent: PointerEvent) => {
+      if (upEvent.pointerId !== pointerId) return;
+      stopDrag.current = null;
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+      const delta = upEvent.clientX - startX;
+      setDrag(0);
+      setAnimate(true);
+      if (Math.abs(delta) < 8) {
+        if (upEvent.metaKey || upEvent.ctrlKey || upEvent.shiftKey || upEvent.altKey) return;
+        const hit = document.elementFromPoint(upEvent.clientX, upEvent.clientY);
+        const href = hit?.closest("a")?.getAttribute("href");
+        if (!href?.startsWith("/banners/")) return;
+        opened.current = true;
+        router.push(href);
+        return;
+      }
+      const slides = Math.max(1, Math.round(Math.abs(delta) / STRIDE));
+      go(delta < 0 ? slides : -slides);
+    };
+
+    stopDrag.current?.();
+    stopDrag.current = () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
   };
 
   const offset = count ? -(current * STRIDE) + drag : 0;
 
   return (
     <div className="bannerRail">
-      {count > 1 && (
-        <button type="button" className="hero__arrow hero__arrow--prev bannerRail__arrow" onClick={() => go(-1)} aria-label="Previous">
-          <Arrow dir="prev" />
-        </button>
-      )}
       <div
         className="bannerRail__view"
         onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
       >
         <div
           className={`bannerRail__track${animate ? " is-animated" : ""}`}
@@ -146,7 +171,8 @@ function BannerSlider({ banners }: { banners: ApiRecord[] }) {
               href={`/banners/${banner.slug}`}
               className="bannerRail__card"
               onClick={(event) => {
-                if (moved.current) event.preventDefault();
+                if (moved.current || opened.current) event.preventDefault();
+                opened.current = false;
               }}
               draggable={false}
             >
@@ -155,19 +181,14 @@ function BannerSlider({ banners }: { banners: ApiRecord[] }) {
           ))}
         </div>
       </div>
-      {count > 1 && (
-        <button type="button" className="hero__arrow hero__arrow--next bannerRail__arrow" onClick={() => go(1)} aria-label="Next">
-          <Arrow dir="next" />
-        </button>
-      )}
     </div>
   );
 }
 
-function Stat({ value, label }: { value?: number; label: string }) {
+function Stat({ value, label, side = "left" }: { value?: number; label: string; side?: "left" | "right" }) {
   if (value == null) return null;
   return (
-    <div className="overview__stat">
+    <div className={side === "right" ? "overview__stat overview__stat--right" : "overview__stat"}>
       <p>{value}</p>
       <span>{label}</span>
     </div>
@@ -192,7 +213,7 @@ export default function Home() {
 
   return (
     <Frame>
-      <div className="hero">
+      <div className="homeStage">
         <div className="hero__logo">
           <img className="pop pop--3" src={assetSrc(pop3)} alt="" />
           <img className="pop pop--2" src={assetSrc(pop2)} alt="" />
@@ -245,27 +266,52 @@ export default function Home() {
           ))}
         </div>
 
-        <section className="overview" aria-label={t("home.overview")}>
+      </div>
+
+      <section className="overview" aria-label={t("home.overview")}>
+        <div className="overview__frame">
+          <svg className="overview__rail" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="0" y1="0" x2="0" y2="100" />
+          </svg>
           <p className="overview__title">
             {"<DATABASE>"}
             <br />
             <span>:overview</span>
           </p>
           <div className="overview__stage">
-            <div className="overview__stats">
-              <Stat value={stats?.Banner} label={t("home.stat.banner")} />
-              <Stat value={stats?.Character} label={t("home.stat.character")} />
-              <Stat value={stats?.Weapon} label={t("home.stat.weapon")} />
+            <div className="overview__wire overview__wire--left">
+              <div className="overview__wireCap">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M25 0 5 20 5 28 5 20M5 28C1 28 1 34 5 34C9 34 9 28 5 28" />
+                </svg>
+              </div>
+            </div>
+            <div className="overview__wire overview__wire--right">
+              <div className="overview__wireJoin">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0 0 20 20" />
+                </svg>
+              </div>
+              <div className="overview__wireEnd">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M0 0 20 20 20 28 20 20M20 28C24 28 24 34 20 34C16 34 16 28 20 28" />
+                </svg>
+              </div>
             </div>
             <div className="overview__cube">
               <DatabaseCube />
             </div>
+            <div className="overview__stats">
+              <Stat value={stats?.Banner} label="Banner" />
+              <Stat value={stats?.Character} label="Character" />
+              <Stat value={stats?.Weapon} label="Weapon" />
+            </div>
             <div className="overview__stats overview__stats--end">
-              <Stat value={stats?.Equipment} label={t("home.stat.equipment")} />
+              <Stat value={stats?.Equipment} label="Equipment" side="right" />
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </Frame>
   );
 }

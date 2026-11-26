@@ -13,9 +13,9 @@ export const navItems: NavItem[] = [
   { to: "/characters", icon: "/ui/nav/icon_character.png", text: "Character" },
   { to: "/weapons", icon: "/ui/nav/icon_weapon.png", text: "Weapon" },
   { to: "/equipments", icon: "/ui/nav/icon_equipment.png", text: "Equipment" },
-  { to: "/abilities", textKey: "nav.abilities", mark: "C" },
-  { to: "/attacks", textKey: "nav.attacks", mark: "A" },
-  { to: "/imaginations", textKey: "nav.imaginations", mark: "I" },
+  { to: "/attacks", icon: "/ui/nav/icon_attack.png", textKey: "nav.attacks" },
+  { to: "/abilities", icon: "/ui/nav/icon_ability.png", textKey: "nav.abilities" },
+  { to: "/imaginations", icon: "/ui/nav/icon_imagination.png", textKey: "nav.imaginations" },
 ];
 
 export const moreLinks = [{ to: "/gallery/characters", label: "nav.gallery" }];

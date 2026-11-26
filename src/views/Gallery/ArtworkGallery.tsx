@@ -14,6 +14,7 @@ export default function ArtworkGallery<T extends ApiRecord = ApiRecord>({
   label,
   mapItems,
   filters,
+  filtersVariant,
   perPage,
 }: {
   resource: ListResource;
@@ -21,6 +22,7 @@ export default function ArtworkGallery<T extends ApiRecord = ApiRecord>({
   label: string;
   mapItems: (item: T) => ArtworkCard[];
   filters?: { id: string; label: string }[];
+  filtersVariant?: "worlds" | "persons";
   perPage?: number;
 }) {
   const { t } = useLang();
@@ -42,31 +44,53 @@ export default function ArtworkGallery<T extends ApiRecord = ApiRecord>({
   }, [filters, items]);
   const visible = filter === "all" ? items : items.filter((item) => item.filter === filter);
 
+  const named = filtersVariant === "persons" || filtersVariant === "worlds";
+  const buttons = (
+    <>
+      {!named && (
+        <button type="button" className={filter === "all" ? "is-active" : ""} onClick={() => setFilter("all")}>
+          {t("gallery.all")}
+        </button>
+      )}
+      {chips.map((chip) => (
+        <button
+          key={chip.id}
+          type="button"
+          aria-pressed={filter === chip.id}
+          className={filter === chip.id ? "is-active" : ""}
+          onClick={() => setFilter((current) => (named && current === chip.id ? "all" : chip.id))}
+        >
+          {chip.label}
+        </button>
+      ))}
+    </>
+  );
+  const filterBar =
+    chips.length > 0 ? (
+      <div
+        className={`galleryFilters${filtersVariant ? ` galleryFilters--${filtersVariant}` : ""}`}
+        role="group"
+      >
+        {filtersVariant === "persons" && (
+          <>
+            <span className="galleryFilters__edge galleryFilters__edge--left" aria-hidden="true" />
+            <span className="galleryFilters__edge galleryFilters__edge--right" aria-hidden="true" />
+          </>
+        )}
+        {filtersVariant === "persons" ? <div className="galleryFilters__track">{buttons}</div> : buttons}
+      </div>
+    ) : null;
+
   return (
     <Frame label={label}>
       <h1 className="home__sectionTitle">{title}</h1>
+      {named && filterBar}
       {isLoading && <Loading label={t("list.loadingAll")} />}
       {isError && <ErrorState error={error} />}
       {!isLoading && !isError && items.length === 0 && <Empty />}
       {!isLoading && !isError && items.length > 0 && (
         <>
-          {chips.length > 0 && (
-            <div className="galleryFilters">
-              <button type="button" className={filter === "all" ? "is-active" : ""} onClick={() => setFilter("all")}>
-                {t("gallery.all")}
-              </button>
-              {chips.map((chip) => (
-                <button
-                  key={chip.id}
-                  type="button"
-                  className={filter === chip.id ? "is-active" : ""}
-                  onClick={() => setFilter(chip.id)}
-                >
-                  {chip.label}
-                </button>
-              ))}
-            </div>
-          )}
+          {!named && filterBar}
           <div className="cardGrid cardGrid--gallery">
             {visible.map((item) => (
               <figure key={item.key} className="galleryCard">
