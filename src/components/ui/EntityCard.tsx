@@ -62,7 +62,7 @@ export function BannerCard({ item }: { item: ApiRecord }) {
   return (
     <Link className="bannerCard" href={`/banners/${item.slug}`}>
       <div className="bannerCard__plate">
-        <SafeImage className="bannerCard__img" src={item.image} alt={item.name || ""} />
+        <SafeImage className="bannerCard__img" src={item.image} fallback={item.image_fallback} alt={item.name || ""} />
       </div>
       <h3 className="bannerCard__name">{item.name}</h3>
     </Link>

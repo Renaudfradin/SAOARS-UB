@@ -29,6 +29,7 @@ export default function GalleryHomeCharacters() {
       title={t("gallery.homeCharacters")}
       label="PAGE: GALLERY/HOME/CHARACTER"
       mapItems={mapHomeCharacter}
+      filtersVariant="persons"
     />
   );
 }

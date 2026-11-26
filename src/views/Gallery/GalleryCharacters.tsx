@@ -41,6 +41,7 @@ export default function GalleryCharacters() {
       title={t("gallery.title")}
       label="PAGE: GALLERY/CHARACTER"
       mapItems={mapCharacter}
+      filtersVariant="persons"
     />
   );
 }

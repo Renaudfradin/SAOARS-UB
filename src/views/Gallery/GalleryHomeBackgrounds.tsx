@@ -38,6 +38,7 @@ export default function GalleryHomeBackgrounds() {
       label="PAGE: GALLERY/HOME/BACKGROUND"
       mapItems={mapBackground}
       filters={WORLDS}
+      filtersVariant="worlds"
       perPage={200}
     />
   );

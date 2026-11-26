@@ -33,13 +33,12 @@ export default function DatabaseCube() {
   return (
     <Canvas
       className="overview__canvas"
-      camera={{ zoom: 6, position: [9, 3.6, -7] }}
+      camera={{ zoom: 5, position: [13, 5, -10] }}
       gl={{ alpha: true, antialias: true }}
     >
       <OrbitControls enableZoom={false} enablePan={false} />
-      <ambientLight intensity={1.15} />
-      <directionalLight position={[4, 6, 3]} intensity={1.5} />
-      <spotLight position={[10, 15, 10]} angle={0.5} intensity={1.2} />
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 15, 10]} angle={0.3} />
       <CubeModel />
     </Canvas>
   );

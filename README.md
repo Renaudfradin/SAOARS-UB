@@ -35,13 +35,6 @@ L'API doit tourner en parallèle (dans `API-SAOARS` : `./vendor/bin/sail up`, po
 
 Le rendu est fait par Next.js. La langue est lue dans le cookie `saoub.lang` (ou, à la première visite, dans `Accept-Language`) et envoyée à l'API. La page 1 des listes et les fiches sont chargées côté serveur, avec un cache de 5 minutes. La pagination suivante, les filtres et la galerie restent dans le navigateur.
 
-### Environnement Variable
-
-| Nom de variable           | Valeur                        | Explication                                      |
-| ------------------------- | ----------------------------- | ------------------------------------------------ |
-| NEXT_PUBLIC_BACKEND_URL   | http://localhost:8001/api     | URL de l'API SAOARS (préfixe `/api` inclus)      |
-| NEXT_PUBLIC_MEDIA_URL     | https://apisaoars.s3.fr-par.scw.cloud | Origine des images de jeu, optionnelle |
-
 ### Routes de l'API utilisées
 
 | Route | Usage |

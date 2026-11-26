@@ -19,33 +19,32 @@
   top: 25px;
   left: 0;
   right: 0;
-  display: flex;
-  align-items: flex-start;
   height: 38px;
-  padding-bottom: 3px;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .topbar__slant {
-  flex: 1 1 25%;
+  position: absolute;
+  top: 0;
+  width: calc(25% + 18px);
   height: 35px;
   background: rgb(44, 36, 85);
   border-bottom: 1px solid rgb(119, 103, 199);
 }
 
 .topbar__mid {
-  flex: 1 1 50%;
-  height: 35px;
+  display: none;
 }
 
 .topbar__slant--left {
-  transform: skewX(-45deg);
-  transform-origin: left center;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 35px) 100%, 0 100%);
 }
 
 .topbar__slant--right {
-  transform: skewX(45deg);
-  transform-origin: right center;
+  right: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 35px 100%);
 }
 
 .topbar__menu {
