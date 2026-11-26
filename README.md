@@ -10,9 +10,9 @@ et les données viennent de l'[API SAOARS](https://github.com/Renaudfradin/API-S
 | --- | --- |
 | <img src="docs/screenshots/home.png" alt="Accueil" width="100%"> | <img src="docs/screenshots/characters.png" alt="Liste des personnages" width="100%"> |
 
-| Fiche personnage | Armes |
+| Bannières | Armes |
 | --- | --- |
-| <img src="docs/screenshots/character.png" alt="Fiche d'un personnage" width="100%"> | <img src="docs/screenshots/weapons.png" alt="Liste des armes" width="100%"> |
+| <img src="docs/screenshots/banners.png" alt="Liste des bannières" width="100%"> | <img src="docs/screenshots/weapons.png" alt="Liste des armes" width="100%"> |
 
 | Équipements | Galerie |
 | --- | --- |
